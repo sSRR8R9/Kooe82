@@ -2,7 +2,6 @@ try:
     from . import BASE, SESSION
 except ImportError:
    
-from sqlalchemy import Column, String, UnicodeText
 
 
 class Globals(BASE):
