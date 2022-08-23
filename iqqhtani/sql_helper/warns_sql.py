@@ -1,5 +1,3 @@
-from sqlalchemy import Column, Numeric, UnicodeText
-
 from . import BASE, SESSION
 
 
