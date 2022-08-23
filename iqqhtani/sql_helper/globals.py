@@ -3,8 +3,6 @@ try:
 except ImportError:
    
 
-
-class Globals(BASE):
     __tablename__ = "globals"
     variable = Column(String, primary_key=True, nullable=False)
     value = Column(UnicodeText, primary_key=True, nullable=False)
