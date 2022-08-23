@@ -18,7 +18,6 @@ from PIL import Image, ImageColor, ImageDraw, ImageFont
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from ...Config import Config
-from ...sql_helper.globals import gvarstatus
 from ..resources.states import states
 
 imdb = IMDb()
