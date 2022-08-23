@@ -2,7 +2,7 @@ import time
 import heroku3
 from .Config import Config
 from .core.logger import logging
-from .sql_helper.globals import addgvar, delgvar, gvarstatus
+from sql_helper globals.py import addgvar, delgvar, gvarstatus
 __version__ = "7.6"
 __license__ = "GNU Affero General Public License v3.0"
 __author__ = "<t.me/iqqhtani>"
