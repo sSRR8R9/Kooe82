@@ -3,7 +3,7 @@ try:
 except ImportError:
     raise AttributeError
 
-from sqlalchemy import BigInteger, Column, Numeric, String, UnicodeText
+from sqlalchemy import BigInteger, Numeric, String, UnicodeText
 
 
 class Welcome(BASE):
