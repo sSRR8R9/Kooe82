@@ -10,7 +10,6 @@ from telethon import TelegramClient, events
 from telethon.errors import MessageIdInvalidError, MessageNotModifiedError
 
 from ..Config import Config
-from ..helpers.utils.events import checking
 from ..helpers.utils.format import paste_message
 from ..helpers.utils.utils import runcmd
 from ..sql_helper.globals import gvarstatus
