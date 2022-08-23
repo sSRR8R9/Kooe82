@@ -4,7 +4,7 @@ except ImportError:
    
 
     __tablename__ = "globals"
-    variable = Column(String, primary_key=True, nullable=False)
+   
     value = Column(UnicodeText, primary_key=True, nullable=False)
 
     def __init__(self, variable, value):
