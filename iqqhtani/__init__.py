@@ -4,9 +4,8 @@ from .Config import Config
 from .core.logger import logging
 __version__ = "7.6"
 __license__ = "GNU Affero General Public License v3.0"
-__author__ = "<t.me/iqqhtani>"
+__author__ = "<t.me/rickthon>"
 __copyright__ = "telethon AR (C) 2020 - 2021  " + __author__
-iqqhtani.version = __version__
 iqqhtani.tgbot.version = __version__
 LOGS = logging.getLogger("Iqqhtani")
 bot = iqqhtani
