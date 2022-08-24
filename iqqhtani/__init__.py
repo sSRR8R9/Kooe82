@@ -2,23 +2,29 @@ import time
 import heroku3
 from .Config import Config
 from .core.logger import logging
-__version__ = "7.6"
+from .core.session import iqthon
+from .sql_helper.globals import addgvar, delgvar, gvarstatus
+__version__ = "7.5"
 __license__ = "GNU Affero General Public License v3.0"
-__author__ = "<t.me/rickthon>"
-__copyright__ = "telethon AR (C) 2020 - 2021  " + __author__
-LOGS = logging.getLogger("Iqqhtani")
+__author__ = "<t.me/J0KER_7x>"
+__copyright__ = "telethon 7x (C) 2021 - 2022  " + __author__
+iqthon.version = __version__
+iqthon.tgbot.version = __version__
+LOGS = logging.getLogger("IQTHON")
+bot = iqthon
 StartTime = time.time()
-catversion = "7.6"
-if Config.UPSTREAM_REPO == "COBRA":
-    UPSTREAM_REPO_URL = "https://github.com/rick1128/rickthon1"
+catversion = "7.2"
+if Config.UPSTREAM_REPO == "TelethonJOKER7x":
+    UPSTREAM_REPO_URL = "https://github.com/telethon-Arab/telethonNow"
 else:
     UPSTREAM_REPO_URL = Config.UPSTREAM_REPO
 if Config.PRIVATE_GROUP_BOT_API_ID == 0:
+    if gvarstatus("PRIVATE_GROUP_BOT_API_ID") is None:
         Config.BOTLOG = False
         Config.BOTLOG_CHATID = "me"
-    
-        
-        Config.PRIVATE_GROUP_BOT_API_ID = int(("PRIVATE_GROUP_BOT_API_ID"))
+    else:
+        Config.BOTLOG_CHATID = int(gvarstatus("PRIVATE_GROUP_BOT_API_ID"))
+        Config.PRIVATE_GROUP_BOT_API_ID = int(gvarstatus("PRIVATE_GROUP_BOT_API_ID"))
         Config.BOTLOG = True
 else:
     if str(Config.PRIVATE_GROUP_BOT_API_ID)[0] != "-":
