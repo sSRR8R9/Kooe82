@@ -10,6 +10,7 @@ from telethon import TelegramClient, events
 from telethon.errors import MessageIdInvalidError, MessageNotModifiedError
 
 from ..Config import Config
+from ..helpers.utils.events import checking
 from ..helpers.utils.format import paste_message
 from ..helpers.utils.utils import runcmd
 from ..sql_helper.globals import gvarstatus
@@ -88,7 +89,7 @@ class CatUserBotClient(TelegramClient):
                 reg2 = "\\" + Config.SUDO_COMMAND_HAND_LER
                 REGEX_.regex1 = re.compile(reg1 + pattern)
                 REGEX_.regex2 = re.compile(reg2 + pattern)
-
+        
 
         def decorator(func):  # sourcery no-metrics
             async def wrapper(check):
@@ -140,12 +141,12 @@ class CatUserBotClient(TelegramClient):
                         text += (
                             "︙"
                         )
-                        text += f" عذرا قم بكتابه الأمر بشكل صحيح راجع : @rickthon** "
+                        text += f" عذرا قم بكتابه الأمر بشكل صحيح راجع : @IQTHON ** "
                         await check.client.send_message(
                             Config.PRIVATE_GROUP_BOT_API_ID, text, link_preview=False
                         )
 
-            from .session import iqqhtani
+            from .session import iqthon
 
             if not func.__doc__ is None:
                 CMD_INFO[command[0]].append((func.__doc__).strip())
@@ -158,18 +159,18 @@ class CatUserBotClient(TelegramClient):
                     except BaseException:
                         LOADED_CMDS.update({command[0]: [wrapper]})
                 if edited:
-                    iqqhtani.add_event_handler(
+                    iqthon.add_event_handler(
                         wrapper,
                         MessageEdited(pattern=REGEX_.regex1, outgoing=True, **kwargs),
                     )
-                iqqhtani.add_event_handler(
+                iqthon.add_event_handler(
                     wrapper,
                     NewMessage(pattern=REGEX_.regex1, outgoing=True, **kwargs),
                 )
                 if allow_sudo and gvarstatus("sudoenable") is not None:
                     if command is None or command[0] in sudo_enabledcmds:
                         if edited:
-                            iqqhtani.add_event_handler(
+                            iqthon.add_event_handler(
                                 wrapper,
                                 MessageEdited(
                                     pattern=REGEX_.regex2,
@@ -177,7 +178,7 @@ class CatUserBotClient(TelegramClient):
                                     **kwargs,
                                 ),
                             )
-                        iqqhtani.add_event_handler(
+                        iqthon.add_event_handler(
                             wrapper,
                             NewMessage(
                                 pattern=REGEX_.regex2,
@@ -193,8 +194,8 @@ class CatUserBotClient(TelegramClient):
                 except BaseException:
                     LOADED_CMDS.update({file_test: [func]})
                 if edited:
-                    iqqhtani.add_event_handler(func, events.MessageEdited(**kwargs))
-                iqqhtani.add_event_handler(func, events.NewMessage(**kwargs))
+                    iqthon.add_event_handler(func, events.MessageEdited(**kwargs))
+                iqthon.add_event_handler(func, events.NewMessage(**kwargs))
             return wrapper
 
         return decorator
@@ -249,17 +250,17 @@ class CatUserBotClient(TelegramClient):
                         text += (
                             "︙"
                         )
-                        text += f" عذرا قم بكتابه الأمر بشكل صحيح راجع : @rickthon** "
+                        text += f" عذرا قم بكتابه الأمر بشكل صحيح راجع : @IQTHON ** "
                         await check.client.send_message(
                             Config.PRIVATE_GROUP_BOT_API_ID, text, link_preview=False
                         )
 
-            from .session import iqqhtani
+            from .session import iqthon
 
             if edited is True:
-                iqqhtani.tgbot.add_event_handler(func, events.MessageEdited(**kwargs))
+                iqthon.tgbot.add_event_handler(func, events.MessageEdited(**kwargs))
             else:
-                iqqhtani.tgbot.add_event_handler(func, events.NewMessage(**kwargs))
+                iqthon.tgbot.add_event_handler(func, events.NewMessage(**kwargs))
 
             return wrapper
 
