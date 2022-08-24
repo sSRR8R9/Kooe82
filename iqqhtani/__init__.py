@@ -7,7 +7,6 @@ __license__ = "GNU Affero General Public License v3.0"
 __author__ = "<t.me/rickthon>"
 __copyright__ = "telethon AR (C) 2020 - 2021  " + __author__
 LOGS = logging.getLogger("Iqqhtani")
-bot = iqqhtani
 StartTime = time.time()
 catversion = "7.6"
 if Config.UPSTREAM_REPO == "COBRA":
