@@ -3,6 +3,7 @@ try:
 except ImportError:
     raise AttributeError
 
+from sqlalchemy import BigInteger, Column, Numeric, String, UnicodeText
 
 
 class JoinWelcome(BASE):
