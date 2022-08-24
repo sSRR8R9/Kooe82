@@ -14,7 +14,6 @@ if Config.UPSTREAM_REPO == "COBRA":
 else:
     UPSTREAM_REPO_URL = Config.UPSTREAM_REPO
 if Config.PRIVATE_GROUP_BOT_API_ID == 0:
-    if gvarstatus("PRIVATE_GROUP_BOT_API_ID") is None:
         Config.BOTLOG = False
         Config.BOTLOG_CHATID = "me"
     else:
