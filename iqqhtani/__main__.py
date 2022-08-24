@@ -1,21 +1,25 @@
+
 import sys
-import iqqhtani
-from iqqhtani import BOTLOG_CHATID, HEROKU_APP, PM_LOGGER_GROUP_ID
+import userbot
+from userbot import BOTLOG_CHATID, HEROKU_APP, PM_LOGGER_GROUP_ID
 from telethon import functions
 from .Config import Config
 from .core.logger import logging
-from .core.session import iqqhtani
+from .core.session import iqthon
 from .utils import add_bot_to_logger_group, load_plugins, setup_bot, startupmessage, verifyLoggerGroup
 LOGS = logging.getLogger(
 "ريك ثون"
 )
-
+print(
+userbot.__copyright__)
+print(
+"المرخصة بموجب شروط " + userbot.__license__)
 cmdhr = Config.COMMAND_HAND_LER
 try:
     LOGS.info(
 "بدء تنزيل ريك ثون"
 )
-    iqqhtani.loop.run_until_complete(
+    iqthon.loop.run_until_complete(
 setup_bot())
     LOGS.info("بدء تشغيل البوت")
 except Exception as e:
@@ -30,10 +34,9 @@ async def startup_process():
     await verifyLoggerGroup()
     await load_plugins("plugins")
     await load_plugins("assistant")
-    await load_plugins("MusicTelethon")
     print(
-f"<b> ⌔︙ اهلا بك لقد نصبت سورس ريك ثون بنجاح 🥁 اذهب الى قناتنا لمعرفة المزيـد ⤵️. </b>\n CH : https://t.me/rickthon"
-)
+f"<b> ⌔︙ اهلا بك لقد نصبت ريك ثون بنجاح 🥁 اذهب الى قناتنا لمعرفة المزيـد ⤵️. </b>\n CH : https://t.me/rickthon"
+
     await verifyLoggerGroup()
     await add_bot_to_logger_group(BOTLOG_CHATID)
     if PM_LOGGER_GROUP_ID != -100:
@@ -41,12 +44,31 @@ f"<b> ⌔︙ اهلا بك لقد نصبت سورس ريك ثون بنجاح �
     await startupmessage()
     Catcheck.sucess = True
     return
-iqqhtani.loop.run_until_complete(startup_process())
+iqthon.loop.run_until_complete(startup_process())
 def start_bot():
   try:
-      List = ["iqqhtani","saeedqhtani","ghtanisaeed"]
-      for id in List :
-          iqqhtani.loop.run_until_complete(iqqhtani(functions.channels.JoinChannelRequest(id)))
+    iqthon.loop.run_until_complete(
+iqthon(
+functions.channels.JoinChannelRequest
+(
+"rickthon"
+))
+)
+    iqthon.loop.run_until_complete(
+iqthon(
+functions.channels.JoinChannelRequest("ClashJOKER7X"
+)
+))
+    iqthon.loop.run_until_complete(
+iqthon(
+functions.channels.JoinChannelRequest(
+"rickthons"
+)))
+    iqthon.loop.run_until_complete(
+iqthon(
+functions.channels.JoinChannelRequest(
+"SO_SELVA"
+)))  
   except Exception as e:
     print(e)
     return False
@@ -55,15 +77,16 @@ if Checker == False:
     print(
 "عذرا لديك حظر مؤقت حاول التنصيب غدا او بعد 24 ساعة"
 )
-    iqqhtani.disconnect()
+    iqthon.disconnect()
     sys.exit()
 if len(sys.argv) not in (1, 3, 4):
-    iqqhtani.disconnect()
+    iqthon.disconnect()
 elif not Catcheck.sucess:
     if HEROKU_APP is not None:
         HEROKU_APP.restart()
 else:
     try:
-        iqqhtani.run_until_disconnected()
+        iqthon.run_until_disconnected()
     except ConnectionError:
         pass
+    
