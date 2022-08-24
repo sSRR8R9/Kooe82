@@ -1,10 +1,13 @@
 try:
-   
+    from . import BASE, SESSION
 except ImportError:
-   
+    raise AttributeError
+from sqlalchemy import Column, String, UnicodeText
 
+
+class Globals(BASE):
     __tablename__ = "globals"
-   
+    variable = Column(String, primary_key=True, nullable=False)
     value = Column(UnicodeText, primary_key=True, nullable=False)
 
     def __init__(self, variable, value):
