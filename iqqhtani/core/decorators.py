@@ -2,6 +2,7 @@ import asyncio
 from telethon.errors import FloodWaitError, MessageNotModifiedError
 from telethon.events import CallbackQuery
 from ..Config import Config
+from ..sql_helper.globals import gvarstatus
 def check_owner(func):
     async def wrapper(c_q: CallbackQuery):
         if c_q.query.user_id and (c_q.query.user_id == Config.OWNER_ID  or c_q.query.user_id in Config.SUDO_USERS):
@@ -12,7 +13,7 @@ def check_owner(func):
             except MessageNotModifiedError:
                 pass
         else:
-            HELP_TEXT = ("- اهلا هذا القائمه خاصه فقط للمنصب - @rickthon")
+            HELP_TEXT = ("- اهلا هذا القائمه خاصه فقط للمنصب ريك ثون - @rickthon")
             await c_q.answer(HELP_TEXT, alert=True)
 
     return wrapper
