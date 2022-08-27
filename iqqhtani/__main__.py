@@ -10,7 +10,7 @@ LOGS = logging.getLogger("ريك ثون")
 cmdhr = Config.COMMAND_HAND_LER
 try:
     LOGS.info("بدء تنزيل ريك ثون")
-    Rickthon.loop.run_until_complete(setup_bot())
+    rickthon.loop.run_until_complete(setup_bot())
     LOGS.info("بدء تشغيل البوت")
 except Exception as e:
     LOGS.error(f"{str(e)}")
