@@ -31,8 +31,8 @@ except Exception as e:
     sys.exit()
 
 
-iqthon.tgbot = tgbot = CatUserBotClient(
-    session="iqTgbot",
+rickthon.tgbot = tgbot = CatUserBotClient(
+    session="rickTgbot",
     api_id=Config.APP_ID,
     api_hash=Config.API_HASH,
     loop=loop,
