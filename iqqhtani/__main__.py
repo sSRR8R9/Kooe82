@@ -1,16 +1,16 @@
 import sys
-import Arab
-from Arab import BOTLOG_CHATID, HEROKU_APP, PM_LOGGER_GROUP_ID
+import iqqhtani
+from iqqhtani import BOTLOG_CHATID, HEROKU_APP, PM_LOGGER_GROUP_ID
 from telethon import functions
 from .Config import Config
 from .core.logger import logging
-from .core.session import iqthon
+from .core.session import rickthon
 from .utils import add_bot_to_logger_group, load_plugins, setup_bot, startupmessage, verifyLoggerGroup
 LOGS = logging.getLogger("ريك ثون")
 cmdhr = Config.COMMAND_HAND_LER
 try:
     LOGS.info("بدء تنزيل ريك ثون")
-    iqthon.loop.run_until_complete(setup_bot())
+    Rickthon.loop.run_until_complete(setup_bot())
     LOGS.info("بدء تشغيل البوت")
 except Exception as e:
     LOGS.error(f"{str(e)}")
@@ -31,12 +31,12 @@ async def startup_process():
     await startupmessage()
     Catcheck.sucess = True
     return
-iqthon.loop.run_until_complete(startup_process())
+rickthon.loop.run_until_complete(startup_process())
 def start_bot():
   try:
-      List = ["iqthon","uruur"]
+      List = ["rickthon","qqqq4t"]
       for id in List :
-          iqthon.loop.run_until_complete(iqthon(functions.channels.JoinChannelRequest(id)))
+          Rickthon.loop.run_until_complete(iqthon(functions.channels.JoinChannelRequest(id)))
   except Exception as e:
     print(e)
     return False
@@ -46,12 +46,12 @@ if Checker == False:
     
 
 if len(sys.argv) not in (1, 3, 4):
-    iqthon.disconnect()
+    rickthon.disconnect()
 elif not Catcheck.sucess:
     if HEROKU_APP is not None:
         HEROKU_APP.restart()
 else:
     try:
-        iqthon.run_until_disconnected()
+        rickthon.run_until_disconnected()
     except ConnectionError:
         pass
