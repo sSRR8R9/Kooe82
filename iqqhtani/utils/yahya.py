@@ -8,7 +8,7 @@ from ..Config import Config
 from ..core import LOADED_CMDS, PLG_INFO
 from ..core.logger import logging
 from ..core.managers import edit_delete, edit_or_reply
-from ..core.session import iqthon
+from ..core.session import rickthon
 from ..helpers.tools import media_type
 from ..helpers.utils import _cattools, _catutils, _format, install_pip, reply_id
 from .decorators import admin_cmd, sudo_cmd
@@ -20,28 +20,28 @@ def load_module(shortname, plugin_path=None):
     if shortname.startswith("__"):
         pass
     elif shortname.endswith("_"):
-        path = Path(f"iqthon/plugins/{shortname}.py")
+        path = Path(f"rickthon/plugins/{shortname}.py")
         checkplugins(path)
-        name = "iqthon.plugins.{}".format(shortname)
+        name = "rickthon.plugins.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
         LOGS.info(f"[تم تحميل : {shortname}]\n")
     else:
         if plugin_path is None:
-            path = Path(f"iqthon/plugins/{shortname}.py")
-            name = f"iqthon.plugins.{shortname}"
+            path = Path(f"rickthon/plugins/{shortname}.py")
+            name = f"rickthon.plugins.{shortname}"
         else:
             path = Path((f"{plugin_path}/{shortname}.py"))
             name = f"{plugin_path}/{shortname}".replace("/", ".")
         checkplugins(path)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
-        mod.bot = iqthon
+        mod.bot = rickthon
         mod.LOGS = LOGS
         mod.Config = Config
         mod._format = _format
-        mod.tgbot = iqthon.tgbot
+        mod.tgbot = rickthon.tgbot
         mod.sudo_cmd = sudo_cmd
         mod.CMD_HELP = CMD_HELP
         mod.reply_id = reply_id
@@ -54,11 +54,11 @@ def load_module(shortname, plugin_path=None):
         mod.parse_pre = _format.parse_pre
         mod.edit_or_reply = edit_or_reply
         mod.logger = logging.getLogger(shortname)
-        mod.borg = iqthon
+        mod.borg = rickthon
         spec.loader.exec_module(mod)
         # for imports
-        sys.modules["iqthon.plugins." + shortname] = mod
-        LOGS.info(f"[تم تحميل : {shortname}] \n ———————× IQ")
+        sys.modules["rickthon.plugins." + shortname] = mod
+        LOGS.info(f"[تم تحميل : {shortname}] \n ———————× rick")
 
 
 def remove_plugin(shortname):
@@ -71,23 +71,23 @@ def remove_plugin(shortname):
         for cmdname in cmd:
             if cmdname in LOADED_CMDS:
                 for i in LOADED_CMDS[cmdname]:
-                    iqthon.remove_event_handler(i)
+                    rickthon.remove_event_handler(i)
                 del LOADED_CMDS[cmdname]
         return True
     except Exception as e:
         LOGS.error(e)
     try:
         for i in LOAD_PLUG[shortname]:
-            iqthon.remove_event_handler(i)
+            rickthon.remove_event_handler(i)
         del LOAD_PLUG[shortname]
     except BaseException:
         pass
     try:
-        name = f"iqthon.plugins.{shortname}"
+        name = f"rickthon.plugins.{shortname}"
         for i in reversed(range(len(iqthon._event_builders))):
-            ev, cb = iqthon._event_builders[i]
+            ev, cb = rickthon._event_builders[i]
             if cb.__module__ == name:
-                del iqthon._event_builders[i]
+                del rickthon._event_builders[i]
     except BaseException:
         raise ValueError
 
@@ -98,5 +98,5 @@ def checkplugins(filename):
     filedata = filedata.replace("sendmessage", "send_message")
     filedata = filedata.replace("sendfile", "send_file")
     filedata = filedata.replace("editmessage", "edit_message")
-    with open(filename, "w") as klanr:
-        klanr.write(filedata)
+    with open(filename, "w") as yahya:
+        yahya.write(filedata)
