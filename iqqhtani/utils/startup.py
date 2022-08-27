@@ -6,14 +6,14 @@ from asyncio.exceptions import CancelledError
 from datetime import timedelta
 from pathlib import Path
 from telethon import Button, functions, types, utils
-from Arab import BOTLOG, BOTLOG_CHATID, PM_LOGGER_GROUP_ID
+from iqqhtani import BOTLOG, BOTLOG_CHATID, PM_LOGGER_GROUP_ID
 from ..Config import Config
 from ..core.logger import logging
 from ..core.session import iqthon
 from ..helpers.utils import install_pip
 from ..sql_helper.global_collection import del_keyword_collectionlist, get_item_collectionlist
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
-from .klanr import load_module
+from .yahya import load_module
 from .tools import create_supergroup
 LOGS = logging.getLogger("ريك ثون  \n ")
 cmdhr = Config.COMMAND_HAND_LER
