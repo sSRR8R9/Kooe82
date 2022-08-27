@@ -1,7 +1,7 @@
 FROM rickthoniq/rickthon:slim-buster
 
 #clonning repo
-RUN git clone https://github.com/rickthoniq/rickthon.git /root/iqqhtani
+RUN git clone https://github.com/rick1128/rickthon.git /root/iqqhtani
 #working directory
 WORKDIR /root/iqqhtani
 
