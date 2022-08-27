@@ -13,10 +13,10 @@ loop = None
 if Config.STRING_SESSION:
     session = StringSession(str(Config.STRING_SESSION))
 else:
-    session = "iqthonbot"
+    session = "rickthonbot"
 
 try:
-    iqthon = CatUserBotClient(
+    rickthon = CatUserBotClient(
         session=session,
         api_id=Config.APP_ID,
         api_hash=Config.API_HASH,
