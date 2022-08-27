@@ -1,5 +1,5 @@
 from iqqhtani import iqqhtani
-
+#تخمط بدون ذكر الحقوق تنهان @x7_cm ~ @qqqq4t
 from ..core.managers import edit_or_reply
 @iqqhtani.on(admin_cmd(pattern="رموز1(?:\s|$)([\s\S]*)"))
 async def permalink(mention):
