@@ -1,7 +1,7 @@
 import os
 from justwatch import JustWatch, justwatchapi
 from pySmartDL import SmartDL
-from iqqhtani import iqthon
+from iqqhtani import rickthon
 from ..Config import Config
 from ..core.logger import logging
 from ..core.managers import edit_or_reply
