@@ -100,7 +100,7 @@ async def verifyLoggerGroup():
     else:
         descript = "♛ ︙ لا تحذف هذه المجموعة أو تغير إلى مجموعة (إذا قمت بتغيير المجموعة ، فسيتم فقد كل شيئ .)"
         rickphoto1 = await rickthon.upload_file(file="SQL/extras/rickthon1.jpg")
-        _, groupid = await create_supergroup(            "تخزين ريك ثون  العام", iqthon, Config.TG_BOT_USERNAME, descript  ,  iqphoto1 )
+        _, groupid = await create_supergroup(            "تخزين ريك ثون  العام", rickthon, Config.TG_BOT_USERNAME, descript  ,  iqphoto1 )
         addgvar("PRIVATE_GROUP_BOT_API_ID", groupid)
         print("♛ ︙ تم إنشاء مجموعة المسـاعدة بنجاح وإضافتها إلى المتغيرات.")
         flag = True
