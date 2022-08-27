@@ -9,7 +9,7 @@ from telethon import Button, functions, types, utils
 from iqqhtani import BOTLOG, BOTLOG_CHATID, PM_LOGGER_GROUP_ID
 from ..Config import Config
 from ..core.logger import logging
-from ..core.session import iqthon
+from ..core.session import rickthon
 from ..helpers.utils import install_pip
 from ..sql_helper.global_collection import del_keyword_collectionlist, get_item_collectionlist
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
@@ -51,9 +51,9 @@ async def startupmessage():
         LOGS.error(e)
         return None
 async def add_bot_to_logger_group(chat_id):
-    bot_details = await iqthon.tgbot.get_me()
+    bot_details = await rickthon.tgbot.get_me()
     try:
-        await iqthon(            functions.messages.AddChatUserRequest(                chat_id=chat_id,                user_id=bot_details.username,                fwd_limit=1000000            )        )
+        await rickthon(            functions.messages.AddChatUserRequest(                chat_id=chat_id,                user_id=bot_details.username,                fwd_limit=1000000            )        )
     except BaseException:
         try:
             await rickthon(
@@ -65,7 +65,7 @@ async def setup_bot():
         await rickthon.connect()
         config = await rickthon(functions.help.GetConfigRequest())
         for option in config.dc_options:
-            if option.ip_address == iqthon.session.server_address:
+            if option.ip_address == rickthon.session.server_address:
                 if rickthon.session.dc_id != option.id:
                     LOGS.warning(                        f"♛ ︙ معرف DC ثابت في الجلسة من {rickthon.session.dc_id}"                        f"♛ ︙ يتبع ل {option.id}"                    )
                 Rickthon.session.set_dc(option.id, option.ip_address, option.port)
@@ -74,10 +74,10 @@ async def setup_bot():
         bot_details = await rickthon.tgbot.get_me()
         Config.TG_BOT_USERNAME = f"@{bot_details.username}"
         # await iqthon.start(bot_token=Config.TG_BOT_USERNAME)
-        iqthon.me = await iqthon.get_me()
-        iqthon.uid = iqthon.tgbot.uid = utils.get_peer_id(iqthon.me)
+        rickthon.me = await rickthon.get_me()
+        rickthon.uid = rickthon.tgbot.uid = utils.get_peer_id(rickthon.me)
         if Config.OWNER_ID == 0:
-            Config.OWNER_ID = utils.get_peer_id(iqthon.me)
+            Config.OWNER_ID = utils.get_peer_id(rickthon.me)
     except Exception as e:
         LOGS.error(f"قم بتغير كود تيرمكس - {str(e)}")
         sys.exit()
@@ -120,7 +120,7 @@ async def verifyLoggerGroup():
             LOGS.error(                "♛ ︙ حدث استثناء عند محاولة التحقق من PM_LOGGER_GROUP_ID.\n" + str(e)            )
     else:
         descript = "♛ ︙ وظيفه هذا المجموعة لحفض رسائل التي تكون موجة اليك ان لم تعجبك هذا المجموعة قم بحذفها نهائيأ 👍 \n  الـسورس : - @rickthon"
-        Rickphoto2 = await iqthon.upload_file(file="SQL/extras/rickthon2.jpg")
+        Rickphoto2 = await rickthon.upload_file(file="SQL/extras/rickthon2.jpg")
         _, groupid = await create_supergroup(            "تخزين ريك ثون الخاص", rickthon, Config.TG_BOT_USERNAME, descript    , rickphoto2  )
         addgvar("PM_LOGGER_GROUP_ID", groupid)
         print("♛ ︙ تم إنشاء مجموعة خاصة لـ PRIVATE_GROUP_BOT_API_ID بنجاح وإضافتها إلى المتغيرات.")
