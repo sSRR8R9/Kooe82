@@ -46,7 +46,7 @@ async def load_plugins(folder):
 async def startupmessage():
     try:
         if BOTLOG:
-            Config.CATUBLOGO = await iqthon.tgbot.send_file(BOTLOG_CHATID, "https://telegra.ph/file/e7b3ea8dc56ac781d756c.mp4", caption="♛ ⦙ تـمّ  اعـادة تشـغيل\n تليثـون العـرب ✓  :  [ 7.6 ] .\n\n♛ ⦙ للحصول على اوامر السورس\n أرسـل : (  `.اوامري`  ) \n\n♛ ⦙ لمـعرفة كيفية تغير بعض كلايش\n او صور السـورس  أرسـل  :\n (  `.مساعده`  )\n\n♛ ⦙ القناة الرسمية تليثون العرب : @IQTHON\n♛ ⦙ فارات سورس تليثون  :@TEAMTELETHON \n♛ ⦙ كلايش تليثون :  @FGFFG\n ♛ ⦙التحديثات والاضافات :  @M4_STORY\n",                buttons=[(Button.url("مطور تليثون الرسمي", "https://t.me/lll5l"),)],            )
+            Config.CATUBLOGO = await rickthon.tgbot.send_file(BOTLOG_CHATID, "https://telegra.ph/file/ee147feaca36ff5656e6e.mp4", caption="♛ ⦙ تـمّ  اعـادة تشـغيل\n ريك ثون العـرب ✓  :  [ 7.6 ] .\n\n♛ ⦙ للحصول على اوامر السورس\n أرسـل : (  `.اوامري`  ) \n\n♛ ⦙ لمـعرفة كيفية تغير بعض كلايش\n او صور السـورس  أرسـل  :\n (  `.مساعده`  )\n\n♛ ⦙ القناة الرسمية ريك ثون العرب : @rickthon\n♛ ⦙ فارات سورس تليثون  :@rickthons \n♛ ⦙ كلايش تليثون :  @rickthon\n ♛ ⦙التحديثات والاضافات :  @rickthon\n",                buttons=[(Button.url("مطور ريك ثون الرسمي", "https://t.me/qqqq4t"),)],            )
     except Exception as e:
         LOGS.error(e)
         return None
@@ -56,22 +56,22 @@ async def add_bot_to_logger_group(chat_id):
         await iqthon(            functions.messages.AddChatUserRequest(                chat_id=chat_id,                user_id=bot_details.username,                fwd_limit=1000000            )        )
     except BaseException:
         try:
-            await iqthon(
+            await rickthon(
                 functions.channels.InviteToChannelRequest(                    channel=chat_id,                    users=[bot_details.username]                )            )
         except Exception as e:
             LOGS.error(str(e))
 async def setup_bot():
     try:
-        await iqthon.connect()
-        config = await iqthon(functions.help.GetConfigRequest())
+        await rickthon.connect()
+        config = await rickthon(functions.help.GetConfigRequest())
         for option in config.dc_options:
             if option.ip_address == iqthon.session.server_address:
-                if iqthon.session.dc_id != option.id:
-                    LOGS.warning(                        f"♛ ︙ معرف DC ثابت في الجلسة من {iqthon.session.dc_id}"                        f"♛ ︙ يتبع ل {option.id}"                    )
-                iqthon.session.set_dc(option.id, option.ip_address, option.port)
-                iqthon.session.save()
+                if rickthon.session.dc_id != option.id:
+                    LOGS.warning(                        f"♛ ︙ معرف DC ثابت في الجلسة من {rickthon.session.dc_id}"                        f"♛ ︙ يتبع ل {option.id}"                    )
+                Rickthon.session.set_dc(option.id, option.ip_address, option.port)
+                Rick.session.save()
                 break
-        bot_details = await iqthon.tgbot.get_me()
+        bot_details = await rickthon.tgbot.get_me()
         Config.TG_BOT_USERNAME = f"@{bot_details.username}"
         # await iqthon.start(bot_token=Config.TG_BOT_USERNAME)
         iqthon.me = await iqthon.get_me()
@@ -85,7 +85,7 @@ async def verifyLoggerGroup():
     flag = False
     if BOTLOG:
         try:
-            entity = await iqthon.get_entity(BOTLOG_CHATID)
+            entity = await rickthon.get_entity(BOTLOG_CHATID)
             if not isinstance(entity, types.User) and not entity.creator:
                 if entity.default_banned_rights.send_messages:
                     LOGS.info(                        "♛ ︙الفار الأذونات مفقودة لإرسال رسائل لـ PRIVATE_GROUP_BOT_API_ID المحدد."                    )
@@ -99,7 +99,7 @@ async def verifyLoggerGroup():
             LOGS.error(                "♛ ︙حدث استثناء عند محاولة التحقق من PRIVATE_GROUP_BOT_API_ID.\n"                + str(e)            )
     else:
         descript = "♛ ︙ لا تحذف هذه المجموعة أو تغير إلى مجموعة (إذا قمت بتغيير المجموعة ، فسيتم فقد كل شيئ .)"
-        iqphoto1 = await iqthon.upload_file(file="SQL/extras/rickthon1.jpg")
+        rickphoto1 = await rickthon.upload_file(file="SQL/extras/rickthon1.jpg")
         _, groupid = await create_supergroup(            "تخزين ريك ثون  العام", iqthon, Config.TG_BOT_USERNAME, descript  ,  iqphoto1 )
         addgvar("PRIVATE_GROUP_BOT_API_ID", groupid)
         print("♛ ︙ تم إنشاء مجموعة المسـاعدة بنجاح وإضافتها إلى المتغيرات.")
@@ -120,13 +120,13 @@ async def verifyLoggerGroup():
             LOGS.error(                "♛ ︙ حدث استثناء عند محاولة التحقق من PM_LOGGER_GROUP_ID.\n" + str(e)            )
     else:
         descript = "♛ ︙ وظيفه هذا المجموعة لحفض رسائل التي تكون موجة اليك ان لم تعجبك هذا المجموعة قم بحذفها نهائيأ 👍 \n  الـسورس : - @rickthon"
-        iqphoto2 = await iqthon.upload_file(file="SQL/extras/rickthon2.jpg")
-        _, groupid = await create_supergroup(            "تخزين ريك ثون الخاص", iqthon, Config.TG_BOT_USERNAME, descript    , iqphoto2  )
+        Rickphoto2 = await iqthon.upload_file(file="SQL/extras/rickthon2.jpg")
+        _, groupid = await create_supergroup(            "تخزين ريك ثون الخاص", rickthon, Config.TG_BOT_USERNAME, descript    , rickphoto2  )
         addgvar("PM_LOGGER_GROUP_ID", groupid)
         print("♛ ︙ تم إنشاء مجموعة خاصة لـ PRIVATE_GROUP_BOT_API_ID بنجاح وإضافتها إلى المتغيرات.")
         flag = True
     if flag:
         executable = sys.executable.replace(" ", "\\ ")
-        args = [executable, "-m", "Arab"]
+        args = [executable, "-m", "iqqhtani"]
         os.execle(executable, *args, os.environ)
         sys.exit(0)
