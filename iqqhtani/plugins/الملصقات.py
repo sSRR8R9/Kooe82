@@ -140,7 +140,7 @@ async def add_to_pack(    catevent,    conv,    args,    packname,    pack,    u
     if not pkang:
         return packname, emoji
     return pack, packname
-@iqthon.on(admin_cmd(pattern="صنع ملصق(?:\s|$)([\s\S]*)"))    
+@rickthon.on(admin_cmd(pattern="صنع ملصق(?:\s|$)([\s\S]*)"))    
 async def kang(args):  
     photo = None
     emojibypass = False
@@ -230,7 +230,7 @@ async def kang(args):
                 await edit_delete(                    catevent,                    f"ملصق لحزمة مختلفة ! \n والحزمة التي تم إنشاؤها حديثًا هي : [ملصقك هنا](t.me/addstickers/{packname}) ",                    parse_mode="md",                    time=10   )
             else:
                 await edit_delete(                    catevent,                    f"إنشاء ملصق بنجاح !  \n الحزمه هيه :  [ هنا](t.me/addstickers/{packname}) ",                    parse_mode="md",                    time=10   )
-@iqthon.on(admin_cmd(pattern="جلب الملصقات(?:\s|$)([\s\S]*)"))    
+@rickthon.on(admin_cmd(pattern="جلب الملصقات(?:\s|$)([\s\S]*)"))    
 async def pack_kang(event):  
     user = await event.client.get_me()
     if user.username:
@@ -324,7 +324,7 @@ async def pack_kang(event):
     for i in enumerate(blablapacks):
         result += (            f"  •  [pack {blablapacknames[i[0]]}](t.me/addstickers/{blablapacks[i[0]]})"        )
     await catevent.edit(result)
-@iqthon.on(admin_cmd(pattern="انشاء حزمه ملصقات(?:\s|$)([\s\S]*)"))   
+@rickthon.on(admin_cmd(pattern="انشاء حزمه ملصقات(?:\s|$)([\s\S]*)"))   
 async def pic2packcmd(event):
     reply = await event.get_reply_message()
     mediatype = media_type(reply)
@@ -395,7 +395,7 @@ async def pic2packcmd(event):
 
         except YouBlockedUserError:
             await catevent.edit(                "قم بارسال رساله الى : @Stickers "            )
-@iqthon.on(admin_cmd(pattern="جلب معلومات الملصق$"))    
+@rickthon.on(admin_cmd(pattern="جلب معلومات الملصق$"))    
 async def get_pack_info(event):
     if not event.is_reply:
         return await edit_delete(            event, "لا يمكنني إحضار المعلومات", 5        )
@@ -423,7 +423,7 @@ async def get_pack_info(event):
         f"**ملصقات حزمة:** `{get_stickerset.set.count}`\n"
         f"**ايموجيات الحزمه :**\n{' '.join(pack_emojis)}"    )
     await catevent.edit(OUTPUT)
-@iqthon.on(admin_cmd(pattern="ملصق ?([\s\S]*)"))    
+@rickthon.on(admin_cmd(pattern="ملصق ?([\s\S]*)"))    
 async def cb_sticker(event):
     split = event.pattern_match.group(1)
     if not split:
