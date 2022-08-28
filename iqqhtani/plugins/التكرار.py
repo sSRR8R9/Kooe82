@@ -122,7 +122,7 @@ async def stickerpack_spam(event):
         await event.client.send_file(BOTLOG_CHATID, reqd_sticker_set.documents[0])
 
 
-@iqthon.iq_cmd(    pattern="تكرار_احرف ([\s\S]*)",)
+@rickthon.iq_cmd(    pattern="تكرار_احرف ([\s\S]*)",)
 async def tmeme(event):
     cspam = str("".join(event.text.split(maxsplit=1)[1:]))
     message = cspam.replace(" ", "")
@@ -139,7 +139,7 @@ async def tmeme(event):
             await event.client.send_message(                BOTLOG_CHATID,                "#تكرار احرف\n"                + f"تكرار احرف {get_display_name(await event.get_chat())}(`{event.chat_id}`) chat with : `{message}`",            )
 
 
-@iqthon.iq_cmd(    pattern="تكرار_كلمه ([\s\S]*)",)
+@rickthon.iq_cmd(    pattern="تكرار_كلمه ([\s\S]*)",)
 async def tmeme(event):
     wspam = str("".join(event.text.split(maxsplit=1)[1:]))
     message = wspam.split()
@@ -156,7 +156,7 @@ async def tmeme(event):
             await event.client.send_message(                BOTLOG_CHATID,                "#WSPAM\n"                + f"Word Spam was executed successfully in {get_display_name(await event.get_chat())}(`{event.chat_id}`) chat with : `{message}`",            )
 
 
-@iqthon.iq_cmd(pattern=f"{MUQT} ([\s\S]*)",)
+@rickthon.iq_cmd(pattern=f"{MUQT} ([\s\S]*)",)
 async def spammer(event):
     reply = await event.get_reply_message()
     input_str = "".join(event.text.split(maxsplit=1)[1:]).split(" ", 2)
@@ -173,7 +173,7 @@ async def spammer(event):
     addgvar("spamwork", True)
     await spam_function(event, reply, cat, sleeptimem, sleeptimet, DelaySpam=True)
    
-@iqthon.iq_cmd(pattern=f"{UNMUQT} ?(.*)",)
+@rickthon.iq_cmd(pattern=f"{UNMUQT} ?(.*)",)
 async def spammer(event):
     reply = await event.get_reply_message()
     await event.delete()
