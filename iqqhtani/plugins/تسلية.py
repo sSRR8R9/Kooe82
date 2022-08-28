@@ -27,7 +27,7 @@ from telethon.events import CallbackQuery
 from telethon.utils import get_display_name
 from collections import deque
 from random import choice
-from iqqhtani import rickthon
+from ..core.session import rickthon
 from ..helpers import catmemes
 from ..core.managers import edit_or_reply, edit_delete
 from . import ALIVE_NAME
