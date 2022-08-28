@@ -628,7 +628,7 @@ async def unblock_pm(event):
         reason = "**♛ ⦙  لـم يـذكـر 💭 **"
     await event.client(functions.contacts.UnblockRequest(user.id))
     await event.edit(f"[{user.first_name}](tg://user?id={user.id}) \n **𖤍  ⦙   تـم الـغـاء حـظـره بـنـجـاح ،  يـمـكـنـه مـراسـلـتـك الان **\n**♛ ⦙   الـسـبـب ❔  :** {reason}")
-@iqthon.on(admin_cmd(pattern="المقبولين(?: |$)(.*)"))
+@iqthon.on(admin_cmd(pattern="مقبول(?:\s|$)([\s\S]*)"))
 async def approve_p_m(event):
     if gvarstatus("pmpermit") is None:
         return await edit_delete(event,f"**𖤍  ⦙   يــجـب تـفـعـيـل امـر الحـمـايـة أولاً بـأرســال ** {cmdhd} الـحماية تشغيل  لـتـفـعـيـل هـذا الأمـر .⚠️❕",)
