@@ -69,7 +69,7 @@ from ..helpers.tools import media_type
 from ..sql_helper.globals import addgvar, gvarstatus
 from ..helpers.utils import _catutils, reply_id, _cattools, _format, parse_pre
 from ..sql_helper.globals import gvarstatus
-from . import iqthon, BOTLOG, BOTLOG_CHATID, ALIVE_NAME, covidindia, make_gif, hmention, progress, reply_id, ytsearch, reply_id, convert_toimage , deEmojify, phcomment,threats, trap, trash  
+from . import rickthon, BOTLOG, BOTLOG_CHATID, ALIVE_NAME, covidindia, make_gif, hmention, progress, reply_id, ytsearch, reply_id, convert_toimage , deEmojify, phcomment,threats, trap, trash  
 from pytz import country_names as c_n
 from pytz import country_timezones as c_tz
 from pytz import timezone as tz
