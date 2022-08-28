@@ -302,7 +302,7 @@ async def do_pm_spam_action(event, chat):
             del PMMESSAGE_CACHE[str(chat.id)]
     except Exception as e:
         LOGS.info(str(e))
-    USER_BOT_WARN_ZERO = f"**♛ ⦙  تـم تـحـذيـرڪ مـسـبـقـاً مـن تـڪـرار الـرسـائـل .** \n**♛ ⦙   تـم حـظـرڪ مـن الـحـسـاب 🚫.** \n**♛ ⦙  لـن اسـتـلـم رسـائـلـڪ الـى ان يـاتـي مـالـڪ الـحـسـاب .🧸**"
+    USER_BOT_WARN_ZERO = f"**𖤍  ⦙  تـم تـحـذيـرڪ مـسـبـقـاً مـن تـڪـرار الـرسـائـل .** \n**♛ ⦙   تـم حـظـرڪ مـن الـحـسـاب 🚫.** \n**♛ ⦙  لـن اسـتـلـم رسـائـلـڪ الـى ان يـاتـي مـالـڪ الـحـسـاب .🧸**"
     await event.reply(USER_BOT_WARN_ZERO)
     await event.client(functions.contacts.BlockRequest(chat.id))
     the_message = f"**♛ ⦙  حـمـايـة الـخـاص  (الـبـرايـفـت)  : 📩**\n[{get_display_name(chat)}](tg://user?id={chat.id}) **تـم حـظـر الـمـسـتـخـدم .🗣🚫**\n**♛ ⦙  الـسـبـب ~> اسـتـمـر بـالـتـكـرار .♻️**"
@@ -313,7 +313,7 @@ async def do_pm_spam_action(event, chat):
     except BaseException:
         return
 
-@iqthon.iq_cmd(incoming=True, func=lambda e: e.is_private, edited=False, forword=None)
+@rickthon.iq_cmd(incoming=True, func=lambda e: e.is_private, edited=False, forword=None)
 async def on_new_private_message(event):
     if gvarstatus("pmpermit") is None:
         return
@@ -334,7 +334,7 @@ async def on_new_private_message(event):
         return await do_pm_options_action(event, chat)
     await do_pm_permit_action(event, chat)
 
-@iqthon.iq_cmd(outgoing=True, func=lambda e: e.is_private, edited=False, forword=None)
+@rickthon.iq_cmd(outgoing=True, func=lambda e: e.is_private, edited=False, forword=None)
 async def you_dm_other(event):
     if gvarstatus("pmpermit") is None:
         return
@@ -381,10 +381,10 @@ async def you_dm_other(event):
         sql.del_collection("pmmessagecache")
         sql.add_collection("pmmessagecache", PMMESSAGE_CACHE, {})
 
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"show_pmpermit_options")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"show_pmpermit_options")))
 async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
-        text = "**♛ ⦙   عـذرا ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🧸♥️**"
+        text = "**𖤍  ⦙   عـذرا ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🧸♥️**"
         return await event.answer(text, cache_time=0, alert=True)
     text = f"**حسنا الان بإمكانك اختيار احد الخيارات في الاسفل للتواصل مع :** {mention}.\n**♛ ⦙   اختر بهدوء خيار واحد فقط لنعرف سبب قدومك هنا 🤍**\n**♛ ⦙   هذه الخيارات في الاسفل اختر واحد فقط ⬇️**"
     buttons = [
@@ -404,7 +404,7 @@ async def on_plug_in_callback_query_handler(event):
         sql.add_collection("pmwarns", PM_WARNS, {})
     await event.edit(text, buttons=buttons)
 
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"to_enquire_something")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"to_enquire_something")))
 async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
         text = "**♛ ⦙   عـذرا ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🧸♥️**"
@@ -421,12 +421,12 @@ async def on_plug_in_callback_query_handler(event):
         sql.add_collection("pmwarns", PM_WARNS, {})
     sqllist.rm_from_list("pmoptions", event.query.user_id)
     await event.edit(text)
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"to_request_something")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"to_request_something")))
 async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
-        text = "**♛ ⦙   عـذرا ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🧸♥️**"
+        text = "**𖤍  ⦙   عـذرا ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🧸♥️**"
         return await event.answer(text, cache_time=0, alert=True)
-    text = "**♛ ⦙   حـسـنـاً ، لـقـد قـمـت بـأبـلاغ مـالـڪ الـحـسـاب عـنـدمـا يـصـبـح مـتـصـلا بـالانـتـرنـت**\n**♛ ⦙  أو عـنـدمـا يـڪـون مـالـڪ الـحـسـاب مـتـاح سـوف يـقـوم بـالـرد عـلـيـڪ لـذلـڪ ارجـو الانـتـظـار 🤍**\n**♛ ⦙  لـڪـن حـالـيـاً لا تـڪـرر الـرسـائـل لـتـجـنـب الـحـظـر 🙁💞**"
+    text = "**𖤍  ⦙   حـسـنـاً ، لـقـد قـمـت بـأبـلاغ مـالـڪ الـحـسـاب عـنـدمـا يـصـبـح مـتـصـلا بـالانـتـرنـت**\n**♛ ⦙  أو عـنـدمـا يـڪـون مـالـڪ الـحـسـاب مـتـاح سـوف يـقـوم بـالـرد عـلـيـڪ لـذلـڪ ارجـو الانـتـظـار 🤍**\n**♛ ⦙  لـڪـن حـالـيـاً لا تـڪـرر الـرسـائـل لـتـجـنـب الـحـظـر 🙁💞**"
     sqllist.add_to_list("pmrequest", event.query.user_id)
     try:
         PM_WARNS = sql.get_collection("pmwarns").json
@@ -439,12 +439,12 @@ async def on_plug_in_callback_query_handler(event):
     sqllist.rm_from_list("pmoptions", event.query.user_id)
     await event.edit(text)
 
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"to_chat_with_my_master")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"to_chat_with_my_master")))
 async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
-        text = "**♛ ⦙   عـذرا ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🧸♥️**"
+        text = "**𖤍  ⦙   عـذرا ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🧸♥️**"
         return await event.answer(text, cache_time=0, alert=True)
-    text = "**♛ ⦙   بـالـطـبـع يـمـكـنـك الـتـحـدث مـع مـالـك الـحـسـاب لـكـن لـيـس الان  🤍\n♛ ⦙   نـسـتـطـيـع الـتـكـلـم فـي \n♛ ⦙   وقـت اخـر حـالـيـا انـا مـشـغـول قـلـيـلاً  - عـنـد تـفـرغـي سـأكـلـمـك هـذا اكـيــد .💭♥️**"
+    text = "**𖤍  ⦙   بـالـطـبـع يـمـكـنـك الـتـحـدث مـع مـالـك الـحـسـاب لـكـن لـيـس الان  🤍\n♛ ⦙   نـسـتـطـيـع الـتـكـلـم فـي \n♛ ⦙   وقـت اخـر حـالـيـا انـا مـشـغـول قـلـيـلاً  - عـنـد تـفـرغـي سـأكـلـمـك هـذا اكـيــد .💭♥️**"
     sqllist.add_to_list("pmchat", event.query.user_id)
     try:
         PM_WARNS = sql.get_collection("pmwarns").json
@@ -457,10 +457,10 @@ async def on_plug_in_callback_query_handler(event):
     sqllist.rm_from_list("pmoptions", event.query.user_id)
     await event.edit(text)
 
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"to_spam_my_master_inbox")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"to_spam_my_master_inbox")))
 async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
-        text = "**♛ ⦙   عـذرا ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🧸♥️**"
+        text = "**𖤍  ⦙   عـذرا ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🧸♥️**"
         return await event.answer(text, cache_time=0, alert=True)
     text = "**┏┓╋┏┓┏┓\n┣╋━┫┗┫┗┳━┳━┳┓\n┃┃╋┃┏┫┃┃╋┃┃┃┃\n┗┻┓┣━┻┻┻━┻┻━┛\n╋╋┗┛ **\n\n **♛ ⦙  هـذا تـحـذيـرك الأخـيـر ، ارسـل رسـالـة واحـدة وسـيـتـم حـظـرك تـلـقـائـيـاً . ‼️ **"
     sqllist.add_to_list("pmspam", event.query.user_id)
@@ -474,38 +474,38 @@ async def on_plug_in_callback_query_handler(event):
         sql.add_collection("pmwarns", PM_WARNS, {})
     sqllist.rm_from_list("pmoptions", event.query.user_id)
     await event.edit(text)
-@iqthon.on(admin_cmd(pattern="الحماية (تشغيل|ايقاف)(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern="الحماية (تشغيل|ايقاف)(?: |$)(.*)"))
 async def pmpermit_on(event):
     input_str = event.pattern_match.group(1)
     if input_str == "تشغيل":
         if gvarstatus("pmpermit") is None:
             addgvar("pmpermit", "true")
-            await edit_delete(event, "**♛ ⦙   تـم تـفـعـيـل امـر الـحـمـايـة لـحـسـابـك بـنـجـاح  ✅**")
+            await edit_delete(event, "**𖤍  ⦙   تـم تـفـعـيـل امـر الـحـمـايـة لـحـسـابـك بـنـجـاح  ✅**")
         else:
-            await edit_delete(event, "**♛ ⦙  امـر الـحـمـايـة بـالـفـعـل مُـمَـكـن لـحـسـابـك  🌿**")
+            await edit_delete(event, "**𖤍  ⦙  امـر الـحـمـايـة بـالـفـعـل مُـمَـكـن لـحـسـابـك  🌿**")
     elif gvarstatus("pmpermit") is not None:
         delgvar("pmpermit")
-        await edit_delete(event, "**♛ ⦙  تـم تـعـطـيـل امـر الـحـمـايـة لـحـسـابـك بـنـجـاح  ✅**")
+        await edit_delete(event, "**𖤍  ⦙  تـم تـعـطـيـل امـر الـحـمـايـة لـحـسـابـك بـنـجـاح  ✅**")
     else:
-        await edit_delete(event, "**♛ ⦙   امـر الـحـمـايـة بـالـفـعـل مُـعَـطـل لـحـسـابـك 🌿**")
-@iqthon.on(admin_cmd(pattern="الحماية (تشغيل|ايقاف)(?: |$)(.*)"))
+        await edit_delete(event, "**𖤍  ⦙   امـر الـحـمـايـة بـالـفـعـل مُـعَـطـل لـحـسـابـك 🌿**")
+@rickthon.on(admin_cmd(pattern="الحماية (تشغيل|ايقاف)(?: |$)(.*)"))
 async def pmpermit_on(event):
     input_str = event.pattern_match.group(1)
     if input_str == "ايقاف":
         if gvarstatus("pmmenu") is None: 
             addgvar("pmmenu", "false")
-            await edit_delete(event,"**♛ ⦙   امـر الـحـمـايـة بـالـفـعـل مُـعَـطـل لـحـسـابـك 🌿**")
+            await edit_delete(event,"**𖤍  ⦙   امـر الـحـمـايـة بـالـفـعـل مُـعَـطـل لـحـسـابـك 🌿**")
         else:
-            await edit_delete(event, "**♛ ⦙   امـر الـحـمـايـة بـالـفـعـل مُـعَـطـل لـحـسـابـك 🌿**")
+            await edit_delete(event, "**𖤍  ⦙   امـر الـحـمـايـة بـالـفـعـل مُـعَـطـل لـحـسـابـك 🌿**")
     elif gvarstatus("pmmenu") is not None:
         delgvar("pmmenu")
-        await edit_delete(event, "**♛ ⦙   تـم تـفـعـيـل امـر الـحـمـايـة لـحـسـابـك بـنـجـاح  ✅**")
+        await edit_delete(event, "**𖤍  ⦙   تـم تـفـعـيـل امـر الـحـمـايـة لـحـسـابـك بـنـجـاح  ✅**")
     else:
-        await edit_delete(event, "**♛ ⦙  امـر الـحـمـايـة بـالـفـعـل مُـمَـكـن لـحـسـابـك  🌿**")
-@iqthon.on(admin_cmd(pattern="(ق|قبول)(?:\s|$)([\s\S]*)"))
+        await edit_delete(event, "**𖤍  ⦙  امـر الـحـمـايـة بـالـفـعـل مُـمَـكـن لـحـسـابـك  🌿**")
+@rickthon.on(admin_cmd(pattern="(ق|قبول)(?:\s|$)([\s\S]*)"))
 async def approve_p_m(event):  # sourcery no-metrics
     if gvarstatus("pmpermit") is None:
-        return await edit_delete(event, f"**♛ ⦙   يــجـب تـفـعـيـل امـر الحـمـايـة أولاً بـأرســال ** {cmdhd} الـحماية تشغيل  لـتـفـعـيـل هـذا الأمـر .⚠️❕")
+        return await edit_delete(event, f"**𖤍  ⦙   يــجـب تـفـعـيـل امـر الحـمـايـة أولاً بـأرســال ** {cmdhd} الـحماية تشغيل  لـتـفـعـيـل هـذا الأمـر .⚠️❕")
     if event.is_private:
         user = await event.get_chat()
         reason = event.pattern_match.group(2)
@@ -535,7 +535,7 @@ async def approve_p_m(event):  # sourcery no-metrics
             sqllist.rm_from_list("pmenquire", chat.id)
         if str(chat.id) in sqllist.get_collection_list("pmoptions"):
             sqllist.rm_from_list("pmoptions", chat.id)
-        await edit_delete(event, f"♛ ⦙    [{user.first_name}](tg://user?id={user.id})\n**♛ ⦙   تـم السـمـاح لـه بـأرسـال الـرسـائـل 💬✔️** \n **♛ ⦙   الـسـبـب ❔  :** {reason}")
+        await edit_delete(event, f"♛ ⦙    [{user.first_name}](tg://user?id={user.id})\n**𖤍  ⦙   تـم السـمـاح لـه بـأرسـال الـرسـائـل 💬✔️** \n **𖤍  ⦙   الـسـبـب ❔  :** {reason}")
         try:
             PMMESSAGE_CACHE = sql.get_collection("pmmessagecache").json
         except AttributeError:
@@ -551,11 +551,11 @@ async def approve_p_m(event):  # sourcery no-metrics
         sql.add_collection("pmwarns", PM_WARNS, {})
         sql.add_collection("pmmessagecache", PMMESSAGE_CACHE, {})
     else:
-        await edit_delete(event, f"[{user.first_name}](tg://user?id={user.id}) \n ♛ ⦙   هـو بـالـفـعل فـي قـائـمـة الـسـمـاح ✅")
-@iqthon.on(admin_cmd(pattern="(ر|رفض)(?:\s|$)([\s\S]*)"))
+        await edit_delete(event, f"[{user.first_name}](tg://user?id={user.id}) \n  𖤍 ⦙   هـو بـالـفـعل فـي قـائـمـة الـسـمـاح ✅")
+@rickthon.on(admin_cmd(pattern="(ر|رفض)(?:\s|$)([\s\S]*)"))
 async def disapprove_p_m(event):
     if gvarstatus("pmpermit") is None:
-        return await edit_delete(event, f"**♛ ⦙   يــجـب تـفـعـيـل امـر الحـمـايـة أولاً بـأرســال ** {cmdhd} الـحماية تشغيل  لـتـفـعـيـل هـذا الأمـر .⚠️❕")
+        return await edit_delete(event, f"**𖤍  ⦙   يــجـب تـفـعـيـل امـر الحـمـايـة أولاً بـأرســال ** {cmdhd} الـحماية تشغيل  لـتـفـعـيـل هـذا الأمـر .⚠️❕")
     if event.is_private:
         user = await event.get_chat()
         reason = event.pattern_match.group(2)
@@ -568,7 +568,7 @@ async def disapprove_p_m(event):
                 return
     if reason == "الكل":
         pmpermit_sql.disapprove_all()
-        return await edit_delete(event, "**♛ ⦙   حــسـنـا تــم رفـض الـجـمـيـع بــنـجـاح 💯**")
+        return await edit_delete(event, "**𖤍 ⦙   حــسـنـا تــم رفـض الـجـمـيـع بــنـجـاح 💯**")
     if not reason:
         reason = "**♛ ⦙  لـم يـذكـر 💭 **"
     if pmpermit_sql.is_approved(user.id):
@@ -576,10 +576,10 @@ async def disapprove_p_m(event):
         await edit_or_reply(event, f"[{user.first_name}](tg://user?id={user.id})\n**♛ ⦙   تـم رفـضـه مـن أرسـال الـرسـائـل ⚠️**\n**♛ ⦙   الـسـبـب ❔  :** {reason}")
     else:
         await edit_delete(event, f"[{user.first_name}](tg://user?id={user.id})\n ** ♛ ⦙   لــم يـتـم الـمـوافـقـة عـلـيـه مـسـبـقـاً ❕ **")
-@iqthon.on(admin_cmd(pattern="مرفوض(?:\s|$)([\s\S]*)"))
+@rickthon.on(admin_cmd(pattern="مرفوض(?:\s|$)([\s\S]*)"))
 async def block_p_m(event):
     if gvarstatus("pmpermit") is None:
-        return await edit_delete(event, f"**♛ ⦙   يــجـب تـفـعـيـل امـر الحـمـايـة أولاً بـأرســال ** {cmdhd} الـحماية تشغيل  لـتـفـعـيـل هـذا الأمـر .⚠️❕")
+        return await edit_delete(event, f"**𖤍  ⦙   يــجـب تـفـعـيـل امـر الحـمـايـة أولاً بـأرســال ** {cmdhd} الـحماية تشغيل  لـتـفـعـيـل هـذا الأمـر .⚠️❕")
     if event.is_private:
         user = await event.get_chat()
         reason = event.pattern_match.group(1)
@@ -612,11 +612,11 @@ async def block_p_m(event):
     sql.add_collection("pmwarns", PM_WARNS, {})
     sql.add_collection("pmmessagecache", PMMESSAGE_CACHE, {})
     await event.client(functions.contacts.BlockRequest(user.id))
-    await edit_delete(event, f"[{user.first_name}](tg://user?id={user.id})\n **♛ ⦙   تـم حـظـره بـنـجـاح ، لا يـمـكـنـه مـراسـلـتـك بـعـد الان **\n**♛ ⦙   الـسـبـب ❔  :** {reason}")
-@iqthon.on(admin_cmd(pattern="مقبول(?:\s|$)([\s\S]*)"))
+    await edit_delete(event, f"[{user.first_name}](tg://user?id={user.id})\n **𖤍 ⦙   تـم حـظـره بـنـجـاح ، لا يـمـكـنـه مـراسـلـتـك بـعـد الان **\n**𖤍  ⦙   الـسـبـب ❔  :** {reason}")
+@rickthon.on(admin_cmd(pattern="مقبول(?:\s|$)([\s\S]*)")
 async def unblock_pm(event):
     if gvarstatus("pmpermit") is None:
-        return await edit_delete(event, f"**♛ ⦙   يــجـب تـفـعـيـل امـر الحـمـايـة أولاً بـأرســال ** {cmdhd} الـحماية تشغيل  لـتـفـعـيـل هـذا الأمـر .⚠️❕")
+        return await edit_delete(event, f"**𖤍  ⦙   يــجـب تـفـعـيـل امـر الحـمـايـة أولاً بـأرســال ** {cmdhd} الـحماية تشغيل  لـتـفـعـيـل هـذا الأمـر .⚠️❕")
     if event.is_private:
         user = await event.get_chat()
         reason = event.pattern_match.group(1)
@@ -627,16 +627,16 @@ async def unblock_pm(event):
     if not reason:
         reason = "**♛ ⦙  لـم يـذكـر 💭 **"
     await event.client(functions.contacts.UnblockRequest(user.id))
-    await event.edit(f"[{user.first_name}](tg://user?id={user.id}) \n **♛ ⦙   تـم الـغـاء حـظـره بـنـجـاح ،  يـمـكـنـه مـراسـلـتـك الان **\n**♛ ⦙   الـسـبـب ❔  :** {reason}")
-@iqthon.on(admin_cmd(pattern="المقبولين(?: |$)(.*)"))
+    await event.edit(f"[{user.first_name}](tg://user?id={user.id}) \n **𖤍  ⦙   تـم الـغـاء حـظـره بـنـجـاح ،  يـمـكـنـه مـراسـلـتـك الان **\n**♛ ⦙   الـسـبـب ❔  :** {reason}")
+@rickthon.on(admin_cmd(pattern="المقبولين(?: |$)(.*)"))
 async def approve_p_m(event):
     if gvarstatus("pmpermit") is None:
-        return await edit_delete(event,f"**♛ ⦙   يــجـب تـفـعـيـل امـر الحـمـايـة أولاً بـأرســال ** {cmdhd} الـحماية تشغيل  لـتـفـعـيـل هـذا الأمـر .⚠️❕",)
+        return await edit_delete(event,f"**𖤍  ⦙   يــجـب تـفـعـيـل امـر الحـمـايـة أولاً بـأرســال ** {cmdhd} الـحماية تشغيل  لـتـفـعـيـل هـذا الأمـر .⚠️❕",)
     approved_users = pmpermit_sql.get_all_approved()
-    APPROVED_PMs = "♛ ⦙  قـائـمـة الـمـسـمـوح لـهم الـحـالـيـة : 🔰 \n\n"
+    APPROVED_PMs = "𖤍  ⦙  قـائـمـة الـمـسـمـوح لـهم الـحـالـيـة : 🔰 \n\n"
     if len(approved_users) > 0:
         for user in approved_users:
-            APPROVED_PMs += f"• 👤 {_format.mentionuser(user.first_name , user.user_id)}\n**♛ ⦙   الأيــدي :** `{user.user_id}`\n**♛ ⦙   الـمـعـرف:** @{user.username}\n**♛ ⦙   الـتـاريـخ :** {user.date}\n**♛ ⦙   الـسـبـب:** {user.reason}\n\n"
+            APPROVED_PMs += f"• 👤 {_format.mentionuser(user.first_name , user.user_id)}\n**𖤍  ⦙   الأيــدي :** `{user.user_id}`\n**𖤍  ⦙   الـمـعـرف:** @{user.username}\n**𖤍  ⦙   الـتـاريـخ :** {user.date}\n**𖤍  ⦙   الـسـبـب:** {user.reason}\n\n"
     else:
-        APPROVED_PMs = "♛ ⦙   لـم تـوافـق عـلـى أي شـخـص مـسـبـقـاً ⁉️"
-    await edit_or_reply(event, APPROVED_PMs, file_name="قائـمة الحـماية.txt", caption="♛ ⦙  قـائـمـة الـمـسـمـوح لـهم الـحـالـيـة : 🔰 \n سـورس ريك ثون \n @RICKTHON")
+        APPROVED_PMs = "𖤍  ⦙   لـم تـوافـق عـلـى أي شـخـص مـسـبـقـاً ⁉️"
+    await edit_or_reply(event, APPROVED_PMs, file_name="قائـمة الحـماية.txt", caption="𖤍  ⦙  قـائـمـة الـمـسـمـوح لـهم الـحـالـيـة : 🔰 \n سـورس ريك ثون \n @RICKTHON")
