@@ -125,7 +125,7 @@ fahs = """♛ : me  {my_mention}  𓇡.
 ♛ : My Bot  {tg_bot}  𓇡.
 ♛ : ping  {ping}  𓇡.
 ♛ : version 7.6  𓇡.
-♛ : Source TelethonArab : @iqthon  𓇡."""
+♛ : Source TelethonArab : @rickthon  𓇡."""
 @rickthon.on(admin_cmd(pattern="رابط التنصيب(?: |$)(.*)"))    
 async def source(e):
     await edit_or_reply(e, "https://github.com/TelethonArab/TelethonAr",)
@@ -601,17 +601,17 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
             elif RICKTHONPC:
                 result = builder.document(RICKTHONPC,title="rickthon",text=help1,buttons=buttons,link_preview=False)
             else:
-                result = builder.article(title="iqthon",text=help1,buttons=buttons,link_preview=False)
+                result = builder.article(title="rickthon",text=help1,buttons=buttons,link_preview=False)
             await rickthon.answer([result] if result else None)
 @bot.on(admin_cmd(outgoing=True, pattern="تنصيب"))
-async def repoiqthon(iqthon):
-    if iqthon.fwd_from:
+async def reporickthon(rickthon):
+    if rickthon.fwd_from:
         return
     TG_BOT = Config.TG_BOT_USERNAME
-    if iqthon.reply_to_msg_id:
-        await iqthon.get_reply_message()
+    if rickthon.reply_to_msg_id:
+        await rickthon.get_reply_message()
     response = await bot.inline_query(TG_BOT, "تنصيب")
-    await response[0].click(iqthon.chat_id)
+    await response[0].click(rickthon.chat_id)
     await rickthon.delete()
 @rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"play1")))
 @check_owner
@@ -633,35 +633,35 @@ async def inlinerickthon(rickthon):
     await rickthon.edit(text, buttons=buttons)
 
 
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"ord1pl")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"ord1pl")))
 @check_owner
-async def inlineiqthon(iqthon):
+async def inlinerickthon(rickthon):
     text = "**🚹  ⦑   اوامر الالعاب   ⦒  :**"
     buttons = [[Button.inline("اوامر الالعاب  1", data="play1"),],[Button.inline("اوامر الالعاب 2", data="play2"),],[Button.inline("اوامر الالعاب 3", data="play3"),],[Button.inline("رجوع", data="orders"),]]
     await iqthon.edit(text, buttons=buttons)
 
 
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"shag1")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"shag1")))
 @check_owner
-async def inlineiqthon(iqthon):
+async def inlineiqthon(rickthon):
     text = "**🚹  ⦑  1 اوامر تحويل الصيغ  ⦒  :**\n\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑴  ⦙  `.تحويل بصمه + الرد ع الصوت mp3`\n**✐ : يحول صوت mp3 الى بصمه ❝**\n⑵  ⦙  `.تحويل صوت + الرد ع الصوت` \n**✐ :  يحول البصمه الى صوت   mp3**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮\n⑶  ⦙  `.تحويل ملصق + الرد ع الصوره` \n**✐ :  يحول الصوره الى ملصق ❝**\n⑷  ⦙ `. تحويل صوره + الرد ع الملصق` \n**✐ :  يحول الملصق الى صوره ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑸  ⦙  `.تحويل متحركه + الرد ع الفيديو` \n**✐ :  يقوم بتحويل الفيديو الى متحركه ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑹ ⦙  `.بي دي اف + الرد ع الملف او الصوره`\n**✐ :  يحول الملف او الصوره الى بي دي اف ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑺ ⦙ `.ملصقي + الرد ع الرساله` \n**✐ : يحول رساله الى ملصق ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮\n⑻ ⦙  `. تليجراف ميديا + الرد ع الفيديو او صوره`\n **✐ :  يقوم بتحويل الفيديو او الصوره الى رابط تليجراف للأستخدام  ❝**\n⑼ ⦙  `.تحويل رساله + الرد ع الملف` \n**✐ :  يقوم بجلب جميع الكتابه الذي داخل الملف ويقوم بأرسالها اليك ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮\n⑽ ⦙ `.تحويل فديو دائري + الرد ع الفيديو`\n**✐ : يحول الفيديو الى فيديو دائري مرئي ❝**\n⑾  ⦙ `.تحويل ملصق دائري + الرد ع الملصق` \n**✐ :  يحول الملصق الى ملصق دائري** \n"
     buttons = [[Button.inline("اوامر تحويل الصيغ  2", data="shag2"),],[Button.inline("رجوع", data="orders"),]]
     await iqthon.edit(text, buttons=buttons)
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"shag2")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"shag2")))
 @check_owner
-async def inlineiqthon(iqthon):
+async def inlinrickthon(rickthon):
     text = "**🚹  ⦑  2 اوامر تحويل الصيغ   ⦒  :**\n\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n ⑿ ⦙  `.ترجمه en + الرد ع الرساله` \n**✐ :  يقوم بترجمه الرساله الى اللغه الانكليزيه**\n⒀ ⦙ `.ترجمه ar + الرد ع الشخص` \n**✐ :  يقوم بترجمه الرساله الى اللغه العربيه ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮\n"
     buttons = [[Button.inline("اوامر تحويل الصيغ  1", data="shag1"),],[Button.inline("رجوع", data="orders"),]]
-    await iqthon.edit(text, buttons=buttons)
+    await rickthon.edit(text, buttons=buttons)
 
 
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"ordsag1")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"ordsag1")))
 @check_owner
-async def inlineiqthon(iqthon):
+async def inlinerickthon(rickthon):
     text = "**🚹  ⦑   اوامر الصيغ   ⦒  :**"
     buttons = [[Button.inline("اوامر الصيغ  1", data="shag1"),],[Button.inline("اوامر الصيغ 2", data="shag2"),],[Button.inline("رجوع", data="orders"),]]
-    await iqthon.edit(text, buttons=buttons)
-@iqthon.on(admin_cmd(pattern=f"{ORDERS}(?: |$)(.*)"))    
+    await rickthon.edit(text, buttons=buttons)
+@rickthon.on(admin_cmd(pattern=f"{ORDERS}(?: |$)(.*)"))    
 async def iq(event):
     await edit_or_reply(event, 
 """ **
@@ -708,7 +708,7 @@ async def iq(event):
 ———————×———————
  ♛︙ يوجد شرح مفصل عن الامر هنا : https://t.me/L3LL3/4484
 """)
-@iqthon.on(admin_cmd(pattern="م10(?: |$)(.*)"))    
+@rickthon.on(admin_cmd(pattern="م10(?: |$)(.*)"))    
 async def iq(event):
     await edit_or_reply(event, 
 """ ( اوامر الفارات وتغيرات ) :
@@ -766,7 +766,7 @@ async def iq(event):
 قناه السورس : ( @IQTHON ) .
 جميع الاوامر تكون بدايتها نقطة .
 """)
-@iqthon.on(admin_cmd(pattern="م12(?: |$)(.*)"))    
+@rickthon.on(admin_cmd(pattern="م12(?: |$)(.*)"))    
 async def iq(event):
     await edit_or_reply(event, 
 """** ⦑   اوامر  الاغاني. ⦒  : **
@@ -799,7 +799,7 @@ async def iq(event):
 قناه السورس : ( @IQTHON ) .
 جميع الاوامر تكون بدايتها نقطة .
 """)
-@iqthon.on(admin_cmd(pattern="م13(?: |$)(.*)"))    
+@rickthon.on(admin_cmd(pattern="م13(?: |$)(.*)"))    
 async def iq(event):
     await edit_or_reply(event, 
 """ **⦑   اوامر التكرار    ⦒  : **
@@ -823,7 +823,7 @@ async def iq(event):
 قناه السورس : ( @IQTHON ) .
 جميع الاوامر تكون بدايتها نقطة .
 """)
-@iqthon.on(admin_cmd(pattern="م14(?: |$)(.*)"))    
+@rickthon.on(admin_cmd(pattern="م14(?: |$)(.*)"))    
 async def iq(event):
     await edit_or_reply(event, 
 """** ⦑   لأوامر الزخرفة   ⦒  : **
@@ -863,35 +863,35 @@ async def iq(event):
 
 
 
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"ordahln1")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"ordahln1")))
 @check_owner
-async def inlineiqthon(iqthon):
+async def rickthon(rickthon):
     text = "**🚹  ⦑  اوامر الاعلانات   ⦒  :**\n\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n ⑴  ⦙ `.مؤقته + الوقت بالثواني + رساله`\n**✐ :  يرسل الرساله لمده معينه ويحذفها بس يخلص المده**\n ⑵  ⦙ `.للكروبات + الرد على الرساله`\n**✐ :  يرسل الرسالها الى جميع المجموعات**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n ⑶  ⦙ `.مؤقت + عدد ثواني + عدد الرسائل + كليشة` \n**✐ :  يقوم بارسال رساله وقتيه محدده لكل وقت معين وعدد مرات معين**\n\n ⑷  ⦙ `.اضافه + رابط الكروب`\n✐ :   يضيفلك جميع الاعضاء الي برابط الكروب يضيفهم بكروبك \n يجب ان تتاكد انو مامحضور حسابك ارسل  ⬅️ ( `.حالتي` ) \n علمود تتاكد محضور الحساب لو لا الاضافات الكثيره تحظر مؤقتا  \n"
     buttons = [[Button.inline("رجوع", data="orders"),]]
     await iqthon.edit(text, buttons=buttons)
 if Config.TG_BOT_USERNAME is not None and tgbot is not None :
     @check_owner
     @tgbot.on(events.InlineQuery)
-    async def inlineiqthon(iqthon):
-        builder = iqthon.builder
+    async def inlinerickthon(rickthon):
+        builder = rickthon.builder
         result = None
-        query = iqthon.text
+        query = rickthon.text
         await bot.get_me()
         if query.startswith("اوامر الاعلانات(?: |$)(.*)") and iqthon.query.user_id == bot.uid:
             buttons = [[Button.inline("اوامر الاعلانات", data="ordahln1"),]]
-            result = builder.article(title="iqthon", text=help2, buttons=buttons, link_preview=False)
+            result = builder.article(title="rickthon", text=help2, buttons=buttons, link_preview=False)
             await iqthon.answer([result] if result else None)
 @bot.on(admin_cmd(outgoing=True, pattern="اوامر الاعلانات(?: |$)(.*)"))
-async def repoiqthon(iqthon):
-    if iqthon.fwd_from:
+async def reporickthon(rickthon):
+    if rickthon.fwd_from:
         return
     TG_BOT = Config.TG_BOT_USERNAME
-    if iqthon.reply_to_msg_id:
-        await iqthon.get_reply_message()
+    if rickthon.reply_to_msg_id:
+        await rickthon.get_reply_message()
     response = await bot.inline_query(TG_BOT, "اوامر الاعلانات(?: |$)(.*)")
-    await response[0].click(iqthon.chat_id)
-    await iqthon.delete()
-@iqthon.on(admin_cmd(pattern="م15(?: |$)(.*)"))    
+    await response[0].click(rickthon.chat_id)
+    await rickthon.delete()
+@rickthon.on(admin_cmd(pattern="م15(?: |$)(.*)"))    
 async def iq(event):
     await edit_or_reply(event, 
 """**⦑   اوامر الوسائـط   ⦒  :**
@@ -945,13 +945,13 @@ async def iq(event):
   ⦑   شرح اوامر الملصقات هنا  :  https://t.me/L3LL3/4720  ⦒
 """)
 
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"ordSONG")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"ordSONG")))
 @check_owner
-async def inlineiqthon(iqthon):
+async def inlinerickthon(rickthon):
     text = "**🚹  ⦑   اوامر التنزيلات والبحث الاغاني    ⦒  :**\n\n⑴  ⦙ `.بحث صوت + اسم الاغنيه`\n**✐ : سيحمل لك الاغنية صوت ايضا يمكنك وضع رابط الاغنيه بدل الاسم ❝**\n ⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n ⑵  ⦙ `.بحث فيديو + اسم الاغنيه` \n**✐ : سيحمل لك الاغنية  فيديو ايضا يمكنك وضع رابط الاغنيه بدل الاسم ❝**\n ⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n\n ⑶  ⦙ `.معلومات الاغنيه` \n**✐ : الرد ع الاغنيه سيجلب لك معلوماتها واسم الفنان ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n \n⑷  ⦙ `.كوكل بحث + موضوع البحث`\n**✐ : يجلب لك معلومات الموضوع من كوكل ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑸  ⦙ `.تخزين الصوت + الرد ع البصمه`\n**✐ : تخزين الصوت من اجل استخدامه لوضع صوت في الفيديو ❝**\n ⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑹ ⦙ `.اضف الصوت + الرد ع الصوره او متحركه او فيديو`\n**✐ : يتم اضافه الصوت الى الفيديو او المتحركه او الصوره ❝**\n ⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑺ ⦙ `.اسم الاغنيه + الرد ع الاغنيه`\n**✐ : ييجلب لك اسم الاغنيه مدة البصمه 10 الى 5 ثواني ❝**\n⑻ ⦙ `تيك توك + الرد ع رابط الفيديو.`\n**✐ : يحمل فيديو تيك توك بدون العلامه المائيه** ❝\n ⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮\n"
     buttons = [[Button.inline("رجوع", data="orders"),]]
     await iqthon.edit(text, buttons=buttons)
-@iqthon.on(admin_cmd(pattern="م1(?: |$)(.*)"))    
+@rickthon.on(admin_cmd(pattern="م1(?: |$)(.*)"))    
 async def iq(event):
     await edit_or_reply(event, 
 """ ** ⦑   اوامر السورس   ⦒  :**
@@ -996,7 +996,7 @@ async def iq(event):
 قناه السورس : ( @IQTHON ) .
 جميع الاوامر تكون بدايتها نقطة .""")
 
-@iqthon.on(admin_cmd(pattern="م2(?: |$)(.*)"))    
+@rickthon.on(admin_cmd(pattern="م2(?: |$)(.*)"))    
 async def iq(event):
     await edit_or_reply(event,
 """**  ⦑   اوامـر الحـسـاب  ⦒ : **
@@ -1171,7 +1171,7 @@ async def iq(event):
 جميع الاوامر تكون بدايتها نقطة .
 """)
 
-@iqthon.on(admin_cmd(pattern="م3(?: |$)(.*)"))    
+@rickthon.on(admin_cmd(pattern="م3(?: |$)(.*)"))    
 async def iq(event):
     await edit_or_reply(event, 
 """**  ⦑  اوامر الكروب 1  ⦒  :**
@@ -1289,7 +1289,7 @@ async def iq(event):
 شرح الأوامر : ( @L3LL3 ) .
 قناه السورس : ( @IQTHON ) .
 جميع الاوامر تكون بدايتها نقطة .""")
-@iqthon.on(admin_cmd(pattern="م4(?: |$)(.*)"))    
+@rickthon.on(admin_cmd(pattern="م4(?: |$)(.*)"))    
 async def iq(event):
     await edit_or_reply(event, 
 """**  ⦑  اوامر الكروب 2  ⦒  : **
@@ -1362,7 +1362,7 @@ async def iq(event):
 شرح الأوامر : ( @L3LL3 ) .
 قناه السورس : ( @IQTHON ) .
 جميع الاوامر تكون بدايتها نقطة .""")
-@iqthon.on(admin_cmd(pattern="م5(?: |$)(.*)"))    
+@rickthon.on(admin_cmd(pattern="م5(?: |$)(.*)"))    
 async def iq(event):
     await edit_or_reply(event, 
 """**⦑  اوامر تحويل الصيغ  ⦒  :**
@@ -1517,7 +1517,7 @@ async def iq(event):
 شرح الأوامر : ( @L3LL3 ) .
 قناه السورس : ( @IQTHON ) .
 جميع الاوامر تكون بدايتها نقطة .""")
-@iqthon.on(admin_cmd(pattern="م7(?: |$)(.*)"))    
+@rickthon.on(admin_cmd(pattern="م7(?: |$)(.*)"))    
 async def iq(event):
     await edit_or_reply(event, 
 """**  ⦑   بصمات تحشيش 1   ⦒  :**
@@ -1618,9 +1618,9 @@ async def iq(event):
 (.ص94) ⦙  ههاي الافكار حطها
   ———————×———————
 شرح الأوامر : ( @L3LL3 ) .
-قناه السورس : ( @IQTHON ) .
+قناه السورس : ( @rickthon ) .
 جميع الاوامر تكون بدايتها نقطة .""")
-@iqthon.on(admin_cmd(pattern="م8(?: |$)(.*)"))    
+@rickthon.on(admin_cmd(pattern="م8(?: |$)(.*)"))    
 async def iq(event):
     await edit_or_reply(event, 
 """**⦑    الاوامر المتحركه للتسلية   ⦒  :**
@@ -1629,26 +1629,26 @@ async def iq(event):
 ( .اشوفج السطح ) ( .احبك ) ( .اركض ) ( .روميو ) ( .البنك ) ( .تهكير ) ( .طياره ) ( .مصاصه ) ( .مصه ) ( .جكه ) ( .اركضلي ) ( .حمامه ) ( .فواكه ) ( .الحياة ) ( .هلو ) ( .مربعاتي ) ( .اسعاف ) ( .سمايلي )
 ———————×———————
 """)
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"orders")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"orders")))
 @check_owner
-async def inlineiqthon(iqthon):
+async def inlinerickthon(rickthon):
     text = "**♛︙ قـائمـه الاوامـر :**\n**♛︙ قنـاه السـورس :** @IQTHON\n**♛︙ شـرح اوامـر السـورس : @L3LL3**\n**♛︙ شـرح فـارات السـورس : @TEAMTELETHON** "
     buttons = [[Button.inline("اوامر السورس", data="order1"), Button.inline("اوامر الحساب", data="ord1hs"),],[Button.inline("اوامر الكروب", data="ord1G"), Button.inline("اوامر الالعاب", data="ord1pl"),],[Button.inline("اوامر الصيغ", data="ordsag1"), Button.inline("اوامر الاغاني", data="ordSONG"),], [Button.inline("اسم وقتي", data="order13"), Button.inline("اوامر الاعلانات", data="ordahln1"),],[Button.inline("اوامر التسليه", data="order14"),],[Button.inline("الفارات", data="ordvars"),]]
-    await iqthon.edit(text, buttons=buttons)
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"ord1G")))
+    await rickthon.edit(text, buttons=buttons)
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"ord1G")))
 @check_owner
-async def inlineiqthon(iqthon):
+async def inlineiqthon(rickthon):
     text = "**🚹  ⦑   اوامر الكروب   ⦒  :**"
     buttons = [[Button.inline("اوامر الكروب 1", data="G1"),],[Button.inline("اوامر الكروب 2", data="G2"),],[Button.inline("اوامر الكروب 3", data="G3"),],[Button.inline("اوامر الكروب 4", data="G4"),],[Button.inline("اوامر الكروب 5", data="G5"),],[Button.inline("رجوع", data="orders"),]]
-    await iqthon.edit(text, buttons=buttons)
+    await rickthon.edit(text, buttons=buttons)
 
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"G1")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"G1")))
 @check_owner
-async def inlineiqthon(iqthon):
+async def inlinerickthon(rickthon):
     text = "**🚹  ⦑  اوامر الكروب 1     ⦒  :**\n\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n ⑴  ⦙ `.كتم + الرد ع الشخص`\n**✐ : يكتم الشخص من الخاص او الكروبات فقط اذا كانت عندك صلاحيه حذف رسائل ❝**\n \n⑵  ⦙ `. الغاء كتم + الرد ع الشخص`\n**✐ :  يجلب لك جميع معرفات المشرفين في الكروب  ❝**\n ⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n ⑶  ⦙ `.البوتات`\n**✐ : يجلب لك جميع معرفات البوتات في الكروب ❝**\n \n⑷  ⦙ `.الأعضاء`\n**✐ : اضهار قائمة الاعضاء للكروب اذا هواي سيرسل ملف كامل لمعلوماتهم  ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑸  ⦙ `.معلومات`\n**✐ : سيرسل لك جميع معلومات الكروب بالتفصيل ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑹ ⦙ `.مسح المحظورين`\n**✐ : يمسح جميع المحظورين في الكروب ❝**\n ⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑺ ⦙ `.المحذوفين`\n**✐ : يجلب لك جميع الحسابات المحذوفه ❝**\n\n⑻ ⦙ `.المحذوفين تنظيف`\n**✐ : يمسح جميع الحسابات المحذوفه في الكروب ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑼ ⦙ `.احصائيات الاعضاء`\n**✐ : يمسح جميع المحظورين في الكروب ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑽ ⦙ `.انتحال + الرد ع الشخص`\n**✐ : يقوم بأنتحال الشخص ويضع صورته ونبذته واسمه في حسابك عدا المعرف ❝**\n\n⑾ ⦙ `.الغاء الانتحال + الرد ع الشخص`\n**✐ : يقوم بألغاء الانتحال وسيرجع معلومات المذكوره بالسورس ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮\n\n"
     buttons = [[Button.inline("اوامر الكروب 2", data="G2"),],[Button.inline("اوامر الكروب 3", data="G3"),],[Button.inline("اوامر الكروب 4", data="G4"),],[Button.inline("اوامر الكروب 5", data="G5"),],[Button.inline("رجوع", data="orders"),]]
-    await iqthon.edit(text, buttons=buttons)
-@iqthon.on(admin_cmd(pattern="تحميل الملف(?: |$)(.*)"))    
+    await rickthon.edit(text, buttons=buttons)
+@rickthon.on(admin_cmd(pattern="تحميل الملف(?: |$)(.*)"))    
 async def install(event):
     if event.reply_to_msg_id:
         try:
@@ -1664,20 +1664,20 @@ async def install(event):
         except Exception as e:
             await edit_delete(event, f"**♛︙  خطـأ ⚠️:**\n`{str(e)}`", 10)
             os.remove(downloaded_file_name)
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"G2")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"G2")))
 @check_owner
-async def inlineiqthon(iqthon):
+async def inlinerickthon(rickthon):
     text = "**🚹  ⦑   اوامر الكروب 2   ⦒  :**\n\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑴  ⦙  `.ترحيب + الرساله` \n**✐ : يضيف ترحيب في الكروب اي شخص ينضم راح يرحب بي  ❝**\n⑵  ⦙   `.مسح الترحيبات` \n**✐ :  ييقوم بمسح الترحيب من الكروب ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮\n\n  ⦙  `.ترحيباتي` \n**✐ :  يضهر لك جميع الترحيبات التي وضعتها في الكروب ❝**\n⑷  ⦙ `.رساله الترحيب السابقه تشغيل`  \n**✐ :  عندما يحدث تكرار سيحذف رساله الترحيب ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑸  ⦙  `.رساله الترحيب السابقه ايقاف`\n**✐ :  عندما يحدث تكرار لا يحذف رساله الترحيب ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑹ ⦙  `.اضف رد + الكلمه` \n**✐ :  مثلاً تدز رساله هلو تسوي عليها رد بهلوات ❝**\n\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑺ ⦙ `.مسح رد + الكلمه` \n**✐ :  سيحذف الكلمه الي انت ضفتها ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮\n\n⑻ ⦙  `.جميع الردود` \n **✐ :  يجلب لك جميع الردود الذي قمت بأضافتها  ❝**\n⑼ ⦙  `.مسح جميع الردود` \n**✐ :  يمسح جميع الردود الي انت ضفتها ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑽ ⦙  `.صنع مجموعه + اسم المجموعه`\n**✐ : يقوم بعمل مجموعه خارقه ❝**\n \n⑾ ⦙  `.صنع قناه +  اسم القناة`\n**✐ : يقوم بعمل قناه خاصه  ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑿ ⦙ `.عدد رسائلي`\n**✐ : سيظهر لك عدد رسائلك في الكروب ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮\n\n"
     buttons = [[Button.inline("اوامر الكروب 1", data="G1"),],[Button.inline("اوامر الكروب 3", data="G3"),],[Button.inline("اوامر الكروب 4", data="G4"),],[Button.inline("اوامر الكروب 5", data="G5"),],[Button.inline("رجوع", data="orders"),]]
-    await iqthon.edit(text, buttons=buttons)
+    await rickthon.edit(text, buttons=buttons)
 
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"G3")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"G3")))
 @check_owner
-async def inlineiqthon(iqthon):
+async def inlinerickthon(rickthon):
     text = "**🚹  ⦑   اوامر الكروب 3   ⦒  :**\n\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n ⑴  ⦙  `.تفعيل حمايه المجموعه`\n**✐ : يقوم غلق جميع صلاحيات المجموعه يبقي فقط ارسال  الرسائل❝**\n \n⑵  ⦙ `تعطيل حمايه المجموعه`\n**✐ :  يقوم بتشغيل جميع صلاحيات المجموعة ماعدا تغير المعلومات و التثبيت و اضافه اعضاء تبقى مسدوده❝**\n\n⑶  ⦙ `.صلاحيات المجموعه`\n**✐ : يقوم بعرض صلاحيات المجموعه المغلقه والمفتوحه❝**\n\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮\n⑷  ⦙  `.رفع مشرف + الرد على شخص`\n**✐ : يرفع الشخص مشرف يعطي صلاحيه حذف رسائل والتثبيت فقط❝**\n\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑸  ⦙ `.منع + كلمة`\n**✐ : منع كلمه من الارسال في الكروب**❝\n⑹ ⦙ `.الغاء منع + كلمه`\n**✐ : يقوم بالغاء منع الكلمه ❝** \n⑺ ⦙ `.قائمه المنع`\n**✐ : يقوم بجلب جميع الكلمات الممنوعه في الكروب ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑻ ⦙ ` .تاك + ( الاعداد المحدده وثابتة فقط) ⤵️`\n  ( 10 - 50 - 100 - 200  )\n**✐ : يجلب لك الاعضاء بالروابط بالعدد المحدد ❝**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑼ ⦙ `.معرفات + ( الاعداد المحدده وثابتة فقط) ⤵️`\n  ( 10 - 50 - 100 - 200  )\n**✐ :جلب لك معرفات الاعضاء بالعدد المحدد ❝**\n\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮\n"
     buttons = [[Button.inline("اوامر الكروب 1", data="G1"),],[Button.inline("اوامر الكروب 2", data="G2"),],[Button.inline("اوامر الكروب 4", data="G4"),],[Button.inline("اوامر الكروب 5", data="G5"),],[Button.inline("رجوع", data="orders"),]]
-    await iqthon.edit(text, buttons=buttons)
-@iqthon.on(admin_cmd(pattern="مسح الملف(?: |$)(.*)"))    
+    await rickthon.edit(text, buttons=buttons)
+@rickthon.on(admin_cmd(pattern="مسح الملف(?: |$)(.*)"))    
 async def unload(event):
     shortname = event.pattern_match.group(1)
     path = Path(f"iqthon/plugins/{shortname}.py")
@@ -1695,7 +1695,7 @@ async def unload(event):
         await edit_or_reply(event, f"**♛︙   {shortname} تم إلغـاء التثبيـت بنجـاح ✓**")
     except Exception as e:
         await edit_or_reply(event, f"**♛︙  تمـت الإزالـة بنجـاح ✓ : {shortname}\n{str(e)}**")
-@iqthon.on(admin_cmd(pattern="هاش ([\s\S]*)"))    
+@rickthon.on(admin_cmd(pattern="هاش ([\s\S]*)"))    
 async def gethash(hash_q):
     hashtxt_ = "".join(hash_q.text.split(maxsplit=1)[1:])
     with open("hashdis.txt", "w+") as hashtxt:
@@ -1721,19 +1721,19 @@ async def gethash(hash_q):
             \n`{sha512[:-1]}`\
          "
     await edit_or_reply(hash_q, ans)
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"G4")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"G4")))
 @check_owner
 async def inlineiqthon(iqthon):
     text = "**🚹  ⦑  اوامر الكروب 4     ⦒  :**\n\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑴  ⦙ `.تنظيف الوسائط` \n ✐: ينضف جميع ميديا من صور وفديوهات و متحركات** او ( `.تنظيف الوسائط + العدد`) ** \n⑵  ⦙ `.حذف الرسائل`\n**✐ :  يحذف جميع الرسائل بلكروب ** \n ` او  `.حذف الرسائل + العدد \n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑶  ⦙ `.مسح + الرد على رسالة`\n**✐ :  يحذف الرساله الي راد عليها فقط **\n⑷  ⦙ `.غادر + بلكروب دزها`\n**✐ :  يغادر من المجموعه او من القناة**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑸  ⦙ ` .تفليش`\n**✐ :  يطرد جميع الي بلكروب الامر صار احسن ومتطور واسرع**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑹  ⦙ `.اضافه + رابط الكروب `\n**✐ :  يضيفلك جميع الاعضاء الي برابط الكروب يضيفهم بكروبك ( يجب ان تتاكد انو مامحضور حسابك ارسل ⬅️( .فحص الحظر ) علمود تتاكد حسابك محظور او لا) \n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑺  ⦙ `.جلب الوقتيه + الرد على الصورة`\n**✐ :  الرد على صوره سريه وقتيه سوف يتم تحويلها الى رسائل المحفوضه كصورة عادية\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⑻  ⦙ `.تاك بالكلام + الكلمه + معرف الشخص`\n**✐ :  يسوي تاك للشخص بالرابط جربه وتعرف**\n⑼  ⦙ `.نسخ + الرد على رساله`\n**✐ :  يرسل الرساله التي رديت عليها **\n⑽  ⦙ `.ابلاغ الادمنيه`\n**✐ :  يسوي تاك لجميع الادمنيه ارسله هذا الامر بلمجموعه في حاله اكو تفليش او مشكلة**\n⑾  ⦙ `.المشرفين` \n**✐ : يجيب الك جميع المشرفين في المجموعه او القناه**\n⑿  ⦙ `.البوتات` \n**✐ :  يجيب الك جميع بوتات في المجموعه او قناه**"
     buttons = [[Button.inline("اوامر الكروب 1", data="G1"),],[Button.inline("اوامر الكروب 2", data="G2"),],[Button.inline("اوامر الكروب 3", data="G3"),],[Button.inline("اوامر الكروب 5", data="G5"),],[Button.inline("رجوع", data="orders"),]]
     await iqthon.edit(text, buttons=buttons)
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"G5")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(rb"G5")))
 @check_owner
 async def inlineiqthon(iqthon):
     text = "**🚹  ⦑  اوامر الكروب 5     ⦒  :**\n\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n ⑴  ⦙ `.تحذير التكرار + عدد رسائل`\n**✐ :  اي شخص بلكروب يكرر رسائل مالته بلعدد المحدد يقيدة مهما كان رتبته**\n ⑵  ⦙ ` .تحذير تكرار 99999 `\n✐ :  هذا الامر ستعمله من تريد تلغي التحذير لان مستحيل احد يكرر هل عدد ف اعتبار ينل(غي التحذير**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n ⑶  ⦙ ` .حظر + الرد على شخص`\n✐ : حظر الشخص من المجموعه او الكروب**\n ⑷  ⦙ ` .الغاء الحظر + الرد على شخص`\n✐ :  يلغي حظر الشخص من المجموعه او الكروب**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n ⑸  ⦙ ` .بدء مكالمه `\n✐ :  يقوم بتشغيل مكالمه في المجموعه**\n ⑹  ⦙ `.دعوه للمكالمه`\n✐ : يتم دعوه الاعضاء للمكالمة الشغاله**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n ⑺  ⦙ ` .تنزيل مشرف + الرد على شخص`\n✐ :  يقوم بازاله الشخص من الاشراف **\n ⑻  ⦙ ` .تثبيت + الرد على رساله`\n✐ : شرح : تثبيت الرساله التي رديت عليها**⒀  ⦙ `.الأعضاء`\n**✐ :  اضهار قائمة الاعضاء للمجموعة اذا هواي يرسلك ملف كامل لمعلوماتهم**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n⒁  ⦙ `.تفليش `\n**✐ :  يقوم بأزاله جميع اعضاء المجموعه او القناة الى 0**\n⤪⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⟿⤮ \n ⒂  ⦙ `.مسح المحظورين`\n**✐ :  يمسح جميع المحظورين في المجموعه او القناه **\n⒃  ⦙ `.المحذوفين`\n**✐:  يجلب لك جميع الحسابات المحذوفه في المجموعه او القناه**\n⒄  ⦙ `.المحذوفين تنظيف`\n**✐ :  مسح جميع الحسابات المحذوفه في المجموعه او القناة**\n⒅  ⦙ `.احصائيات الاعضاء`\n**✐ :  يرسل اليك جميع معلومات اعضاء المجموعه منها عدد الحسابات المحذوفه او الحسابات النشطه او الحسابات اخر ضهور وجميعهم**\n⒆  ⦙ `.عدد رسائلي`\n**✐ : يقوم بحساب عدد رسائلك في المجموعه او القناة**\n⒇  ⦙ `.جلب الاحداث`\n**✐ :  يرسل اليك اخر 20 رساله محذوفه في المجموعة من الاحداث**"
     buttons = [[Button.inline("اوامر الكروب 1", data="G1"),],[Button.inline("اوامر الكروب 2", data="G2"),],[Button.inline("اوامر الكروب 3", data="G3"),],[Button.inline("اوامر الكروب 4", data="G4"),],[Button.inline("رجوع", data="orders"),]]
     await iqthon.edit(text, buttons=buttons)
-@iqthon.on(admin_cmd(pattern="هاش(ين|دي) ([\s\S]*)"))    
+@rickthon.on(admin_cmd(pattern="هاش(ين|دي) ([\s\S]*)"))    
 async def endecrypt(event):
     string = "".join(event.text.split(maxsplit=2)[2:])
     catevent = event
@@ -1767,92 +1767,92 @@ async def endecrypt(event):
 if Config.TG_BOT_USERNAME is not None and tgbot is not None :
     @check_owner
     @tgbot.on(events.InlineQuery)
-    async def inlineiqthon(iqthon):
-        builder = iqthon.builder
+    async def inlinerickthon(rickthon):
+        builder = rickthon.builder
         result = None
-        query = iqthon.text
+        query = rickthon.text
         await bot.get_me()
-        if query.startswith("اوامر الكروب(?: |$)(.*)") and iqthon.query.user_id == bot.uid:
+        if query.startswith("اوامر الكروب(?: |$)(.*)") and rickthon.query.user_id == bot.uid:
             buttons = [[Button.inline("اوامر الكروب", data="ord1G"),]]
-            result = builder.article(title="iqthon", text=help2, buttons=buttons, link_preview=False)
-            await iqthon.answer([result] if result else None)
+            result = builder.article(title="rickthon", text=help2, buttons=buttons, link_preview=False)
+            await rickthon.answer([result] if result else None)
 @bot.on(admin_cmd(outgoing=True, pattern="اوامر الكروب(?: |$)(.*)"))
-async def repoiqthon(iqthon):
-    if iqthon.fwd_from:
+async def reporickthon(rickthon):
+    if rickthon.fwd_from:
         return
     TG_BOT = Config.TG_BOT_USERNAME
-    if iqthon.reply_to_msg_id:
-        await iqthon.get_reply_message()
+    if rickthon.reply_to_msg_id:
+        await rickthon.get_reply_message()
     response = await bot.inline_query(TG_BOT, "اوامر الكروب(?: |$)(.*)")
-    await response[0].click(iqthon.chat_id)
-    await iqthon.delete()
+    await response[0].click(rickthon.chat_id)
+    await rickthon.delete()
 
 if Config.TG_BOT_USERNAME is not None and tgbot is not None:
     @check_owner
     @tgbot.on(events.InlineQuery)
-    async def inlineiqthon(iqthon):
-        builder = iqthon.builder
+    async def inlineirickthon(rickthon):
+        builder = rickthon.builder
         result = None
         query = iqthon.text
         await bot.get_me()
         
-        if query.startswith("(صيانه|صيانه)") and iqthon.query.user_id == bot.uid:
+        if query.startswith("(صيانه|صيانه)") and rickthon.query.user_id == bot.uid:
             try:
                 buttons = [[Button.inline("اوامر السورس", data="order1"), Button.inline("اوامر الحساب", data="ord1hs"),],[Button.inline("اوامر الكروب", data="ord1G"), Button.inline("اوامر الالعاب", data="ord1pl"),],[Button.inline("اوامر الصيغ", data="ordsag1"), Button.inline("اوامر الاغاني", data="ordSONG"),], [Button.inline("اسم وقتي", data="order13"), Button.inline("اوامر الاعلانات", data="ordahln1"),],[Button.inline("اوامر التسليه", data="order14"),],[Button.inline("الفارات", data="ordvars"),]]
-                result = builder.article(title="iqthon",text=help2,buttons=buttons,link_preview=False)
-                await iqthon.answer([result] if result else None)
+                result = builder.article(title="rickthon",text=help2,buttons=buttons,link_preview=False)
+                await rickthon.answer([result] if result else None)
             except BotInlineDisabledError: 
-                await iqthon.send_message( "يجب تفعيل الاونلاين من بوت فاذر اولا " )
+                await rickthon.send_message( "يجب تفعيل الاونلاين من بوت فاذر اولا " )
            
            
 @bot.on(admin_cmd(outgoing=True, pattern="(صيانه|صيانه)"))
-async def repoiqthon(iqthon):
-    if iqthon.fwd_from:
+async def reporickthon(rickthon):
+    if rickthon.fwd_from:
         return
     TG_BOT = Config.TG_BOT_USERNAME
     
-    if iqthon.reply_to_msg_id:
+    if rickthon.reply_to_msg_id:
         try:
-            await iqthon.get_reply_message()
+            await rickthon.get_reply_message()
             response = await bot.inline_query(TG_BOT, "(الاوامر|الأوامر)")
-            await response[0].click(iqthon.chat_id)
-            await iqthon.delete()
+            await response[0].click(rickthon.chat_id)
+            await rickthon.delete()
         except BotInlineDisabledError: 
-            await iqthon.send_message( "يجب تفعيل الاونلاين من بوت فاذر اولا " )
+            await rickthon.send_message( "يجب تفعيل الاونلاين من بوت فاذر اولا " )
 
 if Config.TG_BOT_USERNAME is not None and tgbot is not None :
     @check_owner
     @tgbot.on(events.InlineQuery)
-    async def inlineiqthon(iqthon):
-        builder = iqthon.builder
+    async def inlinerickthon(rickthon):
+        builder = rickthon.builder
         result = None
-        query = iqthon.text
+        query = rickthon.text
         await bot.get_me()
         if query.startswith("اوامر الحساب(?: |$)(.*)") and iqthon.query.user_id == bot.uid:
             buttons = [[Button.inline("اوامر الحساب", data="ord1hs"),]]
-            result = builder.article(title="iqthon", text=help2, buttons=buttons, link_preview=False)
-            await iqthon.answer([result] if result else None)
+            result = builder.article(title="rickthon", text=help2, buttons=buttons, link_preview=False)
+            await rickthon.answer([result] if result else None)
 @bot.on(admin_cmd(outgoing=True, pattern="اوامر الحساب(?: |$)(.*)"))
-async def repoiqthon(iqthon):
-    if iqthon.fwd_from:
+async def reporickthon(rickthon):
+    if rickthon.fwd_from:
         return
     TG_BOT = Config.TG_BOT_USERNAME
-    if iqthon.reply_to_msg_id:
+    if rickthon.reply_to_msg_id:
         await iqthon.get_reply_message()
     response = await bot.inline_query(TG_BOT, "اوامر الحساب(?: |$)(.*)")
-    await response[0].click(iqthon.chat_id)
-    await iqthon.delete()
+    await response[0].click(rickthon.chat_id)
+    await rickthon.delete()
 if Config.TG_BOT_USERNAME is not None and tgbot is not None :
     @check_owner
     @tgbot.on(events.InlineQuery)
-    async def inlineiqthon(iqthon):
-        builder = iqthon.builder
+    async def inlinerickthon(rickthon):
+        builder = rickthon.builder
         result = None
-        query = iqthon.text
+        query = rickthon.text
         await bot.get_me()
         if query.startswith("اوامر الالعاب(?: |$)(.*)") and iqthon.query.user_id == bot.uid:
             buttons = [[Button.inline("اوامر الالعاب", data="ord1pl"),]]
-            result = builder.article(title="iqthon", text=help2, buttons=buttons, link_preview=False)
+            result = builder.article(title="rickthon", text=help2, buttons=buttons, link_preview=False)
             await iqthon.answer([result] if result else None)
 
 chat = "@BotFather"
@@ -1888,46 +1888,46 @@ async def _(event):
             await event.client.forward_messages(event.chat_id, audio)
             await event.delete()
 @bot.on(admin_cmd(outgoing=True, pattern="اوامر الالعاب(?: |$)(.*)"))
-async def repoiqthon(iqthon):
-    if iqthon.fwd_from:
+async def reporickthon(rickthon):
+    if rickthon.fwd_from:
         return
     TG_BOT = Config.TG_BOT_USERNAME
     if iqthon.reply_to_msg_id:
         await iqthon.get_reply_message()
     response = await bot.inline_query(TG_BOT, "اوامر الالعاب(?: |$)(.*)")
-    await response[0].click(iqthon.chat_id)
-    await iqthon.delete()
+    await response[0].click(rickthon.chat_id)
+    await rickthon.delete()
 if Config.TG_BOT_USERNAME is not None and tgbot is not None :
     @check_owner
     @tgbot.on(events.InlineQuery)
     async def inlineiqthon(iqthon):
-        builder = iqthon.builder
+        builder = rickthon.builder
         result = None
-        query = iqthon.text
+        query = rickthon.text
         await bot.get_me()
         if query.startswith("اوامر الصيغ(?: |$)(.*)") and iqthon.query.user_id == bot.uid:
             buttons = [[Button.inline("اوامر الصيغ", data="ordsag1"),]]
-            result = builder.article(title="iqthon", text=help2, buttons=buttons, link_preview=False)
+            result = builder.article(title="rickthon", text=help2, buttons=buttons, link_preview=False)
             await iqthon.answer([result] if result else None)
-@iqthon.on(admin_cmd(pattern="م21(?: |$)(.*)"))    
+@rickthon.on(admin_cmd(pattern="م21(?: |$)(.*)"))    
 async def iq(event):
     await edit_or_reply(event, "**🚹  ⦑   بصمات تحشيش 1   ⦒  :**\n\n                                                       𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n(`.ص1`)   ⦙   ابو  عباس  لو  تاكل  خره\n(`.ص2`)   ⦙   استمر  نحن  معك\n(`.ص3`)   ⦙   افحط  بوجه\n(`.ص4`)   ⦙   اكعد  لا  اسطرك  سطره  العباس\n(`.ص5`)   ⦙   اللهم  لا  شماته\n(`.ص6`)   ⦙   امرع  دينه\n(`.ص7`)   ⦙   امشي  بربوك\n(`.ص8`)   ⦙   انت  اسكت  انت  اسكت\n(`.ص9`)   ⦙   انت  سايق  زربه\n                                                       𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n(`.ص10`)   ⦙   اوني  تشان\n(`.ص11`)   ⦙   برافو  عليك  استادي \n(`.ص12`)   ⦙   بلوك  محترم\n(`.ص13`)   ⦙   بووم  في  منتصف  الجبهة \n(`.ص14`)   ⦙   بيتش \n(`.ص15`)   ⦙   تخوني  ؟\n(`.ص16`)   ⦙   تره  متكدرلي\n(`.ص17`)   ⦙   تعبان  اوي\n(`.ص18`)   ⦙   تكذب\n(`.ص19`)   ⦙   حسبي  الله\n                                                       𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n(`.ص20`)   ⦙   حشاش \n(`.ص21`)   ⦙   حقير  \n(`.ص22`)   ⦙   خاص  \n(`.ص23`)   ⦙   خاله  ما  تنامون  \n(`.ص24`)   ⦙   خرب  شرفي  اذا  ابقى  بالعراق \n(`.ص25`)   ⦙   دكات  الوكت  الاغبر  \n(`.ص26`)   ⦙   ررردح  \n(`.ص27`)   ⦙   سلامن  عليكم  \n(`.ص28`)   ⦙   بوم منتصف جبهه   \n(`.ص29`)   ⦙   شكد  شفت  ناس  مدودة\n                                                       𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻")
-@iqthon.on(admin_cmd(pattern="م22(?: |$)(.*)"))    
+@rickthon.on(admin_cmd(pattern="م22(?: |$)(.*)"))    
 async def iq(event):
     await edit_or_reply(event, "**🚹  ⦑   بصمات تحشيش 2   ⦒  :**\n\n                                                       𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n(`.ص30`)   ⦙  شلون  ، \n(`.ص31`)   ⦙  صح  لنوم  \n(`.ص32`)   ⦙  صمت  \n(`.ص33`)   ⦙  ضحكة  مصطفى  الحجي  \n(`.ص34`)   ⦙  طماطه  \n(`.ص35`)   ⦙  طيح  الله  حضك  \n(`.ص36`)   ⦙  فاك  يوو  \n(`.ص37`)   ⦙  اني فرحان وعمامي فرحانين\n(`.ص38`)   ⦙  لا  تضل  تضرط  \n(`.ص39`)   ⦙  لا  تقتل  المتعه  يا  مسلم  \n                                                       𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n(`.ص40`)   ⦙  لا  مستحيل  \n(`.ص41`)   ⦙  لا  والله  شو  عصبي  \n(`.ص42`)   ⦙  لش  \n(`.ص43`)   ⦙  لك  اني  شعليه  \n(`.ص44`)   ⦙  ما  اشرب  \n(`.ص45`)   ⦙  مع  الاسف  \n(`.ص46`)   ⦙  مقتدى  \n(`.ص47`)   ⦙  من  رخصتكم  \n(`.ص48`)   ⦙  منو  انت  \n(`.ص49`)   ⦙  منورني  \n                                                       𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n(`.ص50`)  ⦙  نتلاكه  بالدور  الثاني \n(`.ص51`)  ⦙  نستودعكم  الله  \n(`.ص52`)  ⦙  ها  شنهي  \n(`.ص53`)  ⦙  ههاي  الافكار  حطها ب\n(`.ص54`)  ⦙  ليش شنو سببها ليش\n(`.ص55`)  ⦙  يموتون  جهالي\n(`.ص56`)  ⦙  اريد انام\n(`.ص57`)  ⦙  افتحك فتح\n(`.ص58`)  ⦙  اكل خره لدوخني\n(`.ص59`)  ⦙  السيد شنهو السيد\n                                                       𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n(`.ص60`)  ⦙  زيج2\n(`.ص61`)  ⦙  زيج لهارون\n(`.ص62`)  ⦙  زيج الناصرية\n(`.ص63`)  ⦙  راقبو اطفالكم\n(`.ص64`)  ⦙  راح اموتن\n(`.ص65`)  ⦙  ذس اس مضرطة\n(`.ص66`)  ⦙  دروح سرسح منا\n(`.ص67`)  ⦙  خويه ما دكوم بيه\n(`.ص68`)  ⦙  خلصت تمسلت ديلة كافي انجب\n(`.ص69`)  ⦙  بعدك تخاف\n                                                       𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻")
-@iqthon.on(admin_cmd(pattern="م23(?: |$)(.*)"))    
+@rickthon.on(admin_cmd(pattern="م23(?: |$)(.*)"))    
 async def iq(event):
     await edit_or_reply(event, "**🚹  ⦑   بصمات تحشيش 3   ⦒  :**\n\n                                                       𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n(`.ص70`)  ⦙  بسبوس\n(`.ص71`)  ⦙  اني بتيتة كحبة\n(`.ص72`)  ⦙  انعل ابوكم لابو اليلعب وياكم طوبة\n(`.ص73`)  ⦙  انت شدخلك\n(`.ص74`)  ⦙  انا ماشي بطلع\n(`.ص75`)  ⦙  امداك وامده الخلفتك\n(`.ص76`)  ⦙  امبيههههه\n(`.ص77`)  ⦙  هدي بيبي\n(`.ص78`)  ⦙  هاه صدك تحجي\n(`.ص79`)  ⦙  مو كتلك رجعني\n                                                       𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n(`.ص80`)  ⦙  مامرجية منك هاية\n(`.ص81`)  ⦙  ليش هيجي\n(`.ص82`)  ⦙  كـــافـي\n(`.ص83`)  ⦙  كس اخت السيد\n(`.ص84`)  ⦙  شنو كواد ولك اني هنا\n(`.ص85`)  ⦙  شجلبت\n(`.ص86`)  ⦙  شبيك وجه الدبس\n(`.ص87`)  ⦙  سييييي\n(`.ص88`)  ⦙  زيجج1\n(`.ص89`)  ⦙  يموتون جهالي\n                                                       𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n(`.ص90`)  ⦙  ياخي اسكت اسكت\n(`.ص91`)  ⦙  وينهم\n(`.ص92`)  ⦙  هيلو سامر وحود\n(`.ص93`)  ⦙  هو\n(`.ص94`)  ⦙  ههاي الافكار حطها\n                                                       𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n")
 @bot.on(admin_cmd(outgoing=True, pattern="اوامر الصيغ(?: |$)(.*)"))
-async def repoiqthon(iqthon):
+async def reporickthon(rickthon):
     if iqthon.fwd_from:
         return
     TG_BOT = Config.TG_BOT_USERNAME
     if iqthon.reply_to_msg_id:
         await iqthon.get_reply_message()
     response = await bot.inline_query(TG_BOT, "اوامر الصيغ(?: |$)(.*)")
-    await response[0].click(iqthon.chat_id)
-    await iqthon.delete()
-@iqthon.on(admin_cmd(pattern="فتح همسه(?: |$)(.*)"))    
+    await response[0].click(rickthon.chat_id)
+    await rickthon.delete()
+@rickthon.on(admin_cmd(pattern="فتح همسه(?: |$)(.*)"))    
 async def iq(event):
     await edit_or_reply(event, "**عزيزي كل عقلك ؟  **\n**وين اكو شي اسمه فتح همسة عرض العالم ماتخاف علية ادبسزز ولي يلة 🙂💔**")
