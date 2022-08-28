@@ -139,7 +139,7 @@ NO_ADMIN = "**♛ ⦙ عذرا لست ادمن هنا **"
 NO_PERM = "**♛ ⦙ ليس لدي صلاحيات ادمن كافية! **"
 
 
-@iqthon.on(admin_cmd(pattern=r"المحظورين?(.*)"))
+@rickthon.on(admin_cmd(pattern=r"المحظورين?(.*)"))
 async def gablist(event):
     gbanned_users = gban_sql.get_all_gbanned()
     GBANNED_LIST = "Current Gbanned Users\n"
@@ -154,7 +154,7 @@ async def gablist(event):
     else:
         GBANNED_LIST = "لايوجد محضورين "
     await edit_or_reply(event, GBANNED_LIST)
-@iqthon.on(admin_cmd(pattern="تشفير الملف ?(.*)"))
+@rickthon.on(admin_cmd(pattern="تشفير الملف ?(.*)"))
 async def pyZip(e):
     if e.fwd_from:
         return
@@ -187,15 +187,15 @@ async def pyZip(e):
 MUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=True)
 UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 
-@iqthon.on(admin_cmd(pattern=f"{MUTE}(?:\s|$)([\s\S]*)"))
-async def muteiqthon(event):
+@rickthon.on(admin_cmd(pattern=f"{MUTE}(?:\s|$)([\s\S]*)"))
+async def muterickthon(event):
     if event.is_private:
         replied_user = await event.client.get_entity(event.chat_id)
         if is_muted(event.chat_id, event.chat_id):
             return await event.edit(
                 "**- هـذا المسـتخـدم مڪتـوم . . سـابقـاً **"
             )
-        if event.chat_id == iqthon.uid:
+        if event.chat_id == rickthon.uid:
             return await edit_delete(event, "**- لا تستطــع كتـم نفسـك**")
         if event.chat_id == 5582470474:
             return await edit_delete(event, "** دي . . لا يمڪنني كتـم مطـور السـورس  ╰**")
@@ -222,7 +222,7 @@ async def muteiqthon(event):
         user, reason = await get_user_from_event(event)
         if not user:
             return
-        if user.id == iqthon.uid:
+        if user.id == rickthon.uid:
             return await edit_or_reply(event, "**- عــذراً .. لا استطيــع كتــم نفســي**")
         if user.id == 5582470474:
             return await edit_or_reply(event, "** دي . . لا يمڪنني كتـم مطـور السـورس  ╰**")
@@ -279,7 +279,7 @@ async def muteiqthon(event):
             )
 
 
-@iqthon.on(admin_cmd(pattern=f"{UNMUTE}(?:\s|$)([\s\S]*)"))
+@rickthon.on(admin_cmd(pattern=f"{UNMUTE}(?:\s|$)([\s\S]*)"))
 async def unmuteiqthon(event):
     if event.is_private:
         replied_user = await event.client.get_entity(event.chat_id)
@@ -334,12 +334,12 @@ async def unmuteiqthon(event):
             )
 
 
-@iqthon.iq_cmd(incoming=True)
+@rickthon.iq_cmd(incoming=True)
 async def watcher(event):
     if is_muted(event.sender_id, "كتم_مؤقت"):
         await event.delete()
 
-@iqthon.on(admin_cmd(pattern=r"المشرفين(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern=r"المشرفين(?: |$)(.*)"))
 async def _(event):
     "لإظهـار قائمـة المشرفيـن  ✪"
     mentions = "**♛ ⦙   مشرفيـن هـذه المجموعـة  ✪**: \n"
@@ -381,7 +381,7 @@ async def _(event):
     await event.client.send_message(event.chat_id, mentions, reply_to=reply_message)
     await event.delete()
 
-@iqthon.on(admin_cmd(pattern=r"البوتات?(.*)"))
+@rickthon.on(admin_cmd(pattern=r"البوتات?(.*)"))
 async def _(event):
     mentions = "**♛ ⦙  البـوتات في هذه الـمجموعة 🝰 : ** \n"
     input_str = event.pattern_match.group(1)
@@ -408,7 +408,7 @@ async def _(event):
     await edit_or_reply(event, mentions)
 
 
-@iqthon.on(admin_cmd(pattern=r"الأعضاء(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern=r"الأعضاء(?: |$)(.*)"))
 async def get_users(show):
     mentions = "**مستخدمين هذه المجموعة**: \n"
     await reply_id(show)
@@ -440,7 +440,7 @@ async def get_users(show):
         mentions += " " + str(e) + "\n"
     await edit_or_reply(catevent, mentions)
 
-@iqthon.on(admin_cmd(pattern=r"معلومات(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern=r"معلومات(?: |$)(.*)"))
 async def info(event):
     catevent = await edit_or_reply(event, "**♛ ⦙  يتـمّ جلـب معلومـات الدردشـة، إنتظـر ⅏**")
     chat = await get_chatinfo(event, catevent)
@@ -756,7 +756,7 @@ async def fetch_info(chat, event):  # sourcery no-metrics
         caption += f"♛ ⦙  الوصـف  : \n<code>{description}</code>\n"
     return caption
 
-@iqthon.on(admin_cmd(pattern=f"{addition} ?(.*)"))
+@rickthon.on(admin_cmd(pattern=f"{addition} ?(.*)"))
 async def iq(event):
     sender = await event.get_sender()
     me = await event.client.get_me()
@@ -764,7 +764,7 @@ async def iq(event):
         kno = await event.reply("**♛ ⦙   تتـم العـملية انتظـࢪ قليلا ..**")
     else:
         kno = await event.edit("**♛ ⦙   تتـم العـملية انتظـࢪ قليلا ..**.")
-    IQTHON = await get_chatinfo(event)
+    RICKTHON = await get_chatinfo(event)
     chat = await event.get_chat()
     if event.is_private:
         return await kno.edit("**♛ ⦙   لا يمكننـي اضافـة المـستخدمين هـنا**")
@@ -773,7 +773,7 @@ async def iq(event):
     error = "None"
 
     await kno.edit("**♛ ⦙   حـالة الأضافة:**\n\n**♛ ⦙   تتـم جـمع معـلومات الـمستخدمين 🔄 ...⏣**")
-    async for user in event.client.iter_participants(IQTHON.full_chat.id):
+    async for user in event.client.iter_participants(RICKTHON.full_chat.id):
         try:
             if error.startswith("Too"):
                 return (
@@ -791,7 +791,7 @@ async def iq(event):
             f = f + 1
     return await kno.edit(f"**♛ ⦙   اڪتـملت الأضافـة ✅** : \n\n♛ ⦙   تـم بنجـاح اضافـة `{s}` \n♛ ⦙   خـطأ بأضافـة `{f}`")
     
-@iqthon.on(admin_cmd(pattern=f"{TFLASH}(.*)"))
+@rickthon.on(admin_cmd(pattern=f"{TFLASH}(.*)"))
 async def _(event):
     result = await event.client(functions.channels.GetParticipantRequest(event.chat_id, event.client.uid))
     if not result:
@@ -810,7 +810,7 @@ async def _(event):
                 await sleep(0.2)  
         except Exception as e:
             LOGS.info(str(e))
-    await iqthonevent.edit(f"**♛ ⦙   تم بنجاح تفليش مجموعتك من {total} الاعضاء 🚮**")
+    await iqthonevent.edit(f"** 𖤍  ⦙   تم بنجاح تفليش مجموعتك من {total} الاعضاء 🚮**")
     
 async def ban_user(chat_id, i, rights):
     try:
@@ -820,12 +820,12 @@ async def ban_user(chat_id, i, rights):
         return False, str(exc)
 
 
-@iqthon.on(admin_cmd(pattern=f"{LEFT}(.*)"))
+@rickthon.on(admin_cmd(pattern=f"{LEFT}(.*)"))
 async def kickme(leave):
     await leave.edit("**♛ ⦙   جـاري مـغادرة المجـموعة مـع السـلامة  🚶‍♂️  ..**")
     await leave.client.kick_participant(leave.chat_id, "me")
 
-@iqthon.on(admin_cmd(pattern=f"{REMOVEBAN}(.*)"))
+@rickthon.on(admin_cmd(pattern=f"{REMOVEBAN}(.*)"))
 async def _(event):
     catevent = await edit_or_reply(event, "**♛ ⦙    إلغاء حظر جميع الحسابات المحظورة في هذه المجموعة 🆘**")
     succ = 0
@@ -856,7 +856,7 @@ async def _(event):
                 pass
     await catevent.edit(f"**♛ ⦙   تـم مسـح المحـظورين مـن أصـل 🆘 :**{succ}/{total} \n اسـم المجـموعـة 📄 : {chat.title}")
 
-@iqthon.on(admin_cmd(pattern=f"المحذوفين ?([\s\S]*)"))
+@rickthon.on(admin_cmd(pattern=f"المحذوفين ?([\s\S]*)"))
 async def rm_deletedacc(show):
     con = show.pattern_match.group(1).lower()
     del_u = 0
@@ -904,7 +904,7 @@ async def rm_deletedacc(show):
             \n*♛ ⦙  المحادثـة ⌂** {show.chat.title}(`{show.chat_id}`)",
         )
 
-@iqthon.on(admin_cmd(pattern=r"احصائيات الاعضاء ?([\s\S]*)"))
+@rickthon.on(admin_cmd(pattern=r"احصائيات الاعضاء ?([\s\S]*)"))
 async def _(event):  # sourcery no-metrics
     input_str = event.pattern_match.group(1)
     if input_str:
@@ -1036,7 +1036,7 @@ async def _(event):  # sourcery no-metrics
 
 def weird_division(n, d):
     return n / d if d else 0
-@iqthon.iq_cmd(incoming=True)
+@rickthon.iq_cmd(incoming=True)
 async def _(event):
     if event.is_private:
         return
@@ -1049,7 +1049,7 @@ async def _(event):
             await event.client.send_file(int(chat), event.media, caption=event.text)
         elif not event.media:
             await bot.send_message(int(chat), event.message)
-@iqthon.on(admin_cmd(pattern="تقيد(?:\s|$)([\s\S]*)",))
+@rickthon.on(admin_cmd(pattern="تقيد(?:\s|$)([\s\S]*)",))
 async def endmute(event):
     user, reason = await get_user_from_event(event)
     if not user:
@@ -1065,14 +1065,14 @@ async def endmute(event):
         await catevent.edit(f"تم تقيد الشخص : [{user.first_name}](tg://user?id={user.id}) ")
     if BOTLOG:
         await event.client.send_message(            BOTLOG_CHATID,            "#التقيد\n"            f"الشخص : [{user.first_name}](tg://user?id={user.id})\n"            f"المحادثه : {get_display_name(await event.get_chat())}(`{event.chat_id}`)\n",        )
-@iqthon.iq_cmd(pattern="اكتم(?:\s|$)([\s\S]*)",)
+@rickthon.iq_cmd(pattern="اكتم(?:\s|$)([\s\S]*)",)
 async def tmuter(event):  # sourcery no-metrics
     catevent = await edit_or_reply(event, "**♛ ⦙ جاري كتمه مؤقتا ....**")
     user, reason = await get_user_from_event(event, catevent)
     if not user:
         return
     if not reason:
-        return await catevent.edit("**♛ ⦙ رجاء طريقه كتابه الامر خاطئه قم بروئيه قناه شروحات الاوامر : @l3ll3**")
+        return await catevent.edit("**♛ ⦙ رجاء طريقه كتابه الامر خاطئه قم بروئيه قناه شروحات الاوامر @rickthons**")
     reason = reason.split(" ", 1)
     hmm = len(reason)
     cattime = reason[0].strip()
@@ -1123,7 +1123,7 @@ async def tmuter(event):  # sourcery no-metrics
         return await catevent.edit(f"`{e}`")
 
 
-@iqthon.on(admin_cmd(pattern=r"احظر(?:\s|$)([\s\S]*)",))
+@rickthon.on(admin_cmd(pattern=r"احظر(?:\s|$)([\s\S]*)",))
 async def tban(event):  # sourcery no-metrics
     catevent = await edit_or_reply(event, "**♛ ⦙ جاري حظر الشخص مؤقتا .... **")
     user, reason = await get_user_from_event(event, catevent)
@@ -1192,7 +1192,7 @@ async def tban(event):  # sourcery no-metrics
                 f"**الباند : **`{cattime}`",
             )
 
-@iqthon.on(admin_cmd(pattern=r"حظر عام(?:\s|$)([\s\S]*)",))
+@rickthon.on(admin_cmd(pattern=r"حظر عام(?:\s|$)([\s\S]*)",))
 async def catgban(event):  # sourcery no-metrics
     cate = await edit_or_reply(event, "**♛ ⦙ جاري حظر الشخص عام .... **")
     start = datetime.now()
@@ -1265,7 +1265,7 @@ async def catgban(event):  # sourcery no-metrics
             pass
 
 
-@iqthon.on(admin_cmd(pattern=r"الغاء حظر العام(?:\s|$)([\s\S]*)",))
+@rickthon.on(admin_cmd(pattern=r"الغاء حظر العام(?:\s|$)([\s\S]*)",))
 async def catgban(event):
     cate = await edit_or_reply(event, "**♛ ⦙ جاري الغاء حظر العام .... **")
     start = datetime.now()
@@ -1330,7 +1330,7 @@ async def catgban(event):
                 \nالغاء حظر العام من : {count} كروب\
                 \n**خلال مده : **`{cattaken} ثانيه`",
             )
-@iqthon.on(admin_cmd(pattern=r"المحظورين عام$",))
+@rickthon.on(admin_cmd(pattern=r"المحظورين عام$",))
 async def gablist(event):
     gbanned_users = gban_sql.get_all_gbanned()
     GBANNED_LIST = "Current Gbanned Users\n"
@@ -1346,7 +1346,7 @@ async def gablist(event):
         GBANNED_LIST = "لايوجد محضورين عام"
     await edit_or_reply(event, GBANNED_LIST)
 
-@iqthon.on(admin_cmd(pattern=r"معلومات تخزين المجموعه(?:\s|$)([\s\S]*)"))
+@rickthon.on(admin_cmd(pattern=r"معلومات تخزين المجموعه(?:\s|$)([\s\S]*)"))
 async def _(event):  # sourcery no-metrics
     reply = await event.get_reply_message()
     input_str = event.pattern_match.group(1)
@@ -1498,7 +1498,7 @@ async def monito_p_m_s(event):
             except Exception as e:
                 LOGS.warn(str(e))
 
-@iqthon.iq_cmd(incoming=True, func=lambda e: e.mentioned, edited=False, forword=None)
+@rickthon.iq_cmd(incoming=True, func=lambda e: e.mentioned, edited=False, forword=None)
 async def log_tagged_messages(event):
     hmm = await event.get_chat()
     from .sql import AFK_
@@ -1535,7 +1535,7 @@ async def log_tagged_messages(event):
             parse_mode="html",
             link_preview=False,
         )
-@iqthon.on(admin_cmd(pattern=r"تخزين الخاص (تشغيل|ايقاف)$"))
+@rickthon.on(admin_cmd(pattern=r"تخزين الخاص (تشغيل|ايقاف)$"))
 async def set_pmlog(event):
     "iqthon"
     input_str = event.pattern_match.group(1)
@@ -1559,7 +1559,7 @@ async def set_pmlog(event):
     else:
         await event.edit("**♛ ⦙   تـخزين رسـائل الخـاص بالفـعل معـطلة ✅**")
 
-@iqthon.on(admin_cmd(pattern=r"تخزين الكروبات (تشغيل|ايقاف)$"))
+@rickthon.on(admin_cmd(pattern=r"تخزين الكروبات (تشغيل|ايقاف)$"))
 async def set_grplog(event):
     "iqthon"
     input_str = event.pattern_match.group(1)
@@ -1583,7 +1583,7 @@ async def set_grplog(event):
     else:
         await event.edit("**♛ ⦙   تـخزين رسـائل الكروبات بالفـعل معـطلة ✅**")    
     
-@iqthon.on(admin_cmd(pattern=f"{LINKK} ?(.*)"))
+@rickthon.on(admin_cmd(pattern=f"{LINKK} ?(.*)"))
 async def iq(SLQ):
     await SLQ.edit("جاري جلب الرابط")
     try:
@@ -1594,7 +1594,7 @@ async def iq(SLQ):
         return await bot.send_message(f"**عزيزي {ALIVE_NAME} لست مشرف في هذا المجموعه **")
     await SLQ.edit(f"**رابط المجموعه :**: {l5.link}")   
     
-@iqthon.on(admin_cmd(pattern="عدد رسائلي ?(.*)"))
+@rickthon.on(admin_cmd(pattern="عدد رسائلي ?(.*)"))
 async def iq(SLQ):
     k = await SLQ.get_reply_message()
     if k:
@@ -1610,7 +1610,7 @@ async def iq(SLQ):
         f"*مجموع `{a.total}` الرسائل هنا**"
     )   
 
-@iqthon.on(admin_cmd(pattern="تغير صورة( المجموعة| -d)$"))
+@rickthon.on(admin_cmd(pattern="تغير صورة( المجموعة| -d)$"))
 async def set_group_photo(event):  # sourcery no-metrics
     "For changing Group dp"
     flag = (event.pattern_match.group(1)).strip()
@@ -1709,7 +1709,7 @@ def user_full_name(user):
     full_name = " ".join(names)
     return full_name
 
-@iqthon.on(admin_cmd(pattern=f"{ADMINRAISE}(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern=f"{ADMINRAISE}(?: |$)(.*)"))
 async def promote(event):
     new_rights = ChatAdminRights(
         add_admins=False,
@@ -1738,7 +1738,7 @@ async def promote(event):
             \n𖤍 ⦙  المحادثة  📜 : {event.chat.title} (`{event.chat_id}`)",
         )
 
-@iqthon.on(admin_cmd(pattern=f"{UNADMINRAISE}(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern=f"{UNADMINRAISE}(?: |$)(.*)"))
 async def demote(event):
     "لتنزيل من رتبة الادمن"
     user, _ = await get_user_from_event(event)
@@ -1768,7 +1768,7 @@ async def demote(event):
         )
 
 
-@iqthon.on(admin_cmd(pattern="تثبيت(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern="تثبيت(?: |$)(.*)"))
 async def pin(event):
     "𖤍 ⦙   تثبيت  📌"
     to_pin = event.reply_to_msg_id
@@ -1793,7 +1793,7 @@ async def pin(event):
         )
 
 
-@iqthon.on(admin_cmd(pattern="الغاء التثبيت(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern="الغاء التثبيت(?: |$)(.*)"))
 async def pin(event):
     "𖤍 ⦙  لإلغاء تثبيت رسائل من المجموعة  ⚠️"
     to_unpin = event.reply_to_msg_id
@@ -1826,7 +1826,7 @@ async def pin(event):
                 \n𖤍 ⦙  الدردشـه  🔖 : {event.chat.title}(`{event.chat_id}`)",
         )
 
-@iqthon.on(admin_cmd(pattern="جلب الاحداث(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern="جلب الاحداث(?: |$)(.*)"))
 async def _iundlt(event):  # sourcery no-metrics
     "𖤍 ⦙  لأخذ نظرة عن آخر الرسائل المحذوفة في المجموعة  💠"
     catevent = await edit_or_reply(event, "**♛ ⦙  يتم البحث عن اخر الاحداث انتظر  🔍**")
@@ -1871,7 +1871,7 @@ async def _iundlt(event):  # sourcery no-metrics
                     file=msg.old.media,
                 )
 moment_worker = []
-@iqthon.on(admin_cmd(outgoing=True, pattern="all?(.*)"))
+@rickthon.on(admin_cmd(outgoing=True, pattern="all?(.*)"))
 async def mentionall(event):
   global moment_worker
   if event.is_private:
@@ -1924,7 +1924,7 @@ async def mentionall(event):
         usrnum = 0
         usrtxt = ""
 
-@iqthon.on(admin_cmd(outgoing=True, pattern="ايقاف التاك?(.*)"))
+@rickthon.on(admin_cmd(outgoing=True, pattern="ايقاف التاك?(.*)"))
 async def cancel_mentionall(event):
   if not event.chat_id in moment_worker:
     return await event.respond('**لا يوجد عمليه تاك الان**')
@@ -1934,7 +1934,7 @@ async def cancel_mentionall(event):
     except:
       pass
     return await event.respond('**تم ايقاف التاك **')
-@iqthon.on(admin_cmd(pattern=f"{BANDD}(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern=f"{BANDD}(?: |$)(.*)"))
 async def _ban_person(event):
     "𖤍 ⦙   لحـظر شخص في كـروب مـعين"
     user, reason = await get_user_from_event(event)
@@ -1985,7 +1985,7 @@ async def _ban_person(event):
                 \nالـدردشـة: {event.chat.title}\
                 \n ايـدي الكـروب: (`{event.chat_id}`)",
             )
-@iqthon.on(admin_cmd(pattern=r"zip(?:\s|$)([\s\S]*)"))
+@rickthon.on(admin_cmd(pattern=r"zip(?:\s|$)([\s\S]*)"))
 async def zip_file(event):
     input_str = event.pattern_match.group(1)
     if not input_str:
@@ -2010,7 +2010,7 @@ async def zip_file(event):
     end = datetime.now()
     ms = (end - start).seconds
     await mone.edit(f"Zipped the path `{input_str}` into `{filepath+'.zip'}` in __{ms}__ Seconds")
-@iqthon.on(admin_cmd(pattern=r"unzip(?:\s|$)([\s\S]*)"))
+@rickthon.on(admin_cmd(pattern=r"unzip(?:\s|$)([\s\S]*)"))
 async def zip_file(event):  # sourcery no-metrics
     input_str = event.pattern_match.group(1)
     if input_str:
@@ -2077,7 +2077,7 @@ async def zip_file(event):  # sourcery no-metrics
         os.remove(filename)
     else:
         await edit_delete(mone, "`Either reply to the zipfile or provide path of zip file along with command`",)
-@iqthon.on(admin_cmd(pattern="معرفه(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern="معرفه(?: |$)(.*)"))
 async def useridgetter(target):
     message = await target.get_reply_message()
     if message:
@@ -2094,7 +2094,7 @@ async def useridgetter(target):
             else:
                 name = "*" + message.forward.sender.first_name + "*"
         await target.edit(f"**المعرف :** {name}")
-@iqthon.on(admin_cmd(pattern="دعوه للمكالمه(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern="دعوه للمكالمه(?: |$)(.*)"))
 async def _(e):
     ok = await eor(e, "`Inviting Members to Voice Chat...`")
     users = []
@@ -2110,14 +2110,14 @@ async def _(e):
         except BaseException:
             pass
     await ok.edit(f"`Invited {z} users`")
-@iqthon.on(admin_cmd(pattern="بدء مكالمه(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern="بدء مكالمه(?: |$)(.*)"))
 async def _(e):
     try:
         await e.client(startvc(e.chat_id))
         await eor(e, "`Voice Chat Started...`")
     except Exception as ex:
         await eor(e, f"`{str(ex)}`")
-@iqthon.on(admin_cmd(pattern=f"{UNBANDD}(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern=f"{UNBANDD}(?: |$)(.*)"))
 async def nothanos(event):
     "𖤍 ⦙   لألـغاء الـحظر لـشخص في كـروب مـعين"
     user, _ = await get_user_from_event(event)
@@ -2141,14 +2141,14 @@ async def nothanos(event):
     except Exception as e:
         await catevent.edit(f"**خـطأ :**\n`{e}`")
 
-@iqthon.iq_cmd(incoming=True)
+@rickthon.iq_cmd(incoming=True)
 async def watcher(event):
     if is_muted(event.sender_id, event.chat_id):
         try:
             await event.delete()
         except Exception as e:
             LOGS.info(str(e))
-@iqthon.on(admin_cmd(pattern="صنع (مجموعه|قناه) (.*)"))
+@rickthon.on(admin_cmd(pattern="صنع (مجموعه|قناه) (.*)"))
 async def iq(event):
     type_of_group = event.pattern_match.group(1)
     group_name = event.pattern_match.group(2)
@@ -2181,7 +2181,7 @@ async def iq(event):
             await edit_delete(event, f"**♛ ⦙   حدث خطأ ما  🆘 :**\n{str(answer[1])}")
     else:
         await edit_delete(event, "**♛ ⦙  الاوامر` **صنع مجموعه لمعرفة كيفية استخدامي.`")
-@iqthon.on(admin_cmd(pattern="تلقائي ?(.*)"))
+@rickthon.on(admin_cmd(pattern="تلقائي ?(.*)"))
 async def _(event):
     if (event.is_private or event.is_group):
         return await edit_or_reply(event, "امر التلقائي يستخدم فقط للقنوات")
@@ -2198,7 +2198,7 @@ async def _(event):
     await edit_or_reply(event, f"**📍 تم بدء امر التلقائي لقناه :** `{hel_}`")
 
 
-@iqthon.on(admin_cmd(pattern="الغاء_التلقائي ?(.*)"))
+@rickthon.on(admin_cmd(pattern="الغاء_التلقائي ?(.*)"))
 async def _(event):
     if (event.is_private or event.is_group):
         return await edit_or_reply(event, "امر التلقائي يستخدم فقط للقنوات.")
@@ -2213,7 +2213,7 @@ async def _(event):
         return await edit_or_reply(event, "هذا القناه لم يتم وضع تلقائي فيها.")
     remove_post(iq, event.chat_id)
     await edit_or_reply(event, f"**📍 تم ايقاف التلقائي لقناه : ** `{hel_}`")
-@iqthon.on(admin_cmd(pattern=r"جلب الصور(?:\s|$)([\s\S]*)"))
+@rickthon.on(admin_cmd(pattern=r"جلب الصور(?:\s|$)([\s\S]*)"))
 async def potocmd(event):
     uid = "".join(event.raw_text.split(maxsplit=1)[1:])
     user = await event.get_reply_message()
@@ -2263,7 +2263,7 @@ async def potocmd(event):
         send_photos = await event.client.download_media(photos[uid - 1])
         await event.client.send_file(event.chat_id, send_photos)
     await event.delete()
-@iqthon.on(admin_cmd(pattern="تفعيل ([\s\S]*)"))    
+@rickthon.on(admin_cmd(pattern="تفعيل ([\s\S]*)"))    
 async def _(event):  
     input_str = event.pattern_match.group(1)
     peer_id = event.chat_id
@@ -2320,7 +2320,7 @@ async def _(event):
             await edit_or_reply(event, f"**♛ ⦙ تفعيل حمايه المجموعه تم بنجاح**")
         except BaseException as e:
             await edit_delete(event,f"**♛ ⦙ هناك خطا:** `{e}`", time=5)
-@iqthon.on(admin_cmd(pattern="تعطيل ([\s\S]*)"))    
+@rickthon.on(admin_cmd(pattern="تعطيل ([\s\S]*)"))    
 async def _(event):  
     input_str = event.pattern_match.group(1)
     peer_id = event.chat_id
@@ -2377,7 +2377,7 @@ async def _(event):
             await edit_or_reply(event, "**♛ ⦙ تعطيل حمايه المجموعه تم بنجاح**")
         except BaseException as e:
             return await edit_delete(event, f"**♛ ⦙ هناك خطا:** `{e}`", time=5)
-@iqthon.on(admin_cmd(pattern="صلاحيات المجموعه$"))    
+@rickthon.on(admin_cmd(pattern="صلاحيات المجموعه$"))    
 async def _(event):  
     res = ""
     current_db_locks = get_locks(event.chat_id)
@@ -2422,7 +2422,7 @@ async def _(event):
         res += f"**♛ ⦙ اضافه الاعضاء :** `{uadduser}`\n"
         res += f"**♛ ⦙ تغير معلومات :** `{uchangeinfo}`\n"
     await edit_or_reply(event, res)
-@iqthon.on(events.ChatAction())
+@rickthon.on(events.ChatAction())
 async def _(event):
     if not event.is_private:
         chat = await event.get_cihat()
