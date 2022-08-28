@@ -57,7 +57,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon import Button, custom, events, functions
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 from validators.url import url
-from Arab import iqthon
+from iqqhtani import rickthon
 from ..Config import Config
 from ..core.logger import logging
 from youtubesearchpython import SearchVideos
@@ -87,9 +87,9 @@ telegraph = Telegraph()
 r = telegraph.create_account(short_name=Config.TELEGRAPH_SHORT_NAME)
 auth_url = r["auth_url"]
 
-FONT_FILE_TO_USE = "iqthon/helpers/styles/impact.ttf"
+FONT_FILE_TO_USE = "rickthon/helpers/styles/impact.ttf"
 
-#Telethon IQ
+#rickthon IQ
 async def get_tz(con):
     if "(Uk)" in con:
         con = con.replace("Uk", "UK")
@@ -301,14 +301,14 @@ async def delete_messages(event, chat, from_message):
         msgs.append(i.id)
     await event.client.delete_messages(chat, msgs)
     await event.client.send_read_acknowledge(chat)
-@iqthon.on(admin_cmd(pattern="جلب لقطات(?:\s|$)([\s\S]*)"))    
+@rickthon.on(admin_cmd(pattern="جلب لقطات(?:\s|$)([\s\S]*)"))    
 async def collage(event):
     catinput = event.pattern_match.group(1)
     reply = await event.get_reply_message()
     catid = await reply_id(event)
     event = await edit_or_reply(event, "**♛ ⦙ جاري الالتقاط قـد يستغـرق هـذا الأمـر عـدة دقائـق انتضر ...**")
     if not (reply and (reply.media)):
-        await event.edit("**♛ ⦙ تنسيـق الوسائـط غيـر مدعـوم ⚠️**")
+        await event.edit("** ⦙ تنسيـق الوسائـط غيـر مدعـوم ⚠️**")
         return
     if not os.path.isdir("./temp/"):
         os.mkdir("./temp/")
@@ -351,7 +351,7 @@ async def collage(event):
     for files in (catsticker, collagefile, endfile):
         if files and os.path.exists(files):
             os.remove(files)
-@iqthon.on(admin_cmd(pattern=r"رابط تطبيق ([\s\S]*)"))
+@rickthon.on(admin_cmd(pattern=r"رابط تطبيق ([\s\S]*)"))
 async def app_search(event):
     app_name = event.pattern_match.group(1)
     event = await edit_or_reply(event, "♛ ⦙ جـاري البحـث ↯")
@@ -419,7 +419,7 @@ async def app_search(event):
     except Exception as err:
         await event.edit("♛ ⦙ حـدث استثنـاء ⌭ :" + str(err))
 
-@iqthon.on(events.NewMessage(outgoing=False, pattern=r'العمر ?(.*)'))
+@rickthon.on(events.NewMessage(outgoing=False, pattern=r'العمر ?(.*)'))
 async def RequestAge(event):
     
     BirthDay = (event.message.message).replace('Age', '').strip()
@@ -428,7 +428,7 @@ async def RequestAge(event):
     DataToJson = json.loads(data.text)
     order = await event.reply(f'{DataToJson["ok"]["abs"]}')
 
-@iqthon.on(admin_cmd(pattern="الوقت(?:\s|$)([\s\S]*)(?<![0-9])(?: |$)([0-9]+)?"))
+@rickthon.on(admin_cmd(pattern="الوقت(?:\s|$)([\s\S]*)(?<![0-9])(?: |$)([0-9]+)?"))
 async def time_func(tdata):
     con = tdata.pattern_match.group(1).title()
     tz_num = tdata.pattern_match.group(2)
@@ -473,7 +473,7 @@ async def time_func(tdata):
         await edit_or_reply(tdata, f"♛ ⦙  ألوقـت 🕛 :  {dtnow1} علـى {dtnow2}  فـي {c_name} ({time_zone} الـوقت العـالمي 🌍 .")
     if Config.COUNTRY:
         await edit_or_reply(tdata, f"♛ ⦙  ألوقـت 🕛  : {dtnow1} على {dtnow2}  هنـا فـي 🏷️ :  {Config.COUNTRY}" f"({time_zone} الـوقت العـالمي 🌍 .")
-@iqthon.on(admin_cmd(pattern="وقتي(?:\s|$)([\s\S]*)"))
+@rickthon.on(admin_cmd(pattern="وقتي(?:\s|$)([\s\S]*)"))
 async def _(event):
     reply_msg_id = await reply_id(event)
     current_time = dt.now().strftime(f"⌁⌁⌁⌁⌁⌁⌁⌁⌁⌁⌁⌁⌁\n ⌁ Arab time \n⌁⌁⌁⌁⌁⌁⌁⌁⌁⌁⌁⌁⌁\n   {os.path.basename(Config.TZ)}\n  Time: %I:%M:%S \n  Date: %d.%m.%y \n⌁⌁⌁⌁⌁⌁⌁⌁⌁⌁⌁⌁⌁")
@@ -495,7 +495,7 @@ async def _(event):
     )
     os.remove(required_file_name)
     await event.delete()
-@iqthon.on(admin_cmd(pattern=r"الاذان(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern=r"الاذان(?: |$)(.*)"))
 async def get_adzan(adzan):
     LOKASI = adzan.pattern_match.group(1)
     url = f"https://api.pray.zone/v2/times/today.json?city={LOKASI}"
@@ -522,7 +522,7 @@ async def get_adzan(adzan):
             \n<b>منتـصف الليل 🕛 : </b><i>{result['results']['datetime'][0]['times']['Midnight']}</i>\
     "
     await edit_or_reply(adzan, iqthonresult, "html")
-@iqthon.on(admin_cmd(pattern=r"كورونا(?:\s|$)([\s\S]*)"))
+@rickthon.on(admin_cmd(pattern=r"كورونا(?:\s|$)([\s\S]*)"))
 async def corona(event):
     input_str = event.pattern_match.group(1)
     country = (input_str).title() if input_str else "العالم"
@@ -567,7 +567,7 @@ async def corona(event):
             await edit_delete(catevent, "**♛ ⦙  معلومـات فـايروس كـورونا. 💉  \n  فـي بـلد  - {} غـير مـوجودة ❌**".format(country),
                 5,
             )
-@iqthon.on(admin_cmd(pattern=r"بحث(320)?(?:\s|$)([\s\S]*)"))
+@rickthon.on(admin_cmd(pattern=r"بحث(320)?(?:\s|$)([\s\S]*)"))
 async def _(event):
     "To search songs"
     reply_to_id = await reply_id(event)
@@ -642,7 +642,7 @@ async def delete_messages(event, chat, from_message):
     await event.client.send_read_acknowledge(chat)
 
 
-@iqthon.on(admin_cmd(pattern=r"فيديو(?:\s|$)([\s\S]*)"))
+@rickthon.on(admin_cmd(pattern=r"فيديو(?:\s|$)([\s\S]*)"))
 async def _(event):
     reply_to_id = await reply_id(event)
     reply = await event.get_reply_message()
@@ -705,7 +705,7 @@ async def _(event):
     for files in (catthumb, vsong_file):
         if files and os.path.exists(files):
             os.remove(files)
-@iqthon.on(admin_cmd(pattern=r"معلومات الاغنيه(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern=r"معلومات الاغنيه(?: |$)(.*)"))
 async def shazamcmd(event):
     reply = await event.get_reply_message()
     mediatype = media_type(reply)
@@ -739,7 +739,7 @@ async def shazamcmd(event):
         event.chat_id, image, caption=f"**♛ ⦙  الأغنية 🎧 :** `{song}`", reply_to=reply
     )
     await catevent.delete()
-@iqthon.on(admin_cmd(pattern=r"كوكل بحث ([\s\S]*)"))
+@rickthon.on(admin_cmd(pattern=r"كوكل بحث ([\s\S]*)"))
 async def gsearch(q_event):
     "Google search command."
     catevent = await edit_or_reply(q_event, "**♛ ⦙ جـاري البحـث ↯**")
@@ -800,7 +800,7 @@ async def gsearch(q_event):
             BOTLOG_CHATID,
             "**♛ ⦙ إستعـلام بحـث جـوجـل 🝰 **" + match + "**تم تنفيـذه بنجـاح ✓**",
         )
-@iqthon.on(admin_cmd(pattern=r"البحث العام(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern=r"البحث العام(?: |$)(.*)"))
 async def _(event):
     start = datetime.now()
     OUTPUT_STR = "**♛ ⦙ قم بالـرد على صـورة لإجـراء البحـث العڪـسي في گـوگـل ✦**"
@@ -860,7 +860,7 @@ async def _(event):
     else:
         catevent = event
     await edit_or_reply(catevent, OUTPUT_STR, parse_mode="HTML", link_preview=False)
-@iqthon.on(admin_cmd(pattern=r"البحث اونلاين(?:\s|$)([\s\S]*)"))
+@rickthon.on(admin_cmd(pattern=r"البحث اونلاين(?:\s|$)([\s\S]*)"))
 async def google_search(event):
     input_str = event.pattern_match.group(1)
     reply_to_id = await reply_id(event)
@@ -878,7 +878,7 @@ async def google_search(event):
     results = await event.client.inline_query("@StickerizerBot", query)
     await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
     await event.delete()
-@iqthon.on(admin_cmd(pattern="تخزين الصوت(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern="تخزين الصوت(?: |$)(.*)"))
 async def iq(event):
     ureply = await event.get_reply_message()
     if not (ureply and ("audio" in ureply.document.mime_type)):
@@ -889,7 +889,7 @@ async def iq(event):
     await event.edit("**جارٍ التنزيل ... الملفات الكبيرة تستغرق وقتًا ..**")
     await event.client.download_media(ureply, d)
     await event.edit("**تم .. الآن قم بالرد على الفيديو او المتحركه الذي تريد إضافة هذا الصوت فيه بالأمر :** `.اضف الصوت`")
-@iqthon.on(admin_cmd(pattern="اضف الصوت(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern="اضف الصوت(?: |$)(.*)"))
 async def iq(event):
     ureply = await event.get_reply_message()
     if not (ureply and ("video" in ureply.document.mime_type)):
@@ -918,7 +918,7 @@ async def iq(event):
     os.remove(ultt)
     await xx.delete()
 
-@iqthon.on(admin_cmd(pattern="تحويل صوره(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern="تحويل صوره(?: |$)(.*)"))
 async def _(event):
     reply_to_id = await reply_id(event)
     reply = await event.get_reply_message()
@@ -936,7 +936,7 @@ async def _(event):
         event.chat_id, meme_file, reply_to=reply_to_id, force_document=False
     )
     await output[0].delete()
-@iqthon.on(admin_cmd(pattern="تحويل ملصق(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern="تحويل ملصق(?: |$)(.*)"))
 async def _(event):
     reply_to_id = await reply_id(event)
     reply = await event.get_reply_message()
@@ -954,7 +954,7 @@ async def _(event):
         event.chat_id, meme_file, reply_to=reply_to_id, force_document=False
     )
     await output[0].delete()
-@iqthon.on(admin_cmd(pattern="تحويل (صوت|بصمه)(?: |$)(.*)"))
+@rickthon.on(admin_cmd(pattern="تحويل (صوت|بصمه)(?: |$)(.*)"))
 async def _(event):
     if not event.reply_to_msg_id:
         await edit_or_reply(event, "**♛ ⦙  يـجب الـرد على اي مـلف اولا ⚠️**")
@@ -1052,7 +1052,7 @@ async def _(event):
             )
             os.remove(new_required_file_name)
             await event.delete()
-@iqthon.on(admin_cmd(pattern="تحويل متحركة ?([0-9.]+)?$"))
+@rickthon.on(admin_cmd(pattern="تحويل متحركة ?([0-9.]+)?$"))
 async def _(event):
     reply = await event.get_reply_message()
     mediatype = media_type(event)
@@ -1078,7 +1078,7 @@ async def _(event):
     for i in [inputfile, outputfile]:
         if os.path.exists(i):
             os.remove(i)
-@iqthon.on(admin_cmd(pattern="تحويل فديو دائري(?: |$)((-)?(s)?)$"))
+@rickthon.on(admin_cmd(pattern="تحويل فديو دائري(?: |$)((-)?(s)?)$"))
 async def pic_gifcmd(event):  # sourcery no-metrics
     args = event.pattern_match.group(1)
     reply = await event.get_reply_message()
@@ -1158,7 +1158,7 @@ async def pic_gifcmd(event):  # sourcery no-metrics
     for i in [final, "Output.gif", meme_file, PATH, final]:
         if os.path.exists(i):
             os.remove(i)
-@iqthon.on(admin_cmd(pattern="تحويل ملصق دائري ?((-)?s)?$"))
+@rickthon.on(admin_cmd(pattern="تحويل ملصق دائري ?((-)?s)?$"))
 async def video_catfile(event):  # sourcery no-metrics
     reply = await event.get_reply_message()
     args = event.pattern_match.group(1)
