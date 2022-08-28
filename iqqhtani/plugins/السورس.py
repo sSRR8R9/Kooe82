@@ -34,7 +34,7 @@ from telethon.events import CallbackQuery, InlineQuery
 from telethon.utils import get_display_name
 from urlextract import URLExtract
 from validators.url import url
-from iqqhtani import StartTime, rickthon, catversion
+from ..core.session import rickthon
 from ..Config import Config
 from ..core.logger import logging
 from ..core.managers import edit_delete, edit_or_reply
