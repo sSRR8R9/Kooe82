@@ -45,7 +45,7 @@ from telethon.tl.functions.messages import SaveDraftRequest
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from ..helpers.progress import humanbytes as hb
-from Arab.utils import admin_cmd, sudo_cmd, eor
+from iqqhtani.utils import admin_cmd, sudo_cmd, eor
 from telethon.utils import get_display_name
 from telethon.tl.functions.account import UpdateUsernameRequest
 from telethon.tl.functions.channels import GetAdminedPublicChannelsRequest
@@ -53,8 +53,7 @@ from telethon.tl.functions.photos import DeletePhotosRequest, GetUserPhotosReque
 from ..helpers.utils import reply_id as rd
 from telethon.tl.types import Channel, Chat, InputPhoto, User
 
-
-from iqqhtani import rickthon
+from ..core.session import rickthon
 from iqqhtani.core.logger import logging
 from ..Config import Config
 from ..core.managers import edit_delete, edit_or_reply
