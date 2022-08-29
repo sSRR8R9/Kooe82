@@ -6,7 +6,7 @@ from telethon.tl.types import MessageEntityMentionName
 from requests import get
 from telethon.tl.functions.photos import GetUserPhotosRequest
 from telethon.tl.functions.users import GetFullUserRequest
-from iqqhtani import rickthon
+from ..core.session import rickthon
 from iqqhtani.core.logger import logging
 from ..Config import Config
 from ..core.managers import edit_or_reply, edit_delete
