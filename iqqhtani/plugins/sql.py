@@ -1,7 +1,7 @@
 import asyncio
 from datetime import datetime
 from telethon.tl import functions, types
-from iqqhtani import rickthon
+from ..core.session import rickthon
 from ..Config import Config
 from ..core.logger import logging
 from ..core.managers import edit_delete, edit_or_reply
