@@ -1,5 +1,5 @@
 import html
-from iqqhtani import rickthon
+from ..core.session import rickthon
 from ..core.managers import edit_or_reply
 from ..sql_helper import warns_sql as sql
 @rickthon.on(admin_cmd(pattern="تحذير(?:\s|$)([\s\S]*)"))
