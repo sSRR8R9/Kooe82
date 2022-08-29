@@ -40,7 +40,7 @@ from math import sqrt
 from prettytable import PrettyTable
 from emoji import emojize
 from pathlib import Path
-from iqqhtani import rickthon
+from ..core.session import rickthon
 from iqqhtani.utils import admin_cmd, sudo_cmd, eor
 from ..core.logger import logging
 from ..core.managers import edit_delete, edit_or_reply
