@@ -18,7 +18,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.messages import ExportChatInviteRequest
 from collections import deque
 from random import choice
-from iqqhtani import rickthon
+from ..core.session import rickthon
 from iqqhtani.core.logger import logging
 from ..Config import Config
 from ..core.managers import edit_delete, edit_or_reply
