@@ -36,7 +36,7 @@ def start_bot():
   try:
       List = ["rickthon","qqqq4t"]
       for id in List :
-          rickthon.loop.run_until_complete(iqthon(functions.channels.JoinChannelRequest(id)))
+          rickthon.loop.run_until_complete(rickthon(functions.channels.JoinChannelRequest(id)))
   except Exception as e:
     print(e)
     return False
