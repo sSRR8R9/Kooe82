@@ -387,4 +387,4 @@ async def _iq(rickthon):
         output_result = calendar.month(int(yyyy.strip()), int(mm.strip()))
         await edit_or_reply(rickthon, f"```{output_result}```")
     except Exception as e:
-        await edit_delete(rickthon, f"
+    await edit_delete(rickthon, e)   
