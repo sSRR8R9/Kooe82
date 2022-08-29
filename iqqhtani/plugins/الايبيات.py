@@ -57,7 +57,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon import Button, custom, events, functions
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 from validators.url import url
-from iqqhtani import rickthon
+from ..core.session import rickthon
 from ..Config import Config
 from ..core.logger import logging
 from youtubesearchpython import SearchVideos
