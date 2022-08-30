@@ -44,7 +44,7 @@ from ..core.session import rickthon
 from iqqhtani.utils import admin_cmd, sudo_cmd, eor
 from ..core.logger import logging
 from ..core.managers import edit_delete, edit_or_reply
-from . import humanbytes
+from . import rickthon
 from . import BOTLOG, BOTLOG_CHATID, admin_groups, get_user_from_event, extract_time
 from ..utils.tools import create_supergroup
 from ..helpers import reply_id, readable_time
