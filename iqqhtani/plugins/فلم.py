@@ -1,12 +1,12 @@
 import os
 from justwatch import JustWatch, justwatchapi
 from pySmartDL import SmartDL
-from ..core.session import rickthon
+from Arab import iqthon
 from ..Config import Config
 from ..core.logger import logging
 from ..core.managers import edit_or_reply
 LOGS = logging.getLogger(__name__)
-plugin_category = "@rickthon"
+plugin_category = "@iqthon"
 moviepath = os.path.join(os.getcwd(), "temp", "moviethumb.jpg")
 justwatchapi.__dict__["HEADER"] = {    "User-Agent": "JustWatch client (github.com/dawoudt/JustWatchAPI)"}
 from datetime import datetime
@@ -80,7 +80,7 @@ def get_provider(url):
     return url
 
 
-@rickthon.iq_cmd(
+@iqthon.iq_cmd(
     pattern="فلم ([\s\S]*)",
     command=("فلم", plugin_category),
     info={
