@@ -141,12 +141,12 @@ class CatUserBotClient(TelegramClient):
                         text += (
                             "︙"
                         )
-                        text += f" عذرا قم بكتابه الأمر بشكل صحيح راجع : @IQTHON ** "
+                        text += f" عذرا قم بكتابه الأمر بشكل صحيح راجع : @rickthon ** "
                         await check.client.send_message(
                             Config.PRIVATE_GROUP_BOT_API_ID, text, link_preview=False
                         )
 
-            from .session import iqthon
+            from .session import rickthon
 
             if not func.__doc__ is None:
                 CMD_INFO[command[0]].append((func.__doc__).strip())
@@ -159,18 +159,18 @@ class CatUserBotClient(TelegramClient):
                     except BaseException:
                         LOADED_CMDS.update({command[0]: [wrapper]})
                 if edited:
-                    iqthon.add_event_handler(
+                    rickthon.add_event_handler(
                         wrapper,
                         MessageEdited(pattern=REGEX_.regex1, outgoing=True, **kwargs),
                     )
-                iqthon.add_event_handler(
+                rickthon.add_event_handler(
                     wrapper,
                     NewMessage(pattern=REGEX_.regex1, outgoing=True, **kwargs),
                 )
                 if allow_sudo and gvarstatus("sudoenable") is not None:
                     if command is None or command[0] in sudo_enabledcmds:
                         if edited:
-                            iqthon.add_event_handler(
+                            rickthon.add_event_handler(
                                 wrapper,
                                 MessageEdited(
                                     pattern=REGEX_.regex2,
@@ -178,7 +178,7 @@ class CatUserBotClient(TelegramClient):
                                     **kwargs,
                                 ),
                             )
-                        iqthon.add_event_handler(
+                        rickthon.add_event_handler(
                             wrapper,
                             NewMessage(
                                 pattern=REGEX_.regex2,
@@ -194,8 +194,8 @@ class CatUserBotClient(TelegramClient):
                 except BaseException:
                     LOADED_CMDS.update({file_test: [func]})
                 if edited:
-                    iqthon.add_event_handler(func, events.MessageEdited(**kwargs))
-                iqthon.add_event_handler(func, events.NewMessage(**kwargs))
+                    rickthon.add_event_handler(func, events.MessageEdited(**kwargs))
+                rickthon.add_event_handler(func, events.NewMessage(**kwargs))
             return wrapper
 
         return decorator
@@ -250,17 +250,17 @@ class CatUserBotClient(TelegramClient):
                         text += (
                             "︙"
                         )
-                        text += f" عذرا قم بكتابه الأمر بشكل صحيح راجع : @IQTHON ** "
+                        text += f" عذرا قم بكتابه الأمر بشكل صحيح راجع : @rickthon ** "
                         await check.client.send_message(
                             Config.PRIVATE_GROUP_BOT_API_ID, text, link_preview=False
                         )
 
-            from .session import iqthon
+            from .session import rickthon
 
             if edited is True:
-                iqthon.tgbot.add_event_handler(func, events.MessageEdited(**kwargs))
+                rickthon.tgbot.add_event_handler(func, events.MessageEdited(**kwargs))
             else:
-                iqthon.tgbot.add_event_handler(func, events.NewMessage(**kwargs))
+                rickthon.tgbot.add_event_handler(func, events.NewMessage(**kwargs))
 
             return wrapper
 
