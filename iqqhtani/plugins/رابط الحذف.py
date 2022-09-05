@@ -1,7 +1,7 @@
 import os
 import shutil
 from telethon.errors.rpcerrorlist import MediaEmptyError
-from ..core.session import rickthon
+from iqqhtani import rickthon
 from ..core.managers import edit_or_reply
 from ..helpers.google_image_download import googleimagesdownload
 from ..helpers.utils import reply_id
