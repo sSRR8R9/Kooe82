@@ -68,12 +68,12 @@ async def setup_bot():
             if option.ip_address == rickthon.session.server_address:
                 if rickthon.session.dc_id != option.id:
                     LOGS.warning(                        f"♛ ︙ معرف DC ثابت في الجلسة من {rickthon.session.dc_id}"                        f"♛ ︙ يتبع ل {option.id}"                    )
-                Rickthon.session.set_dc(option.id, option.ip_address, option.port)
-                Rick.session.save()
+                rickthon.session.set_dc(option.id, option.ip_address, option.port)
+                rick.session.save()
                 break
         bot_details = await rickthon.tgbot.get_me()
         Config.TG_BOT_USERNAME = f"@{bot_details.username}"
-        # await iqthon.start(bot_token=Config.TG_BOT_USERNAME)
+        # await rickthon.start(bot_token=Config.TG_BOT_USERNAME)
         rickthon.me = await rickthon.get_me()
         rickthon.uid = rickthon.tgbot.uid = utils.get_peer_id(rickthon.me)
         if Config.OWNER_ID == 0:
