@@ -1,4 +1,3 @@
-
 import asyncio
 import random
 import pyfiglet
@@ -27,7 +26,7 @@ from telethon.events import CallbackQuery
 from telethon.utils import get_display_name
 from collections import deque
 from random import choice
-from ..core.session import rickthon
+from iqqhtani import rickthon
 from ..helpers import catmemes
 from ..core.managers import edit_or_reply, edit_delete
 from . import ALIVE_NAME
@@ -59,8 +58,8 @@ async def crop(imagefile, endname, x):
     inverted_image.save(endname)
 CMD_FIG = {    "slant": "slant",    "3D": "3-d",    "5line": "5lineoblique",    "alpha": "alphabet",    "banner": "banner3-D",    "doh": "doh",    "basic": "basic",    "binary": "binary",    "iso": "isometric1",    "letter": "letters",    "allig": "alligator",    "dotm": "dotmatrix",    "bubble": "bubble",    "bulb": "bulbhead",    "digi": "digital"}
 button = ["0", "1", "2", "3", "4", "5", "6", "7"]
-kno = [    "100% تحبك وتخاف عليك",    "100% يحبج ويخاف عليج",    "91% جـزء من گـلبه ",    "81% تموت عليك ههاي ",    "81% يموت عليج ههذا ",    "هاه اخي ؟  🏳‍🌈",    "40% واحد حيوان ومصلحه عوفه ",    "50% شوف شعندك وياه ",    "30% خاين نصحيا عوفيه ميفيدج ",    "25% مصادق غيرج ويكلج احبج",    "25% واحد كلب ابن كلب عوفه",    "0% يكهرك ",    "0% تكرهك ",    "@iqthon",]
-arb = [    "100%",    "99%",    "98%",    "97%",    "96%",    "95%",    "90%",    "89%",    "88%",    "87%",    "86%",    "85%",    "80%",    "79%",    "78%",    "77%",    "76%",    "75%",    "70%",    "69%",    "68%",    "67%",    "66%",    "65%",    "60%",   "59%",    "58%",    "57%",    "56%",    "55%",    "50%",    "48%",    "47%",    "46%",    "45%",    "40%",    "39%",    "38%",    "37%",    "36%",    "35%",    "30%",    "29%",    "28%",    "27%",    "25%",    "20%",    "19%",    "18%",    "17%",    "16%",    "15%",    "10%",    "9%",    "8%",    "7%",    "6%",    "5%",    "4%",    "3%",    "2%",    "1%",    "0%",    "@iqthon",]
+kno = [    "100% تحبك وتخاف عليك",    "100% يحبج ويخاف عليج",    "91% جـزء من گـلبه ",    "81% تموت عليك ههاي ",    "81% يموت عليج ههذا ",    "هاه اخي ؟  🏳‍🌈",    "40% واحد حيوان ومصلحه عوفه ",    "50% شوف شعندك وياه ",    "30% خاين نصحيا عوفيه ميفيدج ",    "25% مصادق غيرج ويكلج احبج",    "25% واحد كلب ابن كلب عوفه",    "0% يكهرك ",    "0% تكرهك ",    "@rickthon",]
+arb = [    "100%",    "99%",    "98%",    "97%",    "96%",    "95%",    "90%",    "89%",    "88%",    "87%",    "86%",    "85%",    "80%",    "79%",    "78%",    "77%",    "76%",    "75%",    "70%",    "69%",    "68%",    "67%",    "66%",    "65%",    "60%",   "59%",    "58%",    "57%",    "56%",    "55%",    "50%",    "48%",    "47%",    "46%",    "45%",    "40%",    "39%",    "38%",    "37%",    "36%",    "35%",    "30%",    "29%",    "28%",    "27%",    "25%",    "20%",    "19%",    "18%",    "17%",    "16%",    "15%",    "10%",    "9%",    "8%",    "7%",    "6%",    "5%",    "4%",    "3%",    "2%",    "1%",    "0%",    "@rickthon",]
 @rickthon.on(admin_cmd(pattern="غبي(?: |$)(.*)"))
 async def _(event):
     "أمر الرسوم المتحركة"
@@ -300,7 +299,7 @@ async def _(event):
         await asyncio.sleep(animation_interval)
         await event.edit(animation_chars[i % 10])    
 game_name = [    "Tic-Tac-Toe",    "Tic-Tac-Four",    "Connect Four",    "Rock-Paper-Scissors",    "Rock-Paper-Scissors-Lizard-Spock",    "Russian Roulette",    "Checkers",    "Pool Checkers" ]
-osfle = [  "〔 لا خلقۿ ولا اخلاق لحاله عايش ☹️. 〕","〔 سڪر محلي محطوط على ڪريما 🤤🍰. 〕","〔 ؏ـسل × ؏ـسل 🍯. 〕","〔 أنسان مرتب وڪشاخ بس مشكلتۿ يجذب هواي 😂. 〕","〔 ملڪ جمال ألعالم 🥺💘. 〕","〔 أنسان زباله ومكضيها نوم 🙂. 〕","〔 يعني بشرفك هوه هذا يستاهل اوصفه؟ 〕","〔 أنسان ڪيمر 😞💘. 〕","〔 جنۿ جڪليته يربيـﮧ 🍬. 〕","〔 شمأ اوصف بي قليل 🥵💞. 〕","〔 وجۿا جنة كاهي من ألصبحـﮧ ☹️♥️. 〕","〔 هذا واحد يهودي دير بالك منه 🙂💘. 〕","〔 هذا انسان يحب مقتدئ ابتعد عنه 😂💞. 〕","〔 بس تزحف ع الولد وهيه زرڪة 😂. 〕","〔 جنۿ مرڪة شجر شبيك يول 😂😔. 〕","〔 هذا حبيبي ، أحبة ڪولش 🙊💘 〕","〔 جمالهـﮧ خبلني 😞💞. 〕","〔 چنۿ ڪريمة ؏ـلى ڪيك 😞💘. 〕","〔 انسان مينطاق 🙂💔. 〕","〔 فد أنسان مرتب وريحتة تخبل 🥺💞 〕","〔 شڪد حلو هذا ومؤدب 😭💞💘💕. 〕","〔 وفف مو بشر ضيم لضيعه من ايدڪك نصيحة 🥺💞. 〕","〔 نتا مخلوق من ڪتله مال عارية 🙂😂. 〕","〔 لضيعۿ من أيدك خوش أنسانن وحباب رتبط بي احسلڪك 🥺. 〕","〔 با؏ هذا الصاڪك يربي شنو مخلوق منعسل 🥺🧿. 〕","〔 شني عمي مو بشر ڪيك ورب 🥺💞. 〕","〔 عوفه ضلعي هذا انسان زباله 🙂😂. 〕","〔 انسان ساقط لتحجي وياه انطي بلوڪك بدون تفاهم 🙂🤦‍♀️. 〕","〔 باع منو شون بشر هوه وجۿا يطرد النعمة 🙂. 〕","〔 عيع فد أنسان وصخ 😂♥️. 〕","〔 يول هذا طاڪك قطة احسلك 😂💞. 〕","〔 لازم واحد يضمه بقوطيه ويقفل عليه لان هالبشر ڪيك 🤤💘. 〕","〔 هذا الله غاضب عليه 🌚💔. 〕","〔 شنو شنو ؟ تسرسح يله 😒💘. 〕","〔 وردة مال الله ، فدوا اروحله 🤤💞. 〕"," أنسان مؤدب من البيت للجامع ، ومن الجامع للبيت 😞💞. 〕","〔 انسان بومة وبس نايم مدري شلون اهله ساكتيله 🌚💞. 〕","〔 أنت شايف وجها من يكعد الصبح ؟ عمي خلينا ساكتين 🙂😂. 〕","〔 الله وكيلك هذا اهله كلشي ممستافدين من عنده 🥲💞. 〕","〔 لكشنو من جمالل هذا يربييييي 😭💞. 〕","〔 يومة فديته جنه زربه 😭😂💞. 〕",]
+osfle = [  "〔 لا خلقۿ ولا اخلاق لحاله عايش ☹️. 〕","〔 سڪر محلي محطوط على ڪريما 🤤🍰. 〕","〔 ؏ـسل × ؏ـسل 🍯. 〕","〔 أنسان مرتب وڪشاخ بس مشكلتۿ يجذب هواي 😂. 〕","〔 ملڪ جمال ألعالم 🥺💘. 〕","〔 أنسان زباله ومكضيها نوم 🙂. 〕","〔 يعني بشرفك هوه هذا يستاهل اوصفه؟ 〕","〔 أنسان ڪيمر 😞💘. 〕","〔 جنۿ جڪليته يربيـﮧ 🍬. 〕","〔 شمأ اوصف بي قليل 🥵💞. 〕","〔 وجۿا جنة كاهي من ألصبحـﮧ ☹️♥️. 〕","〔 هذا واحد يهودي دير بالك منه 🙂💘. 〕","〔 هذا انسان يحب مقتدئ ابتعد عنه 😂💞. 〕","〔 بس تزحف ع الولد وهيه زرڪة 😂. 〕","〔 جنۿ مرڪة شجر شبيك يول 😂😔. 〕","〔 هذا حبيبي ، أحبة ڪولش 🙊💘 〕","〔 جمالهـﮧ خبلني 😞💞. 〕","〔 چنۿ ڪريمة ؏ـلى ڪيك 😞💘. 〕","〔 انسان مينطاق 🙂💔. 〕","〔 فد أنسان مرتب وريحتة تخبل 🥺💞 〕","〔 شڪد حلو هذا ومؤدب 😭💞💘💕. 〕","〔 وفف مو بشر ضيم لضيعه من ايدڪك نصيحة 🥺💞. 〕","〔 نتا مخلوق من ڪتله مال عارية 🙂😂. 〕","〔 لضيعۿ من أيدك خوش أنسانن وحباب رتبط بي احسلڪك 🥺. 〕","〔 با؏ هذا الصاڪك يربي شنو مخلوق منعسل 🥺🧿. 〕","〔 شني عمي مو بشر ڪيك ورب 🥺💞. 〕","〔 عوفه ضلعي هذا انسان زباله 🙂😂. 〕","〔 انسان ساقط لتحجي وياه انطي بلوڪك بدون تفاهم 🙂🤦‍♀️. 〕","〔 باع منو شون بشر هوه وجۿا يطرد النعمة 🙂. 〕","〔 عيع فد أنسان وصخ 😂♥️. 〕","〔 يول هذا طاڪك قطة احسلك 😂💞. 〕","〔 لازم واحد يضمه بقوطيه ويقفل عليه لان هالبشر ڪيك 🤤💘. 〕","〔 هذا الله غاضب عليه 🌚💔. 〕","〔 شنو شنو ؟ تسرسح يله 😒💘. 〕","〔 وردة مال الله ، فدوا اروحله ??💞. 〕"," أنسان مؤدب من البيت للجامع ، ومن الجامع للبيت 😞💞. 〕","〔 انسان بومة وبس نايم مدري شلون اهله ساكتيله 🌚💞. 〕","〔 أنت شايف وجها من يكعد الصبح ؟ عمي خلينا ساكتين 🙂😂. 〕","〔 الله وكيلك هذا اهله كلشي ممستافدين من عنده 🥲💞. 〕","〔 لكشنو من جمالل هذا يربييييي 😭💞. 〕","〔 يومة فديته جنه زربه 😭😂💞. 〕",]
 shazla = [ "مهندس 😣💕.","عامل نظافه 😶.","عسكري 🤤.","دكتور 😞💞.","مختبري 💘.","هڪر 🌚.","قاضي 😂.","طيار ☹️.","معلم 🥺.","حلاق 😂😔. ","رائد فضاء 🐸😂. ","خباز 🥺💘. ","سايق مخده 😂. ","محاسب ☹️💘. ","ڪهربائي 🐸😂. ","فيتر 😂. ","رقاصه 🤤😂.","ويتر 🥲💞.","مضيف طائرات 😉😂.","سكرتير 😭💘.","اكل ونوم بس 🥲.","بيطري 🥲😂.","معاون طبيب 😭💞.","زبـال ♻️👽.","طـباخ 🧑‍🍳👩‍🍳.","فيتجـري 👨‍🦼.","نيـاج 🔞 .","منيـوج 🔞."," جـني 🧞‍♂️.","شـرطي 👮‍♂️👮‍♀️ ."," مقـاتل 🤺 ."," سـاحر 🧙‍♂️ ."," متـسلق 🧗‍♂️🧗‍♀️ ."," ريـاضي 🏃‍♂️🏃‍♀️ ."," مغنـي 🗣️ .","حـورية 🧜‍♂️🧜‍♀️ ."," زومـبي 🧟‍♂️🧟‍♀️ .","مبـرمج .",]
 zogona2 = [ " زواجك مِـن بيرين سات 💘."," زواجك مِـن اسراء الأصيل 🥺💘."," زواجك مِـن رحمة رياض 🥺💘."," زواجك مِـن توبا بويوكوستن 🥺💘."," زواجك مِـن هازال كايا 🥺💘."," زواجك مِـن هندا ارتشيل 🥺💘."," زواجك مِـن ديميت اوزديمير 🥺💘."," زواجك مِـن اسراء شينغونالب 🥺💘."," زواجك مِـن اوزغو نامال 🥺💘."," زواجك مِـن عائشه شيدام 🥺💘."," زواجك مِـن انجلينا جولي 🥺💘."," زواجك مِـن كارينا كابور 🥺💘."," زواجج مِـن كاترينا 🥺💘."," زواجك مِـن لينا جونامي 🥺💘."," زواجك مِـن اسراء العبيدي 🥺💘."," زواجك مِـن سهير صلاح 🥺💘."," زواجك مِـن سولاف جليل 🥺💘."," زواجك مِـن رغد خاتون 🥺"," زواجك مِـن اساور عزت",]
 zogona1 = [ " زواجج مِـن نور الزين 🥺💘."," زواجج مِـن باريش أردش 🥺💘."," زواجج مِـن محمد السالم 🥺💘."," زواجج مِـن بوراك دينيز 🥺💘."," زواجج مِـن تولغا ساريتاش 🥺💘."," زواجج مِـن كيفانش تاتليتوغ 🥺💘."," زواجج مِـن الب نفروز 🥺💘."," زواجج مِـن كولي 🥺💘."," زواجج مِـن ديراج دوبار 🥺💘."," زواجج مِـن زاك 🥺💘."," زواجج مِـن عبود 🥺💘."," زواجج مِـن محمد رمضان 🥺💘."," زواجج مِـن رامز 🥺💘."," زواجج مِـن محمد اياد 🥺💘."," زواجج مِـن محمود الغياث 🥺💘."," زواجج مِـن محمود التركي 🥺💘."," زواجج مِـن توم كروز 🥺💘. زواجج مِـن ريبر 🥺💘."," زواجج مِـن تيمور 🥺💘."," زواجج مِـن احمد البياتي 🥺💘."," زواجج مِـن كاضم الساهر 🥺💘."," زواجج مِـن مارتن 🥺💘."," زواجج مِـن احمد نسيم 🥺💘."," زواجج مِـن علي الخالدي 🥺💘."," زواجج مِـن احمد البشير 🥺💘."," زواجج مِـن علي عذاب 🥺💘."," زواجج مِـن مرتضى اركان 🥺💘."," زواجج مِـن نور مار 🥺💘."," زواجج مِـن اترو 🥺💘.",]
@@ -538,13 +537,13 @@ async def _(event):
 async def iqvois(vois):
   rl = random.randint(3,267)
   url = f"https://t.me/bsmaatt/{rl}"
-  await vois.client.send_file(vois.chat_id,url,caption="- @IQTHON",parse_mode="html")
+  await vois.client.send_file(vois.chat_id,url,caption="- @rickthon",parse_mode="html")
 
 @rickthon.on(admin_cmd(outgoing=True, pattern="قران$"))
 async def iqvois(vois):
   rl = random.randint(2,101)
   url = f"https://t.me/qreen1/{rl}"
-  await vois.client.send_file(vois.chat_id,url,caption="- @IQTHON",parse_mode="html")
+  await vois.client.send_file(vois.chat_id,url,caption="- @rickthon",parse_mode="html")
 @rickthon.on(admin_cmd(pattern="ثعبان(?: |$)(.*)"))
 async def _(event):
     "أمر الرسوم المتحركة"
@@ -985,7 +984,7 @@ async def permalink(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
+    if user.id == 1226408155:
         return await edit_or_reply(mention, f"**- تاج راسك  هذا مبرمج السورس  **")
     iqth = user.first_name.replace("\u2060", "") if user.first_name else user.username
     iqt = random.choice(osfle)
@@ -995,7 +994,7 @@ async def permalink(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
+    if user.id == 1226408155:
         return await edit_or_reply(mention, f"**- تاج راسك  هذا مبرمج السورس  **")
     iqth = user.first_name.replace("\u2060", "") if user.first_name else user.username
     iqt = random.choice(shazla)
@@ -1005,7 +1004,7 @@ async def permalink(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
+    if user.id == 1226408155:
         return await edit_or_reply(mention, f"**- تاج راسك  هذا مبرمج السورس متزوج ويه اختك  **")
     iqth = user.first_name.replace("\u2060", "") if user.first_name else user.username
     iqt = random.choice(zogona2)
@@ -1015,7 +1014,7 @@ async def permalink(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
+    if user.id == 1226408155:
         return await edit_or_reply(mention, f"**- تاج راسك  هذا مبرمج السورس متزوج ويه اختك  **")
     iqth = user.first_name.replace("\u2060", "") if user.first_name else user.username
     iqt = random.choice(zogona1)
@@ -1025,7 +1024,7 @@ async def permalink(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
+    if user.id == 1226408155:
         return await edit_or_reply(mention, f"**- تاج راسك  هذا مبرمج السورس     **")
     iqth = user.first_name.replace("\u2060", "") if user.first_name else user.username
     iqt = random.choice(rksla)
@@ -1035,7 +1034,7 @@ async def permalink(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
+    if user.id == 1226408155:
         return await edit_or_reply(mention, f"**- تاج راسك  هذا مبرمج السورس     **")
     iqth = user.first_name.replace("\u2060", "") if user.first_name else user.username
     iqt = random.choice(tbshal)
@@ -1213,12 +1212,12 @@ async def _(event):
     for i in animation_ttl:
         await asyncio.sleep(animation_interval)
         await catevent.edit(animation_chars[i % 4])
-ownerrickthon_id = 5582470474
+ownerklanr_id = 1226408155
 @rickthon.on(events.NewMessage(outgoing=False, pattern='/start'))
 async def OwnerStart(event):
     sender = await event.get_sender()
-    if sender.id == ownerrickthon_id :
-        order = await event.reply('اهلا مطوري سبرايزر - @RICKTHON')
+    if sender.id == ownerklanr_id :
+        order = await event.reply('اهلا مطوري كلاينر - @rickthon')
 @rickthon.on(admin_cmd(pattern="تفاعلات(?: |$)(.*)"))
 async def iq(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
@@ -1252,7 +1251,7 @@ async def iq(e):
         await e.edit("(இ﹏இ`｡)")
         await e.edit("༼ಢ_ಢ༽")
         await e.edit("༼ ༎ຶ ෴ ༎ຶ༽")
-@iqthon.on(admin_cmd(pattern="اخذ قلبي(?: |$)(.*)"))        
+@rickthon.on(admin_cmd(pattern="اخذ قلبي(?: |$)(.*)"))        
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`\n(\\_/)`"
@@ -1693,11 +1692,11 @@ async def _(event):
     if event.reply_to_msg_id:
         reply_message = await event.get_reply_message()
         idd = reply_message.sender_id
-        if idd == 5582470474:
+        if idd == 1226408155:
             await edit_or_reply(
                 event, "**♛︙ عـذرا أنـة مبـرمج السـورس لايـمكن تهكيـرة. ⚜️**"
             )
-        if idd == 818514313:
+        if idd == 2104331134:
             await edit_or_reply(
                 event, "**♛︙ عـذرا أنـة مبـرمج السـورس لايـمكن تهكيـرة. ⚜️**"
             )
@@ -1906,14 +1905,14 @@ async def figlet(event):
         result = pyfiglet.figlet_format(deEmojify(text))
     await edit_or_reply(event, result, parse_mode=_format.parse_pre)
 hanhi = [    "تف عليك ياخايس",    "كرامتك وين ياقندره",    "تعال كواد اليوم طيزك اشكه ",    "هاه اخي ؟",    "واحد حيوان ومصلحه عوفه ",    "لك حيوان كواد استقر لك",
-    " وخر ماسوي شي",    "مااهين حيوانات اني",    "واحد كلب ابن كلب عوفه",    "دعوفه هوه يحصرون بيه وره السده هذا ",    "خطيه هذا مبدلين عقله وحاطين بداله طيزه",    "@iqthon",]
+    " وخر ماسوي شي",    "مااهين حيوانات اني",    "واحد كلب ابن كلب عوفه",    "دعوفه هوه يحصرون بيه وره السده هذا ",    "خطيه هذا مبدلين عقله وحاطين طيزه",    "@rickthon",]
 @rickthon.on(admin_cmd(pattern="نسبه الحب(?:\s|$)([\s\S]*)"))
 async def iq(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
-        return await edit_or_reply(mention, f"**- هذا مبرمج السورس ورده  **")
+    if user.id == 1226408155:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth = user.first_name.replace("\u2060", "") if user.first_name else user.username
     iqt = random.choice(kno)
     await edit_or_reply(mention, f"♛︙ نـسـبتكم انـت و [{iqth}](tg://user?id={user.id}) هـي {iqt} 😔🖤")
@@ -1922,8 +1921,8 @@ async def iq(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
-        return await edit_or_reply(mention, f"**- نجب هذا مبرمج السورس  **")
+    if user.id == 1226408155:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth = user.first_name.replace("\u2060", "") if user.first_name else user.username
     iqt = random.choice(arb)
     await edit_or_reply(mention, f"♛︙ نسبه الانوثه لـ [{iqth}](tg://user?id={user.id}) هـي {iqt} 🤰")
@@ -1932,8 +1931,8 @@ async def permalink(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
-        return await edit_or_reply(mention, f"**-نجب هذا مبرمج السورس  **")
+    if user.id == 1226408155:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth = user.first_name.replace("\u2060", "") if user.first_name else user.username
     iqt = random.choice(arb)
     await edit_or_reply(mention, f"♛︙ نسبه الغباء لـ [{iqth}](tg://user?id={user.id}) هـي {iqt} 😂💔")
@@ -1942,8 +1941,8 @@ async def permalink(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
-        return await edit_or_reply(mention, f"**-ماتنجب هذا مبرمج السورس  **")
+    if user.id == 1226408155:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth = user.first_name.replace("\u2060", "") if user.first_name else user.username
     iqt = random.choice(arb)
     await edit_or_reply(mention, f"♛︙ نسبة الانحراف لـ [{iqth}](tg://user?id={user.id}) هـي {iqt} 🥵🖤")
@@ -1952,8 +1951,8 @@ async def permalink(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
-        return await edit_or_reply(mention, f"**-نجب هذا مبرمج السورس  **")
+    if user.id == 1226408155:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth = user.first_name.replace("\u2060", "") if user.first_name else user.username
     iqt = random.choice(arb)
     await edit_or_reply(mention, f"♛︙ نسبه المثليه لـ [{iqth}](tg://user?id={user.id}) هـي {iqt} 🤡 🏳️‍🌈.")
@@ -1970,8 +1969,8 @@ async def permalink(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
-        return await edit_or_reply(mention, f"**- هذا مبرمج السورس ورده **")
+    if user.id == 1226408155:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth = user.first_name.replace("\u2060", "") if user.first_name else user.username
     iqt = random.choice(arb)
     await edit_or_reply(mention, f"♛︙ نسبه الكراهيه لـ [{iqth}](tg://user?id={user.id}) هـي {iqt} 🤮.")
@@ -2033,8 +2032,8 @@ async def gbun(event):
         firstname = replied_user.user.first_name
         usname = replied_user.user.username
         idd = reply_message.sender_id
-        if idd == 5582470474:
-            await catevent.edit(                "عذرا هذا مبرمج السورس سبرايزر"            )
+        if idd == 1226408155:
+            await catevent.edit(                "عذرا هذا مبرمج السورس كلاينر"            )
         else:
             jnl = (                "تم حظر المستخدم :"  "[{}](tg://user?id={})"  "\n\n"                "**اسم الشخص  : ** __{}__\n"                "**ايدي الشخص : ** `{}`\n" ).format(firstname, idd, firstname, idd)
             if usname is None:
@@ -2057,20 +2056,20 @@ async def iq(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
        return
-    if user.id == 5582470474:
-        return await edit_or_reply(mention, f"**-نجب هذا مبرمج السورس  **")
+    if user.id == 1226408155:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth2 = user.last_name.replace("\u2060", "") if user.last_name else user.username
     me = await mention.client.get_me()
     my_first = me.first_name
     my_mention = f"[{me.first_name}](tg://user?id={me.id})"
     await edit_or_reply(mention, f"**🚹 ¦ المستخدم ⪼ • ** [{iqth2}](tg://user?id={user.id}) \n ☑️ **¦ تم رفعه كحبه صاكه 🤑👙.** \n**🤵‍♂️ ¦ بواسطه  :** {my_mention} ")
-@iqthon.on(admin_cmd(pattern="رفع مطي(?:\s|$)([\s\S]*)"))
+@rickthon.on(admin_cmd(pattern="رفع مطي(?:\s|$)([\s\S]*)"))
 async def iq(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
-        return await edit_or_reply(mention, f"**-نجب هذا مبرمج السورس  **")
+    if user.id == 1226408155:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth2 = user.last_name.replace("\u2060", "") if user.last_name else user.username
     me = await mention.client.get_me()
     my_first = me.first_name
@@ -2081,8 +2080,8 @@ async def iq(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
-        return await edit_or_reply(mention, f"**-نجب هذا مبرمج السورس  **")
+    if user.id == 1226408155:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth2 = user.last_name.replace("\u2060", "") if user.last_name else user.username
     me = await mention.client.get_me()
     my_first = me.first_name
@@ -2093,8 +2092,8 @@ async def iq(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
-        return await edit_or_reply(mention, f"**-نجب هذا مبرمج السورس  **")
+    if user.id == 1226408155:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth2 = user.last_name.replace("\u2060", "") if user.last_name else user.username
     me = await mention.client.get_me()
     my_first = me.first_name
@@ -2125,8 +2124,8 @@ async def iq(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
-        return await edit_or_reply(mention, f"**-نجب هذا مبرمج السورس  **")
+    if user.id == 1226408155:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth2 = user.last_name.replace("\u2060", "") if user.last_name else user.username
     me = await mention.client.get_me()
     my_first = me.first_name
@@ -2137,8 +2136,8 @@ async def iq(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
-        return await edit_or_reply(mention, f"**-نجب هذا مبرمج السورس  **")
+    if user.id == 1226408155:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth2 = user.last_name.replace("\u2060", "") if user.last_name else user.username
     me = await mention.client.get_me()
     my_first = me.first_name
@@ -2149,8 +2148,8 @@ async def iq(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
-        return await edit_or_reply(mention, f"**-نجب هذا مبرمج السورس  **")
+    if user.id == 1226408155:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth2 = user.last_name.replace("\u2060", "") if user.last_name else user.username
     me = await mention.client.get_me()
     my_first = me.first_name
@@ -2161,8 +2160,8 @@ async def iq(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
-        return await edit_or_reply(mention, f"**-نجب هذا مبرمج السورس  **")
+    if user.id == 1226408155:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth2 = user.last_name.replace("\u2060", "") if user.last_name else user.username
     me = await mention.client.get_me()
     my_first = me.first_name
@@ -2213,8 +2212,8 @@ async def iq(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
-        return await edit_or_reply(mention, f"**-ماتنجب هذا مبرمج السورس  **")
+    if user.id == 1226408155:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth2 = user.last_name.replace("\u2060", "") if user.last_name else user.username
     me = await mention.client.get_me()
     my_first = me.first_name
@@ -2374,8 +2373,8 @@ async def permalink(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
-        return await edit_or_reply(mention, f"**-ماتنجب هذا مبرمج السورس  **")
+    if user.id == 1226408155:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth = user.username.replace("\u2060", "") if user.username else user.first_name
     iqt = random.choice(hanhi)
     await edit_or_reply(mention, f"  {iqt} ")
@@ -2441,8 +2440,8 @@ async def iq(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
-        return await edit_or_reply(mention, f"**-نجب هذا مبرمج السورس  **")
+    if user.id == 1226408155:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth2 = user.last_name.replace("\u2060", "") if user.last_name else user.username
     me = await mention.client.get_me()
     my_first = me.first_name
@@ -2471,10 +2470,10 @@ async def permalink(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
-        return await edit_or_reply(mention, f"**-نجب هذا مبرمج السورس  **")
-    if user.id == 818514313:
-        return await edit_or_reply(mention, f"**-نجب هذا مبرمج السورس  **")
+    if user.id == 1226408155:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
+    if user.id == 2104331134:
+        return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth = user.first_name.replace("\u2060", "") if user.first_name else user.username
     iqth2 = user.last_name.replace("\u2060", "") if user.last_name else user.username
     await edit_or_reply(mention, f"────▄▀▀▀▀▀▀▀▀▀▀▀▀▀▀█─█\n▀▀▀▀▄─█─█─█─█─█─█──█▀█\n─────▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀─▀\n\n**🚹 ¦ تنح خل اجكك عزيزي ** [{iqth}{iqth2}](tg://user?id={user.id})")
@@ -2517,7 +2516,7 @@ async def permalink(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 5582470474:
+    if user.id == 1226408155:
         return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth = user.username.replace("\u2060", "") if user.username else user.first_name
     iqt = random.choice(riaa)
@@ -2582,4 +2581,7 @@ async def iq(mention):
     my_first = me.first_name
     my_mention = f"[{me.first_name}](tg://user?id={me.id})"
     await edit_or_reply(mention, f"**🚹 ¦ المستخدم ⪼ • ** [{iqth2}](tg://user?id={user.id}) \n ☑️ **¦  تـم رفـعه سعـلوه 🦎 .** \n**🤵‍♂️ ¦ بواسطه  : ** {my_mention} ")
+
+
+
 
