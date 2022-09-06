@@ -10,7 +10,7 @@ from telethon import Button, types, version
 from telethon.errors import QueryIdInvalidError
 from telethon.events import CallbackQuery, InlineQuery
 from youtubesearchpython import VideosSearch
-from Arab import iqthon, catversion, StartTime
+from iqqhtani import rickthon, catversion, StartTime
 from ..Config import Config
 from ..helpers.functions import rand_key, catalive, check_data_base_heal_th, get_readable_time
 from ..helpers.functions.utube import download_button, get_yt_video_id, get_ytthumb, result_formatter, ytsearch_data
@@ -20,7 +20,7 @@ from . import CMD_INFO, GRP_INFO, PLG_INFO, check_owner
 from .logger import logging
 LOGS = logging.getLogger(__name__)
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
-CATLOGO = "https://telegra.ph/file/097c8e017f0751370113f.jpg"
+CATLOGO = "https://telegra.ph/file/1bf9c1b0a084c258b1f97.jpg"
 tr = Config.COMMAND_HAND_LER
 def getkey(val):
     for key, value in GRP_INFO.items():
@@ -55,7 +55,7 @@ async def inline_handler(event):
             buttons = [
                 (
                     Button.inline("السورس", data="stats"),
-                    Button.url("الريبو", "https://github.com/telethon-Arab/telethonNow"),
+                    Button.url("الريبو", "https://github.com/rick1128/rickthon1"),
                 )
             ]
             ALIVE_PIC = gvarstatus("ALIVE_PIC")
@@ -303,7 +303,7 @@ async def inline_handler(event):
                 Button.url("Source code", "https://github.com/rick1128/rickthon"),
                 Button.url(
                     "Deploy",
-                    "https://dashboard.heroku.com/new?template=https://github.com/rick1128/rickthon",
+                    "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FMr-confused%2Fcatpack&template=https%3A%2F%2Fgithub.com%2FMr-confused%2Fcatpack",
                 ),
             )
         ]
