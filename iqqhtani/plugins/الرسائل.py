@@ -35,7 +35,7 @@ from telethon.tl.types import ChannelParticipantCreator as owner
 from telethon.tl.types import UserStatusOffline as off
 from telethon.tl.types import UserStatusOnline as onn
 from telethon.tl.types import UserStatusRecently as rec
-from ..core.session import rickthon
+from iqqhtani import rickthon
 from iqqhtani.core.logger import logging
 from ..Config import Config
 from ..core.managers import edit_delete, edit_or_reply
@@ -109,10 +109,10 @@ async def gcast(event):
         return await edit_or_reply(event, "هـذا الامـر مقـيد ")
     xx = event.pattern_match.group(1)
     if not xx:
-        return edit_or_reply(event, "**♛ ⦙   يجـب وضـع نـص مع الامـر للتوجيـه**")
+        return edit_or_reply(event, "**𖤍 ⦙   يجـب وضـع نـص مع الامـر للتوجيـه**")
     tt = event.text
     msg = tt[6:]
-    event = await edit_or_reply(event, "** ♛ ⦙   يتـم الـتوجيـة للـمجموعـات انتـظر قليلا**")
+    event = await edit_or_reply(event, "** 𖤍 ⦙   يتـم الـتوجيـة للـمجموعـات انتـظر قليلا**")
     er = 0
     done = 0
     async for x in bot.iter_dialogs():
@@ -123,7 +123,7 @@ async def gcast(event):
                 await bot.send_message(chat, msg)
             except BaseException:
                 er += 1
-    await event.edit(f"♛ ⦙   تـم بنـجـاح فـي {done} من الـدردشـات , خطـأ فـي {er} من الـدردشـات")
+    await event.edit(f"𖤍 ⦙   تـم بنـجـاح فـي {done} من الـدردشـات , خطـأ فـي {er} من الـدردشـات")
 async def getTranslate(text, **kwargs):
     translator = Translator()
     result = None
@@ -149,21 +149,21 @@ async def _(event):
     try:
         await event.client(EditBannedRequest(event.chat_id, event.message.sender_id, ANTI_FLOOD_WARN_MODE))
     except Exception as e:
-        no_admin_privilege_message = await event.client.send_message(entity=event.chat_id, message=f"""**♛ ⦙   تحذير تكرار فـي المجموعة : لـ** @تاك للادمنيه  : [User](tg://user?id={event.message.sender_id}) لقد قام بتكرار الرسائل . `{str(e)}`""", reply_to=event.message.id)
+        no_admin_privilege_message = await event.client.send_message(entity=event.chat_id, message=f"""**𖤍 ⦙   تحذير تكرار فـي المجموعة : لـ** @تاك للادمنيه  : [User](tg://user?id={event.message.sender_id}) لقد قام بتكرار الرسائل . `{str(e)}`""", reply_to=event.message.id)
         await asyncio.sleep(4)
-        await no_admin_privilege_message.edit("**♛ ⦙   هذا الشخص الذي قام بتكرار الرسائل والازعاج **")
+        await no_admin_privilege_message.edit("**𖤍 ⦙   هذا الشخص الذي قام بتكرار الرسائل والازعاج **")
     else:
-        await event.client.send_message(entity=event.chat_id, message=f"""**♛ ⦙   تحذير تكرار فـي المجموعة : لـ** [User](tg://user?id={event.message.sender_id}) تم تقيد الشخص بسبب عمل تكرار للرسائل والازعاج.""", reply_to=event.message.id)
+        await event.client.send_message(entity=event.chat_id, message=f"""**𖤍 ⦙   تحذير تكرار فـي المجموعة : لـ** [User](tg://user?id={event.message.sender_id}) تم تقيد الشخص بسبب عمل تكرار للرسائل والازعاج.""", reply_to=event.message.id)
 @rickthon.on(admin_cmd(pattern=f"{ALLPRIVATE} ?(.*)$"))    
 async def gucast(event):
     if not event.out and not is_fullsudo(event.sender_id):
         return await edit_or_reply(event, "هـذا الامـر مقـيد ")
     xx = event.pattern_match.group(1)
     if not xx:
-        return edit_or_reply(event, "** ♛ ⦙   يجـب وضـع نـص مع الامـر للتوجيـه**")
+        return edit_or_reply(event, "** 𖤍 ⦙   يجـب وضـع نـص مع الامـر للتوجيـه**")
     tt = event.text
     msg = tt[7:]
-    await edit_or_reply(event, "** ♛ ⦙   يتـم الـتوجيـة للخـاص انتـظر قليلا**")
+    await edit_or_reply(event, "** 𖤍 ⦙   يتـم الـتوجيـة للخـاص انتـظر قليلا**")
     er = 0
     done = 0
     async for x in bot.iter_dialogs():
@@ -174,7 +174,7 @@ async def gucast(event):
                 await bot.send_message(chat, msg)
             except BaseException:
                 er += 1
-    await event.edit(f"♛ ⦙   تـم بنـجـاح فـي {done} من الـدردشـات , خطـأ فـي {er} من الـدردشـات")
+    await event.edit(f"𖤍 ⦙   تـم بنـجـاح فـي {done} من الـدردشـات , خطـأ فـي {er} من الـدردشـات")
 async def spam_function(event, sandy, cat, sleeptimem, sleeptimet, DelaySpam=False):
     counter = int(cat[0])
     if len(cat) == 2:
@@ -193,13 +193,13 @@ async def spam_function(event, sandy, cat, sleeptimem, sleeptimet, DelaySpam=Fal
         if BOTLOG:
             if DelaySpam is not True:
                 if event.is_private:
-                    await event.client.send_message(BOTLOG_CHATID, "**♛ ⦙   التڪـرار  ♽**\n" + f"**♛ ⦙   تم تنفيذ التكرار بنجاح في ▷** [User](tg://user?id={event.chat_id}) **الدردشـة مـع** {counter} **عدد المرات مع الرسالة أدناه**")
+                    await event.client.send_message(BOTLOG_CHATID, "**𖤍 ⦙   التڪـرار  ♽**\n" + f"**𖤍 ⦙   تم تنفيذ التكرار بنجاح في ▷** [User](tg://user?id={event.chat_id}) **الدردشـة مـع** {counter} **عدد المرات مع الرسالة أدناه**")
                 else:
-                    await event.client.send_message(BOTLOG_CHATID, "**♛ ⦙   التڪـرار  ♽**\n" + f"**♛ ⦙   تم تنفيذ التكرار بنجاح في ▷** {get_display_name(await event.get_chat())}(`{event.chat_id}`) **مـع** {counter} **عدد المرات مع الرسالة أدناه**")
+                    await event.client.send_message(BOTLOG_CHATID, "**𖤍 ⦙   التڪـرار  ♽**\n" + f"**𖤍 ⦙   تم تنفيذ التكرار بنجاح في ▷** {get_display_name(await event.get_chat())}(`{event.chat_id}`) **مـع** {counter} **عدد المرات مع الرسالة أدناه**")
             elif event.is_private:
-                await event.client.send_message(BOTLOG_CHATID, "**♛ ⦙   التكرار الوقتي 💢**\n" + f"**♛ ⦙   تم تنفيذ التكرار الوقتي  بنجاح في ▷** [User](tg://user?id={event.chat_id}) **الدردشـة مـع** {counter} **عدد المرات مع الرسالة أدناه مع التأخير** {sleeptimet} ** الثوانـي ⏱**")
+                await event.client.send_message(BOTLOG_CHATID, "**𖤍 ⦙   التكرار الوقتي 💢**\n" + f"**𖤍 ⦙   تم تنفيذ التكرار الوقتي  بنجاح في ▷** [User](tg://user?id={event.chat_id}) **الدردشـة مـع** {counter} **عدد المرات مع الرسالة أدناه مع التأخير** {sleeptimet} ** الثوانـي ⏱**")
             else:
-                await event.client.send_message(BOTLOG_CHATID, "**♛ ⦙   التكرار الوقتي 💢**\n" + f"**♛ ⦙   تم تنفيذ التكرار الوقتي  بنجاح في ▷** {get_display_name(await event.get_chat())}(`{event.chat_id}`) **مـع** {counter} **عدد المرات مع الرسالة أدناه مع التأخير** {sleeptimet} ** الثوانـي ⏱**")
+                await event.client.send_message(BOTLOG_CHATID, "**𖤍 ⦙   التكرار الوقتي 💢**\n" + f"**𖤍 ⦙   تم تنفيذ التكرار الوقتي  بنجاح في ▷** {get_display_name(await event.get_chat())}(`{event.chat_id}`) **مـع** {counter} **عدد المرات مع الرسالة أدناه مع التأخير** {sleeptimet} ** الثوانـي ⏱**")
 
             sandy = await event.client.send_file(BOTLOG_CHATID, sandy)
             await _catutils.unsavegif(event, sandy)
@@ -214,17 +214,17 @@ async def spam_function(event, sandy, cat, sleeptimem, sleeptimet, DelaySpam=Fal
     if DelaySpam is not True:
         if BOTLOG:
             if event.is_private:
-                await event.client.send_message(BOTLOG_CHATID, "**♛ ⦙   التڪـرار  ♽**\n" + f"**♛ ⦙   تم تنفيذ التكرار بنجاح في ▷** [User](tg://user?id={event.chat_id}) **الدردشـة مـع** {counter} **رسائـل الـ  ✉️ :** \n" + f"♛ ⦙   `{spam_message}`")
+                await event.client.send_message(BOTLOG_CHATID, "**𖤍 ⦙   التڪـرار  ♽**\n" + f"**𖤍 ⦙   تم تنفيذ التكرار بنجاح في ▷** [User](tg://user?id={event.chat_id}) **الدردشـة مـع** {counter} **رسائـل الـ  ✉️ :** \n" + f"𖤍 ⦙   `{spam_message}`")
             else:
-                await event.client.send_message(BOTLOG_CHATID, "**♛ ⦙   التڪـرار  ♽**\n" + f"**♛ ⦙   تم تنفيذ التكرار بنجاح في ▷** {get_display_name(await event.get_chat())}(`{event.chat_id}`) **الدردشـة مـع** {counter} **رسائـل الـ  ✉️ :** \n" + f"♛ ⦙   `{spam_message}`")
+                await event.client.send_message(BOTLOG_CHATID, "**𖤍 ⦙   التڪـرار  ♽**\n" + f"**𖤍 ⦙   تم تنفيذ التكرار بنجاح في ▷** {get_display_name(await event.get_chat())}(`{event.chat_id}`) **الدردشـة مـع** {counter} **رسائـل الـ  ✉️ :** \n" + f"𖤍 ⦙   `{spam_message}`")
     elif BOTLOG:
         if event.is_private:
-            await event.client.send_message(BOTLOG_CHATID, "**♛ ⦙   التكرار الوقتي 💢**\n" + f"**♛ ⦙   تم تنفيذ التكرار الوقتي  بنجاح في ▷** [User](tg://user?id={event.chat_id}) **الدردشـة مـع** {sleeptimet} seconds and with {counter} **رسائـل الـ  ✉️ :** \n" + f"♛ ⦙   `{spam_message}`")
+            await event.client.send_message(BOTLOG_CHATID, "**𖤍 ⦙   التكرار الوقتي 💢**\n" + f"**𖤍 ⦙   تم تنفيذ التكرار الوقتي  بنجاح في ▷** [User](tg://user?id={event.chat_id}) **الدردشـة مـع** {sleeptimet} seconds and with {counter} **رسائـل الـ  ✉️ :** \n" + f"𖤍 ⦙   `{spam_message}`")
         else:
-            await event.client.send_message(BOTLOG_CHATID, "**♛ ⦙   التكرار الوقتي 💢**\n" + f"**♛ ⦙   تم تنفيذ التكرار الوقتي  بنجاح في ▷** {get_display_name(await event.get_chat())}(`{event.chat_id}`) **الدردشـة مـع** {sleeptimet} **الثوانـي و مـع** {counter} **رسائـل الـ  ✉️ :** \n" + f"♛ ⦙   `{spam_message}`")
+            await event.client.send_message(BOTLOG_CHATID, "**𖤍 ⦙   التكرار الوقتي 💢**\n" + f"**𖤍 ⦙   تم تنفيذ التكرار الوقتي  بنجاح في ▷** {get_display_name(await event.get_chat())}(`{event.chat_id}`) **الدردشـة مـع** {sleeptimet} **الثوانـي و مـع** {counter} **رسائـل الـ  ✉️ :** \n" + f"𖤍 ⦙   `{spam_message}`")
 @rickthon.on(admin_cmd(pattern="كتابه وهمي(?:\s|$)([\s\S]*)"))
-async def _iq(iqthon):
-    iq = iqthon.pattern_match.group(1)
+async def _iq(rickthon):
+    iq = rickthon.pattern_match.group(1)
     if not (iq or iq.isdigit()):
         iq = 100
     else:
@@ -232,11 +232,11 @@ async def _iq(iqthon):
             iq = int(iq)
         except BaseException:
             try:
-                iq = await iqthon.ban_time(iq)
+                iq = await rickthon.ban_time(iq)
             except BaseException:
                 return await event.edit("**اكتب الامر بشكل صحيح**")
-    await iqthon.edit(f"**تم بدء وضع الكتابة الوهمية لـ {iq} من الثوانـي**")
-    async with iqthon.client.action(iqthon.chat_id, "typing"):
+    await rickthon.edit(f"**تم بدء وضع الكتابة الوهمية لـ {iq} من الثوانـي**")
+    async with rickthon.client.action(rickthon.chat_id, "typing"):
         await asyncio.sleep(iq)
 @rickthon.on(admin_cmd(pattern="تكرار (.*)"))    
 async def spammer(event):
@@ -245,7 +245,7 @@ async def spammer(event):
     try:
         counter = int(cat[0])
     except Exception:
-        return await edit_delete(event, "♛ ⦙  إستخـدم بناء الجملة المناسب للإزعاج، صيغة Foe تشير إلىٰ قائمة التعليمات 💡")
+        return await edit_delete(event, "𖤍 ⦙  إستخـدم بناء الجملة المناسب للإزعاج، صيغة Foe تشير إلىٰ قائمة التعليمات 💡")
     if counter > 50:
         sleeptimet = 0.5
         sleeptimem = 1
@@ -322,59 +322,59 @@ async def save_welcome(event):
     msg_id = None
     if msg and msg.media and not string:
         if BOTLOG_CHATID:
-            await event.client.send_message(BOTLOG_CHATID, f"♛ ⦙  رسالة الترحيب 🔖 : \n♛ ⦙  ايدي الدردشة 🆔 : {event.chat_id}\n♛ ⦙  يتم حفظ الرسالة التالية كملاحظة ترحيبية لـ 🔖 : {event.chat.title}, ")
+            await event.client.send_message(BOTLOG_CHATID, f"𖤍 ⦙  رسالة الترحيب 🔖 : \n𖤍 ⦙  ايدي الدردشة 🆔 : {event.chat_id}\n𖤍 ⦙  يتم حفظ الرسالة التالية كملاحظة ترحيبية لـ 🔖 : {event.chat.title}, ")
             msg_o = await event.client.forward_messages(entity=BOTLOG_CHATID, messages=msg, from_peer=event.chat_id, silent=True)
             msg_id = msg_o.id
         else:
-            return await edit_or_reply(event, "♛ ⦙   حفظ الصورة كرسالة ترحيبية يتطلب وضع الفار لـ  BOTLOG_CHATID ")
+            return await edit_or_reply(event, "𖤍 ⦙   حفظ الصورة كرسالة ترحيبية يتطلب وضع الفار لـ  BOTLOG_CHATID ")
     elif event.reply_to_msg_id and not string:
         rep_msg = await event.get_reply_message()
         string = rep_msg.text
-    success = "**♛ ⦙  تم حفظ الترحيب بهذه الدردشة بنجاح ✅**"
+    success = "**𖤍 ⦙  تم حفظ الترحيب بهذه الدردشة بنجاح ✅**"
     if add_welcome_setting(event.chat_id, 0, string, msg_id) is True:
         return await edit_or_reply(event, success.format("saved"))
     rm_welcome_setting(event.chat_id)
     if add_welcome_setting(event.chat_id, 0, string, msg_id) is True:
         return await edit_or_reply(event, success.format("updated"))
-    await edit_or_reply("♛ ⦙  حدث خطأ أثناء وضع ترحيب في هذه المجموعة ⚠️")
+    await edit_or_reply("𖤍 ⦙  حدث خطأ أثناء وضع ترحيب في هذه المجموعة ⚠️")
 @rickthon.on(admin_cmd(pattern="مسح الترحيبات(?: |$)(.*)"))    
 async def del_welcome(event):
     if rm_welcome_setting(event.chat_id) is True:
-        await edit_or_reply(event, "**♛ ⦙  تم مسح جميع الرسائل الترحيبية لهذه الدردشة بنجاح ✅**")
+        await edit_or_reply(event, "**𖤍 ⦙  تم مسح جميع الرسائل الترحيبية لهذه الدردشة بنجاح ✅**")
     else:
-        await edit_or_reply(event, "**♛ ⦙  لم يتم حفظ أي رسائل ترحيبية هنا ⚠️**")
+        await edit_or_reply(event, "**𖤍 ⦙  لم يتم حفظ أي رسائل ترحيبية هنا ⚠️**")
 Tnsmeetst = {}
 Tnsmeet = {"ا": InputMessagesFilterVideo, "ل": InputMessagesFilterGif, "و": InputMessagesFilterUrl, "س": InputMessagesFilterPhotos, "ئ": InputMessagesFilterDocument, "ط": InputMessagesFilterVoice}
 @rickthon.on(admin_cmd(pattern="ترحيباتي(?: |$)(.*)"))    
 async def show_welcome(event):
     cws = get_current_welcome_settings(event.chat_id)
     if not cws:
-        return await edit_or_reply(event, "**♛ ⦙  لم يتم حفظ أي رسائل ترحيبية هنا ⚠️**")
+        return await edit_or_reply(event, "**𖤍 ⦙  لم يتم حفظ أي رسائل ترحيبية هنا ⚠️**")
     if cws.f_mesg_id:
         msg_o = await event.client.get_messages(entity=BOTLOG_CHATID, ids=int(cws.f_mesg_id))
-        await edit_or_reply(event, "**♛ ⦙  أنا الآن أقوم بالترحيب بالمستخدمين الجدد مع هذه الرسالة ✅**")
+        await edit_or_reply(event, "**𖤍 ⦙  أنا الآن أقوم بالترحيب بالمستخدمين الجدد مع هذه الرسالة ✅**")
         await event.reply(msg_o.message, file=msg_o.media)
     elif cws.reply:
-        await edit_or_reply(event, "**♛ ⦙  أنا الآن أقوم بالترحيب بالمستخدمين الجدد مع هذه الرسالة ✅**")
+        await edit_or_reply(event, "**𖤍 ⦙  أنا الآن أقوم بالترحيب بالمستخدمين الجدد مع هذه الرسالة ✅**")
         await event.reply(cws.reply, link_preview=False)
 @rickthon.on(admin_cmd(pattern="رساله الترحيب السابقه (تشغيل|ايقاف)$"))    
 async def del_welcome(event):
     input_str = event.pattern_match.group(1)
     if input_str == "تشغيل":
         if gvarstatus("clean_welcome") is None:
-            return await edit_delete(event, "**♛ ⦙  تم تشغيلها بالفعل ✅**")
+            return await edit_delete(event, "**𖤍 ⦙  تم تشغيلها بالفعل ✅**")
         delgvar("clean_welcome")
-        return await edit_delete(event, "**♛ ⦙   من الآن رسالة الترحيب السابقة سيتم حذفها وسيتم إرسال رسالة الترحيب الجديدة ⚠️**")
+        return await edit_delete(event, "**𖤍 ⦙   من الآن رسالة الترحيب السابقة سيتم حذفها وسيتم إرسال رسالة الترحيب الجديدة ⚠️**")
     if gvarstatus("clean_welcome") is None:
         addgvar("clean_welcome", "false")
-        return await edit_delete(event, "**♛ ⦙  من الآن لن يتم حذف رسالة الترحيب السابقة ⚠️**")
-    await edit_delete(event, "**♛ ⦙  تم إيقافها بالفعل ✅**")
+        return await edit_delete(event, "**𖤍 ⦙  من الآن لن يتم حذف رسالة الترحيب السابقة ⚠️**")
+    await edit_delete(event, "**𖤍 ⦙  تم إيقافها بالفعل ✅**")
 @rickthon.on(admin_cmd(pattern="موقع(?: |$)(.*)"))    
 async def gps(event):
     reply_to_id = await reply_id(event)
     input_str = event.pattern_match.group(1)
-    catevent = await edit_or_reply(event, "** ♛ ⦙   جاري العثـور على الموقع  … **")
-    geolocator = Nominatim(user_agent="catiqthon")
+    catevent = await edit_or_reply(event, "** 𖤍 ⦙   جاري العثـور على الموقع  … **")
+    geolocator = Nominatim(user_agent="catrickthon")
     geoloc = geolocator.geocode(input_str)
     if geoloc:
         lon = geoloc.longitude
@@ -382,18 +382,18 @@ async def gps(event):
         await event.client.send_file(
             event.chat_id,
             file=types.InputMediaGeoPoint(types.InputGeoPoint(lat, lon)),
-            caption=f"**♛ ⦙   الموقـع 𖠕  : **`{input_str}`", reply_to=reply_to_id)
+            caption=f"**𖤍 ⦙   الموقـع 𖠕  : **`{input_str}`", reply_to=reply_to_id)
         await catevent.delete()
     else:
-        await catevent.edit("♛ ⦙   عـذراً، لـم أستطـع إيجـاده  ⚠️")
-async def ocr_iqthon(filename, overlay=False,api_key="K88942796188957", language="eng"):
+        await catevent.edit("𖤍 ⦙   عـذراً، لـم أستطـع إيجـاده  ⚠️")
+async def ocr_rickthon(filename, overlay=False,api_key="K88942796188957", language="eng"):
     payload = {"isOverlayRequired": overlay,"apikey": api_key,"language": language}
     with open(filename, "rb") as f:
         r = requests.post("https://api.ocr.space/parse/image",files={filename: f},data=payload)
     return r.json()
 @rickthon.on(admin_cmd(pattern="فيديو وهمي(?:\s|$)([\s\S]*)"))
-async def _iq(iqthon):
-    iq = iqthon.pattern_match.group(1)
+async def _iq(rickthon):
+    iq = rickthon.pattern_match.group(1)
     if not (iq or iq.isdigit()):
         iq = 100
     else:
@@ -401,17 +401,17 @@ async def _iq(iqthon):
             iq = int(iq)
         except BaseException:
             try:
-                iq = await iqthon.ban_time(iq)
+                iq = await rickthon.ban_time(iq)
             except BaseException:
                 return await event.edit("**اكتب الامر بشكل صحيح**")
-    await iqthon.edit(f"**تم بدء وضع فيديو وهمي لـ {iq} من الثوانـي**")
-    async with iqthon.client.action(iqthon.chat_id, "record-video"):
+    await rickthon.edit(f"**تم بدء وضع فيديو وهمي لـ {iq} من الثوانـي**")
+    async with rickthon.client.action(rickthon.chat_id, "record-video"):
         await asyncio.sleep(iq)
 @rickthon.on(admin_cmd(pattern="ازعاج(?: |$)(.*)"))    
 async def echo(event):
     if event.reply_to_msg_id is None:
-        return await edit_or_reply(event, "**♛ ⦙   يرجى الرد على الشخص الذي تـريد ازعاجه ❕**")
-    catevent = await edit_or_reply(event, "**♛ ⦙   يتم تفعيل هذا الامر انتظر قليلا ❕**")
+        return await edit_or_reply(event, "**𖤍 ⦙   يرجى الرد على الشخص الذي تـريد ازعاجه ❕**")
+    catevent = await edit_or_reply(event, "**𖤍 ⦙   يتم تفعيل هذا الامر انتظر قليلا ❕**")
     user, rank = await get_user_from_event(event, catevent, nogroup=True)
     if not user:
         return
@@ -427,41 +427,41 @@ async def echo(event):
     user_name = user.first_name
     user_username = user.username
     if is_echo(chat_id, user_id):
-        return await edit_or_reply(event, "**♛ ⦙   تـم تفـعيل وضـع الازعاج على الشخص بنجاح ✅ **")
+        return await edit_or_reply(event, "**𖤍 ⦙   تـم تفـعيل وضـع الازعاج على الشخص بنجاح ✅ **")
     try:
         addecho(chat_id, user_id, chat_name, user_name, user_username, chat_type)
     except Exception as e:
-        await edit_delete(catevent, f"♛ ⦙   Error:\n`{str(e)}`")
+        await edit_delete(catevent, f"𖤍 ⦙   Error:\n`{str(e)}`")
     else:
-        await edit_or_reply(catevent, "**♛ ⦙   تـم تفعـيل امـر التقليد علـى هذا الشـخص**\n **♛ ⦙   سـيتم تقليـد جميع رسائلـه هـنا**")
+        await edit_or_reply(catevent, "**𖤍 ⦙   تـم تفعـيل امـر التقليد علـى هذا الشـخص**\n **𖤍 ⦙   سـيتم تقليـد جميع رسائلـه هـنا**")
 @rickthon.on(admin_cmd(pattern="الغاء الازعاج( -a)?"))    
 async def echo(event):
     input_str = event.pattern_match.group(1)
     if input_str:
         lecho = get_all_echos()
         if len(lecho) == 0:
-            return await edit_delete(event, "**♛ ⦙   لم يتم تفعيل الازعاج بالاصل لاي شخص ⚠️**")
+            return await edit_delete(event, "**𖤍 ⦙   لم يتم تفعيل الازعاج بالاصل لاي شخص ⚠️**")
         try:
             remove_all_echos()
         except Exception as e:
-            await edit_delete(event, f"**♛ ⦙   هناك خطا ‼️ :**\n`{str(e)}`", 10)
+            await edit_delete(event, f"**𖤍 ⦙   هناك خطا ‼️ :**\n`{str(e)}`", 10)
         else:
-            await edit_or_reply(event, "**♛ ⦙   تـم ايقاف وضـع الازعاج على الجميع بنجاح ✅ .**")
+            await edit_or_reply(event, "**𖤍 ⦙   تـم ايقاف وضـع الازعاج على الجميع بنجاح ✅ .**")
     else:
         lecho = get_echos(event.chat_id)
         if len(lecho) == 0:
-            return await edit_delete(event, "**♛ ⦙   لم يتم تفعيل الازعاج بالاصل لاي شخص ⚠️**")
+            return await edit_delete(event, "**𖤍 ⦙   لم يتم تفعيل الازعاج بالاصل لاي شخص ⚠️**")
         try:
             remove_echos(event.chat_id)
         except Exception as e:
-            await edit_delete(event, f"**♛ ⦙   هناك خطا ‼️ :**\n`{str(e)}`", 10)
+            await edit_delete(event, f"**𖤍 ⦙   هناك خطا ‼️ :**\n`{str(e)}`", 10)
         else:
-            await edit_or_reply(event, "**♛ ⦙   تـم ايقاف وضـع الازعاج على الجميع بنجاح ✅**")
+            await edit_or_reply(event, "**𖤍 ⦙   تـم ايقاف وضـع الازعاج على الجميع بنجاح ✅**")
 @rickthon.on(admin_cmd(pattern="المزعجهم( -a)?$"))    
 async def echo(event):  
     input_str = event.pattern_match.group(1)
     private_chats = ""
-    output_str = "**♛ ⦙   قائمه الاشخاص الذين تم ازعاجهم :**\n\n"
+    output_str = "**𖤍 ⦙   قائمه الاشخاص الذين تم ازعاجهم :**\n\n"
     if input_str:
         lsts = get_all_echos()
         group_chats = ""
@@ -479,11 +479,11 @@ async def echo(event):
                         group_chats += f"☞ [{echos.user_name}](tg://user?id={echos.user_id}) in chat {echos.chat_name} of chat id `{echos.chat_id}`\n"
 
         else:
-            return await edit_or_reply(event, "**♛ ⦙   لم يتم تفعيل ازعاج  اي شخص  ⚠️**")
+            return await edit_or_reply(event, "**𖤍 ⦙   لم يتم تفعيل ازعاج  اي شخص  ⚠️**")
         if private_chats != "":
-            output_str += "**♛ ⦙   الـدردشـات الـخاصة **\n" + private_chats + "\n\n"
+            output_str += "**𖤍 ⦙   الـدردشـات الـخاصة **\n" + private_chats + "\n\n"
         if group_chats != "":
-            output_str += "**♛ ⦙   دردشـات الـمجموعات **\n" + group_chats
+            output_str += "**𖤍 ⦙   دردشـات الـمجموعات **\n" + group_chats
     else:
         lsts = get_echos(event.chat_id)
         if len(lsts) <= 0:
@@ -494,15 +494,15 @@ async def echo(event):
                 private_chats += (f"☞ [{echos.user_name}](https://t.me/{echos.user_username})\n")
             else:
                 private_chats += (f"☞ [{echos.user_name}](tg://user?id={echos.user_id})\n")
-        output_str = f"**♛ ⦙   الاشخاص الذي تم تقليدهم في هذه الدردشه :**\n" + private_chats
+        output_str = f"**𖤍 ⦙   الاشخاص الذي تم تقليدهم في هذه الدردشه :**\n" + private_chats
     await edit_or_reply(event, output_str)
 @rickthon.iq_cmd(incoming=True, edited=False)
 async def samereply(event):
     if is_echo(event.chat_id, event.sender_id) and (event.message.text or event.message.sticker):
         await event.reply(event.message)
 @rickthon.on(admin_cmd(pattern="صوت وهمي(?:\s|$)([\s\S]*)"))
-async def _iq(iqthon):
-    iq = iqthon.pattern_match.group(1)
+async def _iq(rickthon):
+    iq = rickthon.pattern_match.group(1)
     if not (iq or iq.isdigit()):
         iq = 100
     else:
@@ -546,9 +546,9 @@ async def iq(cloneiq):
                         if msgs:
                             await cloneiq.client.delete_messages(chat, msgs)
                     elif ty == "s":
-                        error += f"\n**♛ ⦙   هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
+                        error += f"\n**𖤍 ⦙   هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
                     else:
-                        error += f"\n\n♛ ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
+                        error += f"\n\n𖤍 ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
             else:
                 count += 1
                 async for msg in cloneiq.client.iter_messages(cloneiq.chat_id, limit=(int(input_str) - 1), offset_id=reply.id, reverse=True):
@@ -585,9 +585,9 @@ async def iq(cloneiq):
                 if msgs:
                     await cloneiq.client.delete_messages(chat, msgs)
             else:
-                error += f"\n♛ ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :** "
+                error += f"\n𖤍 ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :** "
         elif input_str:
-            error += f"\n♛ ⦙   **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
+            error += f"\n𖤍 ⦙   **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
         elif p_type is not None:
             for ty in p_type:
                 if ty in Tnsmeet:
@@ -600,7 +600,7 @@ async def iq(cloneiq):
                     if msgs:
                         await cloneiq.client.delete_messages(chat, msgs)
                 else:
-                    error += f"\n♛ ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
+                    error += f"\n𖤍 ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
         else:
             async for msg in cloneiq.client.iter_messages(chat, min_id=cloneiq.reply_to_msg_id - 1 ):
                 count += 1
@@ -623,9 +623,9 @@ async def iq(cloneiq):
                     if msgs:
                         await cloneiq.client.delete_messages(chat, msgs)
                 elif ty == "s":
-                    error += f"\n**♛ ⦙   لا تستطـيع استـخدام امر التنظيف عبر البحث مع الاضافه 🔎**"
+                    error += f"\n**𖤍 ⦙   لا تستطـيع استـخدام امر التنظيف عبر البحث مع الاضافه 🔎**"
                 else:
-                    error += f"\n♛ ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
+                    error += f"\n𖤍 ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
         elif p_type == "s":
             try:
                 cont, inputstr = input_str.split(" ")
@@ -651,7 +651,7 @@ async def iq(cloneiq):
             if msgs:
                 await cloneiq.client.delete_messages(chat, msgs)
         else:
-            error += f"\n♛ ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
+            error += f"\n𖤍 ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
     elif p_type is not None:
         for ty in p_type:
             if ty in Tnsmeet:
@@ -665,9 +665,9 @@ async def iq(cloneiq):
                 if msgs:
                     await cloneiq.client.delete_messages(chat, msgs)
             elif ty == "s":
-                error += f"\n**♛ ⦙   لا تستطـيع استـخدام امر التنظيف عبر البحث مع الاضافه 🔎**"
+                error += f"\n**𖤍 ⦙   لا تستطـيع استـخدام امر التنظيف عبر البحث مع الاضافه 🔎**"
             else:
-                error += f"\n♛ ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
+                error += f"\n𖤍 ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
     elif input_str.isnumeric():
         async for msg in cloneiq.client.iter_messages(chat, limit=int(input_str) + 1):
             count += 1
@@ -678,21 +678,21 @@ async def iq(cloneiq):
         if msgs:
             await cloneiq.client.delete_messages(chat, msgs)
     else:
-        error += "\n**♛ ⦙   لم يتـم تحـديد الرسـالة أرسل  (.الاوامر ) و رؤية اوامر التنظيف  📌**"
+        error += "\n**𖤍 ⦙   لم يتـم تحـديد الرسـالة أرسل  (.الاوامر ) و رؤية اوامر التنظيف  📌**"
     if msgs:
         await cloneiq.client.delete_messages(chat, msgs)
     if count > 0:
-        result += "♛ ⦙   تـم الأنتـهاء من التـنظيف السـريع  ✅  \n ♛ ⦙   لقـد  تـم حـذف \n  ♛ ⦙   عـدد  " + str(count) + " من الـرسائـل 🗑️"
+        result += "𖤍 ⦙   تـم الأنتـهاء من التـنظيف السـريع  ✅  \n 𖤍 ⦙   لقـد  تـم حـذف \n  𖤍 ⦙   عـدد  " + str(count) + " من الـرسائـل 🗑️"
     if error != "":
-        result += f"\n\n**♛ ⦙  عـذرا هنـاك خطـأ ❌:**{error}"
+        result += f"\n\n**𖤍 ⦙  عـذرا هنـاك خطـأ ❌:**{error}"
     if result == "":
-        result += "**♛ ⦙   لا تـوجد رسـائل لـتنظيفها ♻️**"
+        result += "**𖤍 ⦙   لا تـوجد رسـائل لـتنظيفها ♻️**"
     hi = await cloneiq.client.send_message(cloneiq.chat_id, result)
     if BOTLOG:
-        await cloneiq.client.send_message(BOTLOG_CHATID, f"**♛ ⦙   حـذف الـرسائل 🗳️** \n{result}")
+        await cloneiq.client.send_message(BOTLOG_CHATID, f"**𖤍 ⦙   حـذف الـرسائل 🗳️** \n{result}")
     await sleep(5)
     await hi.delete()
-@iqthon.iq_cmd(incoming=True)
+@rickthon.iq_cmd(incoming=True)
 async def filter_incoming_handler(handler):  # sourcery no-metrics
     if handler.sender_id == handler.client.uid:
         return
@@ -743,15 +743,15 @@ async def _iq(rickthon):
             except BaseException:
                 return await event.edit("**اكتب الامر بشكل صحيح**")
     await rickthon.edit(f"**تم بدء وضع لعب وهمي لـ {iq} من الثوانـي**")
-    async with iqthon.client.action(iqthon.chat_id, "game"):
+    async with rickthon.client.action(rickthon.chat_id, "game"):
         await asyncio.sleep(iq)  
 @rickthon.iq_cmd(pattern="قرائه(?:\s|$)([\s\S]*)",)
-async def ocriq(iqthonevent):
-    iqqevent = await edit_or_reply(iqthonevent, "جاري قرائه الصوره ...")
+async def ocriq(rickthonevent):
+    iqqevent = await edit_or_reply(rickthonevent, "جاري قرائه الصوره ...")
     if not os.path.isdir(Config.TEMP_DIR):
         os.makedirs(Config.TEMP_DIR)
-    lang_code = iqthonevent.pattern_match.group(1)
-    downloaded_file_name = await iqthonevent.client.download_media(await iqthonevent.get_reply_message(), Config.TEMP_DIR)
+    lang_code = rickthonevent.pattern_match.group(1)
+    downloaded_file_name = await rickthonevent.client.download_media(await rickthonevent.get_reply_message(), Config.TEMP_DIR)
     test_file = await ocr_rickthon(filename=downloaded_file_name, language=lang_code)
     try:
         ParsedText = test_file["ParsedResults"][0]["ParsedText"]
@@ -768,22 +768,22 @@ async def add_new_filter(new_handler):
     msg_id = None
     if msg and msg.media and not string:
         if BOTLOG:
-            await new_handler.client.send_message(BOTLOG_CHATID, f"**♛ ⦙   اضـافه ردّ ⎗ :** \n**♛ ⦙  آيـدي الدردشـة 🆔 :** {new_handler.chat_id} \n**♛ ⦙  آثـار ⌬ :** {keyword}\n\n**♛ ⦙  تـم حفظ الرسـالة التاليـة ڪردّ على الكلمـة في الدردشـة، يرجـى عـدم حذفهـا ✻**")
+            await new_handler.client.send_message(BOTLOG_CHATID, f"**𖤍 ⦙   اضـافه ردّ ⎗ :** \n**𖤍 ⦙  آيـدي الدردشـة 🆔 :** {new_handler.chat_id} \n**𖤍 ⦙  آثـار ⌬ :** {keyword}\n\n**𖤍 ⦙  تـم حفظ الرسـالة التاليـة ڪردّ على الكلمـة في الدردشـة، يرجـى عـدم حذفهـا ✻**")
             msg_o = await new_handler.client.forward_messages(entity=BOTLOG_CHATID, messages=msg, from_peer=new_handler.chat_id, silent=True)
             msg_id = msg_o.id
         else:
-            await edit_or_reply(new_handler, "**♛ ⦙   لحفـظ الوسائـط ڪرد يتوجـب تعييـن - PRIVATE_GROUP_BOT_API_ID. 💡**")
+            await edit_or_reply(new_handler, "**𖤍 ⦙   لحفـظ الوسائـط ڪرد يتوجـب تعييـن - PRIVATE_GROUP_BOT_API_ID. 💡**")
             return
     elif new_handler.reply_to_msg_id and not string:
         rep_msg = await new_handler.get_reply_message()
         string = rep_msg.text
-    success = "**♛ ⦙  تـم حفـظ الـرد {} بنجـاح ✓**"
+    success = "**𖤍 ⦙  تـم حفـظ الـرد {} بنجـاح ✓**"
     if add_filter(str(new_handler.chat_id), keyword, string, msg_id) is True:
         return await edit_or_reply(new_handler, success.format(keyword, "added"))
     remove_filter(str(new_handler.chat_id), keyword)
     if add_filter(str(new_handler.chat_id), keyword, string, msg_id) is True:
         return await edit_or_reply(new_handler, success.format(keyword, "Updated"))
-    await edit_or_reply(new_handler, f"**♛ ⦙   حـدث خطـأ عنـد تعييـن الـردّ ✕ :** {keyword}")
+    await edit_or_reply(new_handler, f"**𖤍 ⦙   حـدث خطـأ عنـد تعييـن الـردّ ✕ :** {keyword}")
 @rickthon.on(admin_cmd(pattern="موقع وهمي(?:\s|$)([\s\S]*)"))
 async def _iq(rickthon):
     iq = rickthon.pattern_match.group(1)
@@ -794,38 +794,38 @@ async def _iq(rickthon):
             iq = int(iq)
         except BaseException:
             try:
-                iq = await iqthon.ban_time(iq)
+                iq = await rickthon.ban_time(iq)
             except BaseException:
                 return await event.edit("**اكتب الامر بشكل صحيح**")
-    await iqthon.edit(f"**تم بدء وضع موقع وهمي لـ {iq} من الثوانـي**")
+    await rickthon.edit(f"**تم بدء وضع موقع وهمي لـ {iq} من الثوانـي**")
     async with rickthon.client.action(rickthon.chat_id, "location"):
         await asyncio.sleep(iq)
 @rickthon.on(admin_cmd(pattern="جميع الردود(?: |$)(.*)"))    
 async def on_snip_list(event):
-    OUT_STR = "**♛ ⦙  لايوجـد أيّ رد في هـذه الدردشـة  ✕**"
+    OUT_STR = "**𖤍 ⦙  لايوجـد أيّ رد في هـذه الدردشـة  ✕**"
     filters = get_filters(event.chat_id)
     for filt in filters:
-        if OUT_STR == "**♛ ⦙   لايوجـد أيّ رد في هـذه الدردشـة  ✕**":
-            OUT_STR = "**♛ ⦙  الـردود المتوفـرة في هـذه الدردشـة ⎙ :** \n"
+        if OUT_STR == "**𖤍 ⦙   لايوجـد أيّ رد في هـذه الدردشـة  ✕**":
+            OUT_STR = "**𖤍 ⦙  الـردود المتوفـرة في هـذه الدردشـة ⎙ :** \n"
         OUT_STR += "▷  `{}`\n".format(filt.keyword)
-    await edit_or_reply(event, OUT_STR, caption="**♛ ⦙  الـردود المتاحـة في الدردشـة الحاليـة ⎙ **", file_name="filters.text")
+    await edit_or_reply(event, OUT_STR, caption="**𖤍 ⦙  الـردود المتاحـة في الدردشـة الحاليـة ⎙ **", file_name="filters.text")
 Tnsmeet1 = {}
 Tnsmeet1 = {"ا": InputMessagesFilterPhotos, "ل": InputMessagesFilterDocument, "ر": InputMessagesFilterUrl, "س": InputMessagesFilterEmpty, "ئ": InputMessagesFilterGif,"ج": InputMessagesFilterVideo,  "م": InputMessagesFilterMusic, "ي": InputMessagesFilterMyMentions, "ع": InputMessagesFilterGeo}
 @rickthon.on(admin_cmd(pattern="مسح رد ([\s\S]*)")) 
 async def remove_a_filter(r_handler):
     filt = r_handler.pattern_match.group(1)
     if not remove_filter(r_handler.chat_id, filt):
-        await r_handler.edit("**♛ ⦙   الـرد  {}  غيـر موجـود ❗️**".format(filt))
+        await r_handler.edit("**𖤍 ⦙   الـرد  {}  غيـر موجـود ❗️**".format(filt))
     else:
-        await r_handler.edit("**♛ ⦙  تـم حـذف الـردّ  {}  بنجـاح ✓**".format(filt))
+        await r_handler.edit("**𖤍 ⦙  تـم حـذف الـردّ  {}  بنجـاح ✓**".format(filt))
 @rickthon.on(admin_cmd(pattern="مسح جميع الردود(?: |$)(.*)"))    
 async def on_all_snip_delete(event):
     filters = get_filters(event.chat_id)
     if filters:
         remove_all_filters(event.chat_id)
-        await edit_or_reply(event, f"**♛ ⦙  تـم حـذف ردود الدردشـة الحاليـة بنجـاح ✓**")
+        await edit_or_reply(event, f"**𖤍 ⦙  تـم حـذف ردود الدردشـة الحاليـة بنجـاح ✓**")
     else:
-        await edit_or_reply(event, f"**♛ ⦙  لايوجـد أيّ رد في هـذه المجموعـة ✕**")
+        await edit_or_reply(event, f"**𖤍 ⦙  لايوجـد أيّ رد في هـذه المجموعـة ✕**")
 @rickthon.on(admin_cmd(pattern="تكلم(?:\s|$)([\s\S]*)"))    
 async def _(event):
     input_str = event.pattern_match.group(1)
@@ -839,10 +839,10 @@ async def _(event):
         lan = input_str or "en"
     else:
         if not input_str:
-            return await edit_or_reply(event, "**♛ ⦙    عـذرا هـذا النص خـطأ **")
+            return await edit_or_reply(event, "**𖤍 ⦙    عـذرا هـذا النص خـطأ **")
         text = input_str
         lan = "en"
-    catevent = await edit_or_reply(event, "**♛ ⦙   يـتم الـتسجيل أنتـظر **")
+    catevent = await edit_or_reply(event, "**𖤍 ⦙   يـتم الـتسجيل أنتـظر **")
     text = deEmojify(text.strip())
     lan = lan.strip()
     if not os.path.isdir("./temp/"):
@@ -877,18 +877,18 @@ async def _(event):
         ms = (end - start).seconds
         await event.client.send_file(event.chat_id, required_file_name, reply_to=reply_to_id, allow_cache=False, voice_note=True)
         os.remove(required_file_name)
-        await edit_delete(catevent, "**♛ ⦙   النـص الـذي اخـترتـة  {} في هـذا البـصمة  خـلال 🔎 {} ثـانيـة 🔩".format(text[0:20], ms),)
+        await edit_delete(catevent, "**𖤍 ⦙   النـص الـذي اخـترتـة  {} في هـذا البـصمة  خـلال 🔎 {} ثـانيـة 🔩".format(text[0:20], ms),)
     except Exception as e:
-        await edit_or_reply(catevent, f"**♛ ⦙   عـذرا هنـاك خطـأ هـوة 🚫 :**\n`{str(e)}`")
+        await edit_or_reply(catevent, f"**𖤍 ⦙   عـذرا هنـاك خطـأ هـوة 🚫 :**\n`{str(e)}`")
 @rickthon.on(admin_cmd(pattern="تحذير تكرار(?:\s|$)([\s\S]*)"))
 async def _(event):
     input_str = event.pattern_match.group(1)
-    event = await edit_or_reply(event, "♛ ⦙  جـاري تحديـث إعـدادات الـ كملها ↯")
+    event = await edit_or_reply(event, "𖤍 ⦙  جـاري تحديـث إعـدادات الـ كملها ↯")
     await asyncio.sleep(2)
     try:
         sql.set_flood(event.chat_id, input_str)
         sql.__load_flood_settings()
-        await event.edit(f"♛ ⦙  تم تحديـث تحذير تكرار إلى : {input_str} في الدردشـة الحاليـة ⌂")
+        await event.edit(f"𖤍 ⦙  تم تحديـث تحذير تكرار إلى : {input_str} في الدردشـة الحاليـة ⌂")
     except Exception as e:
         await event.edit(str(e))
 @rickthon.on(admin_cmd(pattern="ترجمه ([\s\S]*)"))
@@ -901,14 +901,14 @@ async def _(event):
     elif ";" in input_str:
         lan, text = input_str.split(";")
     else:
-        return await edit_delete(event, "**♛ ⦙   للترجمه يجـب الـرد على الرساله واكتب .ترجمه ar**", time=5)
+        return await edit_delete(event, "**𖤍 ⦙   للترجمه يجـب الـرد على الرساله واكتب .ترجمه ar**", time=5)
     text = deEmojify(text.strip())
     lan = lan.strip()
     Translator()
     try:
         translated = await getTranslate(text, dest=lan)
         after_tr_text = translated.text
-        output_str = f"**♛ ⦙   تمت الترجمه مـن  :** {LANGUAGES[translated.src].title()}\n **♛ ⦙   الـى ** {LANGUAGES[lan].title()} \n\n{after_tr_text}"
+        output_str = f"**𖤍 ⦙   تمت الترجمه مـن  :** {LANGUAGES[translated.src].title()}\n **𖤍 ⦙   الـى ** {LANGUAGES[lan].title()} \n\n{after_tr_text}"
         await edit_or_reply(event, output_str)
     except Exception as exc:
         await edit_delete(event, f"**خـطأ:**\n`{str(exc)}`", time=5)
@@ -918,7 +918,7 @@ async def iq(event):
     return await event.edit('**يجـب عـليك الـرد عـلى صـورة ذاتيـة الـتدمير**')
   ogtah = await event.get_reply_message()
   pic = await ogtah.download_media()
-  await bot.send_file('me', pic, caption=f"""**الصـورة الوقتيه ✅**\- So : @iqthon""")
+  await bot.send_file('me', pic, caption=f"""**الصـورة الوقتيه ✅**\- So : @rickthon""")
   await event.delete()
 @rickthon.on(admin_cmd(pattern="تاريخ الرساله(?: |$)(.*)"))    
 async def _(event):
@@ -932,7 +932,7 @@ async def _(event):
         result = event.date
     await edit_or_reply(event, f"**هذا تاريخ الرساله والوقت  👁‍🗨 :** `{yaml_format(result)}`")
 @rickthon.on(admin_cmd(pattern="جهه اتصال وهمي(?:\s|$)([\s\S]*)"))
-async def _iq(iqthon):
+async def _iq(rickthon):
     iq = rickthon.pattern_match.group(1)
     if not (iq or iq.isdigit()):
         iq = 100
@@ -957,7 +957,7 @@ async def _(event):
     else:
         markdown_note = "".join(event.text.split(maxsplit=1)[1:])
     if not markdown_note:
-        return await edit_delete(event, "**♛ ⦙  مـا هـو النـص الـذي يجـب أن أستخدمـه ␦** : \n♛ ⦙   أولا قـم بكتابه الامر وبجانبه الكلمه ورابط\n♛ ⦙   كمثال 👇 :\n♛ ⦙   `.ماركدون شفافية اهلا بك في كوكل [google]<buttonurl:https://www.google.com>`")
+        return await edit_delete(event, "**𖤍 ⦙  مـا هـو النـص الـذي يجـب أن أستخدمـه ␦** : \n𖤍 ⦙   أولا قـم بكتابه الامر وبجانبه الكلمه ورابط\n𖤍 ⦙   كمثال 👇 :\n𖤍 ⦙   `.ماركدون شفافية اهلا بك في كوكل [google]<buttonurl:https://www.google.com>`")
     catinput = "Inline buttons " + markdown_note
     results = await event.client.inline_query(Config.TG_BOT_USERNAME, catinput)
     await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
@@ -992,9 +992,9 @@ async def iq(cloneiq):
                         if msgs:
                             await cloneiq.client.delete_messages(chat, msgs)
                     elif ty == "s":
-                        error += f"\n**♛ ⦙   هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
+                        error += f"\n**𖤍 ⦙   هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
                     else:
-                        error += f"\n\n♛ ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
+                        error += f"\n\n𖤍 ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
             else:
                 count += 1
                 async for msg in cloneiq.client.iter_messages(cloneiq.chat_id, limit=(int(input_str) - 1), offset_id=reply.id, reverse=True):
@@ -1031,9 +1031,9 @@ async def iq(cloneiq):
                 if msgs:
                     await cloneiq.client.delete_messages(chat, msgs)
             else:
-                error += f"\n♛ ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :** "
+                error += f"\n𖤍 ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :** "
         elif input_str:
-            error += f"\n♛ ⦙   **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
+            error += f"\n𖤍 ⦙   **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
         elif p_type is not None:
             for ty in p_type:
                 if ty in Tnsmeet1:
@@ -1046,7 +1046,7 @@ async def iq(cloneiq):
                     if msgs:
                         await cloneiq.client.delete_messages(chat, msgs)
                 else:
-                    error += f"\n♛ ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
+                    error += f"\n𖤍 ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
         else:
             async for msg in cloneiq.client.iter_messages(chat, min_id=cloneiq.reply_to_msg_id - 1 ):
                 count += 1
@@ -1069,9 +1069,9 @@ async def iq(cloneiq):
                     if msgs:
                         await cloneiq.client.delete_messages(chat, msgs)
                 elif ty == "s":
-                    error += f"\n**♛ ⦙   لا تستطـيع استـخدام امر التنظيف عبر البحث مع الاضافه 🔎**"
+                    error += f"\n**𖤍 ⦙   لا تستطـيع استـخدام امر التنظيف عبر البحث مع الاضافه 🔎**"
                 else:
-                    error += f"\n♛ ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
+                    error += f"\n𖤍 ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
         elif p_type == "s":
             try:
                 cont, inputstr = input_str.split(" ")
@@ -1097,7 +1097,7 @@ async def iq(cloneiq):
             if msgs:
                 await cloneiq.client.delete_messages(chat, msgs)
         else:
-            error += f"\n♛ ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
+            error += f"\n𖤍 ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
     elif p_type is not None:
         for ty in p_type:
             if ty in Tnsmeet1:
@@ -1111,9 +1111,9 @@ async def iq(cloneiq):
                 if msgs:
                     await cloneiq.client.delete_messages(chat, msgs)
             elif ty == "s":
-                error += f"\n**♛ ⦙   لا تستطـيع استـخدام امر التنظيف عبر البحث مع الاضافه 🔎**"
+                error += f"\n**𖤍 ⦙   لا تستطـيع استـخدام امر التنظيف عبر البحث مع الاضافه 🔎**"
             else:
-                error += f"\n♛ ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
+                error += f"\n𖤍 ⦙   `{ty}`  **هنـاك خطـا فـي تركـيب الجمـلة 🔩 :**"
     elif input_str.isnumeric():
         async for msg in cloneiq.client.iter_messages(chat, limit=int(input_str) + 1):
             count += 1
@@ -1124,18 +1124,18 @@ async def iq(cloneiq):
         if msgs:
             await cloneiq.client.delete_messages(chat, msgs)
     else:
-        error += "\n**♛ ⦙   لم يتـم تحـديد الرسـالة أرسل  (.الاوامر ) و رؤية اوامر التنظيف  📌**"
+        error += "\n**𖤍 ⦙   لم يتـم تحـديد الرسـالة أرسل  (.الاوامر ) و رؤية اوامر التنظيف  📌**"
     if msgs:
         await cloneiq.client.delete_messages(chat, msgs)
     if count > 0:
-        result += "♛ ⦙   تـم الأنتـهاء من التـنظيف السـريع  ✅  \n ♛ ⦙   لقـد  تـم حـذف \n  ♛ ⦙   عـدد  " + str(count) + " من الـرسائـل 🗑️"
+        result += "𖤍 ⦙   تـم الأنتـهاء من التـنظيف السـريع  ✅  \n 𖤍 ⦙   لقـد  تـم حـذف \n  𖤍 ⦙   عـدد  " + str(count) + " من الـرسائـل 🗑️"
     if error != "":
-        result += f"\n\n**♛ ⦙  عـذرا هنـاك خطـأ ❌:**{error}"
+        result += f"\n\n**𖤍 ⦙  عـذرا هنـاك خطـأ ❌:**{error}"
     if result == "":
-        result += "**♛ ⦙   لا تـوجد رسـائل لـتنظيفها ♻️**"
+        result += "**𖤍 ⦙   لا تـوجد رسـائل لـتنظيفها ♻️**"
     hi = await cloneiq.client.send_message(cloneiq.chat_id, result)
     if BOTLOG:
-        await cloneiq.client.send_message(BOTLOG_CHATID, f"**♛ ⦙   حـذف الـرسائل 🗳️** \n{result}")
+        await cloneiq.client.send_message(BOTLOG_CHATID, f"**𖤍 ⦙   حـذف الـرسائل 🗳️** \n{result}")
     await sleep(5)
     await hi.delete()
 @rickthon.on(admin_cmd(pattern="معرفات 100(?: |$)(.*)"))
@@ -1144,7 +1144,7 @@ async def iq(rickthon):
     chat = await rickthon.get_input_chat()
     async for x in rickthon.client.iter_participants(chat, 100):
         mentions += f" - @{x.username} ⦙ "
-    await rickthon.client.send_message(iqthon.chat_id, mentions)
+    await rickthon.client.send_message(rickthon.chat_id, mentions)
     await rickthon.delete()
 @rickthon.on(admin_cmd(pattern="معرفات 200(?: |$)(.*)"))
 async def iq(rickthon):
@@ -1152,52 +1152,52 @@ async def iq(rickthon):
     chat = await rickthon.get_input_chat()
     async for x in rickthon.client.iter_participants(chat, 200):
         mentions += f" - @{x.username} ⦙ "
-    await rickthon.client.send_message(iqthon.chat_id, mentions)
+    await rickthon.client.send_message(rickthon.chat_id, mentions)
     await rickthon.delete()
 @rickthon.on(admin_cmd(pattern="تاك 200(?: |$)(.*)"))
 async def iq(rickthon):
     mentions = rickthon.text[8:]
     chat = await rickthon.get_input_chat()
     async for x in rickthon.client.iter_participants(chat, 200):
-        mentions += f" \n♛ ⦙ ⵧ〈[{x.first_name}](tg://user?id={x.id})〉"
-    await rickthon.client.send_message(iqthon.chat_id, mentions)
+        mentions += f" \n𖤍 ⦙ ⵧ〈[{x.first_name}](tg://user?id={x.id})〉"
+    await rickthon.client.send_message(rickthon.chat_id, mentions)
     await rickthon.delete()
 @rickthon.on(admin_cmd(pattern="تاك 150(?: |$)(.*)"))
 async def iq(rickthon):
     mentions = rickthon.text[8:]
     chat = await rickthon.get_input_chat()
     async for x in rickthon.client.iter_participants(chat, 150):
-        mentions += f" \n♛ ⦙ ⵧ〈[{x.first_name}](tg://user?id={x.id})〉 \n"
-    await rickthon.client.send_message(iqthon.chat_id, mentions)
+        mentions += f" \n𖤍 ⦙ ⵧ〈[{x.first_name}](tg://user?id={x.id})〉 \n"
+    await rickthon.client.send_message(rickthon.chat_id, mentions)
     await rickthon.delete()
 @rickthon.on(admin_cmd(pattern="تاك 100(?: |$)(.*)"))
 async def iq(rickthon):
     mentions = rickthon.text[8:]
     chat = await rickthon.get_input_chat()
     async for x in rickthon.client.iter_participants(chat, 100):
-        mentions += f" \n♛ ⦙ ⵧ〈[{x.first_name}](tg://user?id={x.id})〉 \n"
-    await rickthon.client.send_message(iqthon.chat_id, mentions)
+        mentions += f" \n𖤍 ⦙ ⵧ〈[{x.first_name}](tg://user?id={x.id})〉 \n"
+    await rickthon.client.send_message(rickthon.chat_id, mentions)
     await rickthon.delete()
 @rickthon.on(admin_cmd(pattern="تاك 50(?: |$)(.*)"))
 async def iq(rickthon):
-    mentions = iqthon.text[8:]
+    mentions = rickthon.text[8:]
     chat = await rickthon.get_input_chat()
     async for x in rickthon.client.iter_participants(chat, 50):
-        mentions += f" \n♛ ⦙ ⵧ〈[{x.first_name}](tg://user?id={x.id})〉 \n"
-    await rickthon.client.send_message(iqthon.chat_id, mentions)
+        mentions += f" \n𖤍 ⦙ ⵧ〈[{x.first_name}](tg://user?id={x.id})〉 \n"
+    await rickthon.client.send_message(rickthon.chat_id, mentions)
     await rickthon.delete()
 @rickthon.on(admin_cmd(pattern="تاك 10(?: |$)(.*)"))
 async def iq(rickthon):
     mentions = rickthon.text[8:]
     chat = await rickthon.get_input_chat()
     async for x in rickthon.client.iter_participants(chat, 10):
-        mentions += f" \n ♛ ⦙ ⵧ〈[{x.first_name}](tg://user?id={x.id})〉 \n"
-    await rickthon.client.send_message(iqthon.chat_id, mentions)
+        mentions += f" \n 𖤍 ⦙ ⵧ〈[{x.first_name}](tg://user?id={x.id})〉 \n"
+    await rickthon.client.send_message(rickthon.chat_id, mentions)
     await rickthon.delete()
 @rickthon.on(admin_cmd(pattern="احسب ([\s\S]*)"))    
 async def calculator(event):
     cmd = event.text.split(" ", maxsplit=1)[1]
-    event = await edit_or_reply(event, "**♛ ⦙   جـاري حسـاب المسـئلـة 📐**")
+    event = await edit_or_reply(event, "**𖤍 ⦙   جـاري حسـاب المسـئلـة 📐**")
     old_stderr = sys.stderr
     old_stdout = sys.stdout
     redirected_output = sys.stdout = io.StringIO()
@@ -1220,8 +1220,8 @@ async def calculator(event):
     elif stdout:
         evaluation = stdout
     else:
-        evaluation = "**♛ ⦙   عـذار المسـئلة لااقـدر حلـها أو هنـاك خطـأ بتـرتيـب السـؤال 🆘**"
-    final_output = "**♛ ⦙   المسئلة **: `{}` \n **♛ ⦙   الجواب **: `{}` \n".format(cmd, evaluation)
+        evaluation = "**𖤍 ⦙   عـذار المسـئلة لااقـدر حلـها أو هنـاك خطـأ بتـرتيـب السـؤال 🆘**"
+    final_output = "**𖤍 ⦙   المسئلة **: `{}` \n **𖤍 ⦙   الجواب **: `{}` \n".format(cmd, evaluation)
     await event.edit(final_output)
 
 async def aexec(code, event):
@@ -1244,24 +1244,24 @@ async def remove_iq(event):
         else:
             await catevent.edit("إزالة خلفية هذه الوسائط")
             file_name = convert_toimage(file_name)
-            response = iqthonveFile(file_name)
+            response = rickthonveFile(file_name)
             os.remove(file_name)
     elif input_str:
         catevent = await edit_or_reply(event, "إزالة خلفية هذه الوسائط")
-        response = iqthonveURL(input_str)
+        response = rickthonveURL(input_str)
     else:
         await edit_delete(event, "قم بالرد على أي صورة أو ملصق باستخدام rmbg / srmbg للحصول على خلفية أقل من ملف png أو تنسيق webp أو توفير رابط الصورة مع الأمر", 5)
         return
     contentType = response.headers.get("content-type")
-    remove_bg_image = "iqthon.png"
+    remove_bg_image = "rickthon.png"
     if "image" in contentType:
-        with open("iqthon.png", "wb") as removed_bg_file:
+        with open("rickthon.png", "wb") as removed_bg_file:
             removed_bg_file.write(response.content)
     else:
         await edit_delete(catevent, f"`{response.content.decode('UTF-8')}`", 5)
         return
     if cmd == "ازاله الخلفيه بالملصق":
-        file = convert_tosticker(remove_bg_image, filename="iqthon.webp")
+        file = convert_tosticker(remove_bg_image, filename="rickthon.webp")
         await event.client.send_file(event.chat_id,file,reply_to=message_id)
     else:
         file = remove_bg_image
@@ -1269,7 +1269,7 @@ async def remove_iq(event):
     await catevent.delete()
 @rickthon.on(admin_cmd(pattern="ابلاغ الادمنيه(?: |$)(.*)"))    
 async def iq(event):
-    mentions = "@تاك للادمنيه : **♛ ⦙  تم رصـد إزعـاج ⚠️**"
+    mentions = "@تاك للادمنيه : **𖤍 ⦙  تم رصـد إزعـاج ⚠️**"
     chat = await event.get_input_chat()
     reply_to_id = await reply_id(event)
     async for x in event.client.iter_participants(chat, filter=ChannelParticipantsAdmins):
@@ -1326,10 +1326,10 @@ async def sticklet(event):
     width, height = draw.multiline_textsize(sticktext, font=font)
     draw.multiline_text(        ((512 - width) / 2, (512 - height) / 2), sticktext, font=font, fill=(R, G, B)    )
     image_stream = io.BytesIO()
-    image_stream.name = "iqthon.webp"
+    image_stream.name = "rickthon.webp"
     image.save(image_stream, "WebP")
     image_stream.seek(0)
-    await event.client.send_file(        event.chat_id,        image_stream,        caption="iqthon's Sticklet",        reply_to=reply_to_id,    )
+    await event.client.send_file(        event.chat_id,        image_stream,        caption="rickthon's Sticklet",        reply_to=reply_to_id,    )
     try:
         os.remove(FONT_FILE)
     except BaseException:
@@ -1385,21 +1385,21 @@ async def iq(msg1):
             try:
                 await iq_src.delete()
                 if BOTLOG:
-                    await msg1.client.send_message(BOTLOG_CHATID, "**♛ ⦙   حـذف الـرسائل 🗳️  \n ♛ ⦙   تـم حـذف الـرسالة بـنجاح ✅**")
+                    await msg1.client.send_message(BOTLOG_CHATID, "**𖤍 ⦙   حـذف الـرسائل 🗳️  \n 𖤍 ⦙   تـم حـذف الـرسالة بـنجاح ✅**")
             except rpcbaseerrors.BadRequestError:
                 if BOTLOG:
-                    await msg1.client.send_message(BOTLOG_CHATID, "**♛ ⦙  عـذرا لايـمكن الـحذف بـدون  صلاحيـات ألاشـراف ⚜️**")
+                    await msg1.client.send_message(BOTLOG_CHATID, "**𖤍 ⦙  عـذرا لايـمكن الـحذف بـدون  صلاحيـات ألاشـراف ⚜️**")
         elif input_str:
             if not input_str.startswith("var"):
-                await edit_or_reply(msg1, "**♛ ⦙   عـذرا الـرسالة غيـر موجـودة ❌**")
+                await edit_or_reply(msg1, "**𖤍 ⦙   عـذرا الـرسالة غيـر موجـودة ❌**")
         else:
             try:
                 await iq_src.delete()
                 await msg1.delete()
                 if BOTLOG:
-                    await msg1.client.send_message(BOTLOG_CHATID, "**♛ ⦙   حـذف الـرسائل 🗳️  \n ♛ ⦙   تـم حـذف الـرسالة بـنجاح ✅**")
+                    await msg1.client.send_message(BOTLOG_CHATID, "**𖤍 ⦙   حـذف الـرسائل 🗳️  \n 𖤍 ⦙   تـم حـذف الـرسالة بـنجاح ✅**")
             except rpcbaseerrors.BadRequestError:
-                await edit_or_reply(msg1, "**♛ ⦙   عـذرا  لا استـطيع حـذف الرسـالة. ⁉️**")
+                await edit_or_reply(msg1, "**𖤍 ⦙   عـذرا  لا استـطيع حـذف الرسـالة. ⁉️**")
     elif not input_str:
         await msg1.delete()
 @rickthon.on(admin_cmd(pattern="تاك بالكلام ([\s\S]*)"))    
@@ -1438,7 +1438,7 @@ async def iq(nshkh):
         the_real_message = the_real_message.replace("_", "_")
         await nshkh.edit(the_real_message)
     else:
-        await nshkh.edit("**♛ ⦙   قم  برد على الرساله ** ")
+        await nshkh.edit("**𖤍 ⦙   قم  برد على الرساله ** ")
 @rickthon.on(admin_cmd(pattern="غمق(?: |$)(.*)"))
 async def iq(nshkh):
     if nshkh.fwd_from:
@@ -1451,7 +1451,7 @@ async def iq(nshkh):
         the_real_message = the_real_message.replace("_", "_")
         await nshkh.edit(f"** {the_real_message} **")
     else:
-        await nshkh.edit("**♛ ⦙   قم  برد على الرساله ** ")
+        await nshkh.edit("**𖤍 ⦙   قم  برد على الرساله ** ")
 @rickthon.on(admin_cmd(pattern="ينسخ(?: |$)(.*)"))
 async def iq(nshkh):
     if nshkh.fwd_from:
@@ -1464,7 +1464,7 @@ async def iq(nshkh):
         the_real_message = the_real_message.replace("_", "_")
         await nshkh.edit(f"`{the_real_message}`")
     else:
-        await nshkh.edit("**♛ ⦙   قم  برد على الرساله ** ")
+        await nshkh.edit("**𖤍 ⦙   قم  برد على الرساله ** ")
 @rickthon.on(admin_cmd(pattern="خط سفلي(?: |$)(.*)"))
 async def iq(nshkh):
     if nshkh.fwd_from:
@@ -1477,4 +1477,4 @@ async def iq(nshkh):
         the_real_message = the_real_message.replace("_", "_")
         await nshkh.edit(f"-- --{the_real_message}-- --")
     else:
-        await nshkh.edit("**♛ ⦙   قم  برد على الرساله ** ")
+        await nshkh.edit("**𖤍 ⦙   قم  برد على الرساله ** ")
