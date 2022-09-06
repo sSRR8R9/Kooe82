@@ -535,7 +535,7 @@ async def approve_p_m(event):  # sourcery no-metrics
             sqllist.rm_from_list("pmenquire", chat.id)
         if str(chat.id) in sqllist.get_collection_list("pmoptions"):
             sqllist.rm_from_list("pmoptions", chat.id)
-        await edit_delete(event, f"♛ ⦙    [{user.first_name}](tg://user?id={user.id})\n**♛ ⦙   تـم السـمـاح لـه بـأرسـال الـرسـائـل 💬✔️** \n **♛ ⦙   الـسـبـب ❔  :** {reason}")
+        await edit_delete(event, f"𖤍 ⦙    [{user.first_name}](tg://user?id={user.id})\n**𖤍 ⦙   تـم السـمـاح لـه بـأرسـال الـرسـائـل 💬✔️** \n **𖤍 ⦙   الـسـبـب ❔  :** {reason}")
         try:
             PMMESSAGE_CACHE = sql.get_collection("pmmessagecache").json
         except AttributeError:
@@ -551,11 +551,11 @@ async def approve_p_m(event):  # sourcery no-metrics
         sql.add_collection("pmwarns", PM_WARNS, {})
         sql.add_collection("pmmessagecache", PMMESSAGE_CACHE, {})
     else:
-        await edit_delete(event, f"[{user.first_name}](tg://user?id={user.id}) \n ♛ ⦙   هـو بـالـفـعل فـي قـائـمـة الـسـمـاح ✅")
+        await edit_delete(event, f"[{user.first_name}](tg://user?id={user.id}) \n 𖤍 ⦙   هـو بـالـفـعل فـي قـائـمـة الـسـمـاح ✅")
 @rickthon.on(admin_cmd(pattern="(ر|رفض)(?:\s|$)([\s\S]*)"))
 async def disapprove_p_m(event):
     if gvarstatus("pmpermit") is None:
-        return await edit_delete(event, f"**♛ ⦙   يــجـب تـفـعـيـل امـر الحـمـايـة أولاً بـأرســال ** {cmdhd} الـحماية تشغيل  لـتـفـعـيـل هـذا الأمـر .⚠️❕")
+        return await edit_delete(event, f"**𖤍 ⦙   يــجـب تـفـعـيـل امـر الحـمـايـة أولاً بـأرســال ** {cmdhd} الـحماية تشغيل  لـتـفـعـيـل هـذا الأمـر .⚠️❕")
     if event.is_private:
         user = await event.get_chat()
         reason = event.pattern_match.group(2)
@@ -568,18 +568,18 @@ async def disapprove_p_m(event):
                 return
     if reason == "الكل":
         pmpermit_sql.disapprove_all()
-        return await edit_delete(event, "**♛ ⦙   حــسـنـا تــم رفـض الـجـمـيـع بــنـجـاح 💯**")
+        return await edit_delete(event, "**𖤍 ⦙   حــسـنـا تــم رفـض الـجـمـيـع بــنـجـاح 💯**")
     if not reason:
         reason = "**𖤍 ⦙  لـم يـذكـر 💭 **"
     if pmpermit_sql.is_approved(user.id):
         pmpermit_sql.disapprove(user.id)
-        await edit_or_reply(event, f"[{user.first_name}](tg://user?id={user.id})\n**♛ ⦙   تـم رفـضـه مـن أرسـال الـرسـائـل ⚠️**\n**♛ ⦙   الـسـبـب ❔  :** {reason}")
+        await edit_or_reply(event, f"[{user.first_name}](tg://user?id={user.id})\n**𖤍 ⦙   تـم رفـضـه مـن أرسـال الـرسـائـل ⚠️**\n**𖤍 ⦙   الـسـبـب ❔  :** {reason}")
     else:
-        await edit_delete(event, f"[{user.first_name}](tg://user?id={user.id})\n ** ♛ ⦙   لــم يـتـم الـمـوافـقـة عـلـيـه مـسـبـقـاً ❕ **")
+        await edit_delete(event, f"[{user.first_name}](tg://user?id={user.id})\n ** 𖤍 ⦙   لــم يـتـم الـمـوافـقـة عـلـيـه مـسـبـقـاً ❕ **")
 @rickthon.on(admin_cmd(pattern="مرفوض(?:\s|$)([\s\S]*)"))
 async def block_p_m(event):
     if gvarstatus("pmpermit") is None:
-        return await edit_delete(event, f"**♛ ⦙   يــجـب تـفـعـيـل امـر الحـمـايـة أولاً بـأرســال ** {cmdhd} الـحماية تشغيل  لـتـفـعـيـل هـذا الأمـر .⚠️❕")
+        return await edit_delete(event, f"**𖤍 ⦙   يــجـب تـفـعـيـل امـر الحـمـايـة أولاً بـأرســال ** {cmdhd} الـحماية تشغيل  لـتـفـعـيـل هـذا الأمـر .⚠️❕")
     if event.is_private:
         user = await event.get_chat()
         reason = event.pattern_match.group(1)
@@ -612,7 +612,7 @@ async def block_p_m(event):
     sql.add_collection("pmwarns", PM_WARNS, {})
     sql.add_collection("pmmessagecache", PMMESSAGE_CACHE, {})
     await event.client(functions.contacts.BlockRequest(user.id))
-    await edit_delete(event, f"[{user.first_name}](tg://user?id={user.id})\n **♛ ⦙   تـم حـظـره بـنـجـاح ، لا يـمـكـنـه مـراسـلـتـك بـعـد الان **\n**♛ ⦙   الـسـبـب ❔  :** {reason}")
+    await edit_delete(event, f"[{user.first_name}](tg://user?id={user.id})\n **𖤍 ⦙   تـم حـظـره بـنـجـاح ، لا يـمـكـنـه مـراسـلـتـك بـعـد الان **\n**𖤍 ⦙   الـسـبـب ❔  :** {reason}")
 @rickthon.on(admin_cmd(pattern="مقبول(?:\s|$)([\s\S]*)"))
 async def unblock_pm(event):
     if gvarstatus("pmpermit") is None:
@@ -627,16 +627,16 @@ async def unblock_pm(event):
     if not reason:
         reason = "**𖤍 ⦙  لـم يـذكـر 💭 **"
     await event.client(functions.contacts.UnblockRequest(user.id))
-    await event.edit(f"[{user.first_name}](tg://user?id={user.id}) \n **♛ ⦙   تـم الـغـاء حـظـره بـنـجـاح ،  يـمـكـنـه مـراسـلـتـك الان **\n**♛ ⦙   الـسـبـب ❔  :** {reason}")
+    await event.edit(f"[{user.first_name}](tg://user?id={user.id}) \n **𖤍 ⦙   تـم الـغـاء حـظـره بـنـجـاح ،  يـمـكـنـه مـراسـلـتـك الان **\n**𖤍 ⦙   الـسـبـب ❔  :** {reason}")
 @rickthon.on(admin_cmd(pattern="المقبولين(?: |$)(.*)"))
 async def approve_p_m(event):
     if gvarstatus("pmpermit") is None:
-        return await edit_delete(event,f"**♛ ⦙   يــجـب تـفـعـيـل امـر الحـمـايـة أولاً بـأرســال ** {cmdhd} الـحماية تشغيل  لـتـفـعـيـل هـذا الأمـر .⚠️❕",)
+        return await edit_delete(event,f"**𖤍 ⦙   يــجـب تـفـعـيـل امـر الحـمـايـة أولاً بـأرســال ** {cmdhd} الـحماية تشغيل  لـتـفـعـيـل هـذا الأمـر .⚠️❕",)
     approved_users = pmpermit_sql.get_all_approved()
     APPROVED_PMs = "𖤍 ⦙  قـائـمـة الـمـسـمـوح لـهم الـحـالـيـة : 🔰 \n\n"
     if len(approved_users) > 0:
         for user in approved_users:
-            APPROVED_PMs += f"• 👤 {_format.mentionuser(user.first_name , user.user_id)}\n**♛ ⦙   الأيــدي :** `{user.user_id}`\n**♛ ⦙   الـمـعـرف:** @{user.username}\n**♛ ⦙   الـتـاريـخ :** {user.date}\n**♛ ⦙   الـسـبـب:** {user.reason}\n\n"
+            APPROVED_PMs += f"• 👤 {_format.mentionuser(user.first_name , user.user_id)}\n**𖤍 ⦙   الأيــدي :** `{user.user_id}`\n**𖤍 ⦙   الـمـعـرف:** @{user.username}\n**𖤍 ⦙   الـتـاريـخ :** {user.date}\n**𖤍 ⦙   الـسـبـب:** {user.reason}\n\n"
     else:
         APPROVED_PMs = "𖤍 ⦙   لـم تـوافـق عـلـى أي شـخـص مـسـبـقـاً ⁉️"
-    await edit_or_reply(event, APPROVED_PMs, file_name="قائـمة الحـماية.txt", caption="♛ ⦙  قـائـمـة الـمـسـمـوح لـهم الـحـالـيـة : 🔰 \n سـورس تليثون الـعربي \n @rickthon")
+    await edit_or_reply(event, APPROVED_PMs, file_name="قائـمة الحـماية.txt", caption="𖤍 ⦙  قـائـمـة الـمـسـمـوح لـهم الـحـالـيـة : 🔰 \n سـورس ريك ثون \n @rickthon")
