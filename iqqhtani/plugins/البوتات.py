@@ -47,8 +47,8 @@ async def iq(rickthon):
             (await rickthon.get_reply_message()).message
 
             return
-    qqqq4t = await bot.inline_query("xobot", f"{(iqtfy(kn))}")
-    await qqqq4t[0].click(
+    QQQQ4T = await bot.inline_query("xobot", f"{(iqtfy(kn))}")
+    await QQQQ4T[0].click(
         rickthon.chat_id,
         reply_to=rickthon.reply_to_msg_id,
         silent=True if rickthon.is_reply else False,
@@ -66,7 +66,7 @@ async def iq(rickthon):
     await rickthon.delete()
 @rickthon.on(admin_cmd(pattern="حالتي ?(.*)"))
 async def iq(rickthon):
-    await rickthon.edit("جاري فحص حالتي")
+    await rickthon.edit("جاري الفحص")
     async with bot.conversation("@SpamBot") as l5:
         try:
             dontTag = l5.wait_event(
@@ -95,12 +95,12 @@ async def _(rickthon):
                 cnfrm = await conv.get_response()
                 editfilename = await conv.send_message("نعم")
                 enterfilename = await conv.get_response()
-                filename = await conv.send_message("RICKTHON")
+                filename = await conv.send_message("rickthon")
                 started = await conv.get_response()
                 pdf = await conv.get_response()
                 await bot.send_read_acknowledge(conv.chat_id)
             except YouBlockedUserError:
-                await iqthon.edit("**قم بفك الحظر من البوت : @office2pdf_bot **")
+                await rickthon.edit("**قم بفك الحظر من البوت : @office2pdf_bot **")
                 return
             await rickthon.client.send_message(event.chat_id, pdf)
             await rickthon.client.delete_messages(                conv.chat_id,                [
@@ -119,9 +119,9 @@ async def _(rickthon):
     except TimeoutError:
         return await rickthon.edit("**هناك خطا نعتذر**") 
 @rickthon.on(admin_cmd(pattern="بوتي$"))
-async def iq(rickbot):
+async def iq(iqbot):
     TG_BOT_USERNAME = Config.TG_BOT_USERNAME
-    await rickbot.reply(f"**بوت ريك ثون الخاص بك : {TG_BOT_USERNAME}**")
+    await iqbot.reply(f"**بوت تليثون الخاص بك : {TG_BOT_USERNAME}**")
 @rickthon.on(admin_cmd(pattern="ملصقي ?(.*)"))
 async def iq(rickthon):
     if rickthon.fwd_from:
@@ -191,19 +191,19 @@ async def _(rickthon):
             await asyncio.sleep(1)
             await conv.send_message("/create")
             response = await response
-            iqthonbot = ((response).reply_markup.rows[2].buttons[0].url)
-            await iqthon.client.send_read_acknowledge(conv.chat_id)
+            rickthonbot = ((response).reply_markup.rows[2].buttons[0].url)
+            await rickthon.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
             await geez.edit("**قم بفتح الحظر عن : @TempMailBot للأستمرار بانشاء البريدات**")
             return
-        await rickthon.edit(f"بريدك الخاص هوه : ~ `{response.message.message}`\n[انقر هنا للتحقق من رسائل بريدك]({iqthonbot})")
+        await rickthon.edit(f"بريدك الخاص هوه : ~ `{response.message.message}`\n[انقر هنا للتحقق من رسائل بريدك]({rickthonbot})")
 @rickthon.on(admin_cmd(pattern="سجل الاسماء(ألف)?(?:\s|$)([\s\S]*)"))
 async def _(rickthon):  # sourcery no-metrics
     input_str = "".join(rickthon.text.split(maxsplit=1)[1:])
     reply_message = await rickthon.get_reply_message()
     if not input_str and not reply_message:
         await edit_delete(rickthon, "**♛ ⦙ قم بالـرد على رسالـة لمستخـدم للحصـول على إسمـه/سجل يوزراتـه أو قم بإعطـاء آيـدي المستخـدم/يـوزر المستخـدم ✦**")
-    user, rank = await get_user_from_event(iqthon, secondgroup=True)
+    user, rank = await get_user_from_event(rickthon, secondgroup=True)
     if not user:
         return
     uid = user.id
@@ -292,7 +292,7 @@ async def _(event):
     if event.reply_to_msg_id:
         reply_to_id = await event.get_reply_message()
     chat = "@zagtelethonbot"
-    catevent = await edit_or_reply(event, "** جـارِ الزغـرفـه انـتظـر 💞🧸...**")
+    catevent = await edit_or_reply(event, "**جـارِ الزغـرفـه 💞🧸...**")
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -325,12 +325,12 @@ async def iq(rickthoninsta):
             msg = await knov.send_message(link)
             video = await knov.get_response()
             details = await knov.get_response()
-            await iqthoninsta.client.send_read_acknowledge(knov.chat_id)
+            await rickthoninsta.client.send_read_acknowledge(knov.chat_id)
         except YouBlockedUserError:
             await iqevent.edit("بفتح الحظر  @instasavegrambot")
             return
         await iqevent.delete()
-        l5 = await rickthoninsta.client.send_file(iqthoninsta.chat_id, video)
+        l5 = await rickthoninsta.client.send_file(rickthoninsta.chat_id, video)
         end = datetime.now()
         (end - start).seconds
         await l5.edit(f"تم تنزيل", parse_mode="html")
@@ -340,14 +340,14 @@ async def iq(rickthon):
     kkno = rickthon.pattern_match.group(1)
     donttag = "@i4bot"
     if rickthon.reply_to_msg_id:
-        await iqthon.get_reply_message()
+        await rickthon.get_reply_message()
     l5 = await bot.inline_query(donttag, kkno)
     await l5[0].click(rickthon.chat_id)
     await rickthon.delete()
 @rickthon.on(admin_cmd(pattern="كشف الفايروسات( -i)?$"))    
 async def _IQ(rickthon):
-    input_str = iqthon.pattern_match.group(1)
-    if not iqthon.reply_to_msg_id:
+    input_str = rickthon.pattern_match.group(1)
+    if not rickthon.reply_to_msg_id:
         return await edit_or_reply(rickthon, "الرد على أي رسالة مستخدم.")
     reply_message = await rickthon.get_reply_message()
     if not reply_message.media:
@@ -373,7 +373,7 @@ async def _IQ(rickthon):
         if not input_str:
             return await edit_or_reply(IQevent, response4.text)
         await IQevent.delete()
-        await rickthon.client.send_file(rickthon.chat_id, response3.media, reply_to=(await reply_id(iqthon)))
+        await rickthon.client.send_file(rickthon.chat_id, response3.media, reply_to=(await reply_id(rickthon)))
 @rickthon.on(admin_cmd(pattern="تقويم ([\s\S]*)"))    
 async def _iq(rickthon):
     input_str = rickthon.pattern_match.group(1)
@@ -387,4 +387,4 @@ async def _iq(rickthon):
         output_result = calendar.month(int(yyyy.strip()), int(mm.strip()))
         await edit_or_reply(rickthon, f"```{output_result}```")
     except Exception as e:
-    await edit_delete(rickthon, e)   
+        await edit_delete(rickthon, f"                                              **خطأ :**\n`{str(e)}`                       ", 5)
