@@ -1,7 +1,7 @@
 import re
 import time
 from datetime import datetime
-from iqqhtani import StartTime, iqqhtani
+from iqqhtani import StartTime, rickthon
 from iqqhtani.Config import Config
 from iqqhtani.plugins import mention
 help1 = ("**♛ ⦙ كيفيه التنصيب :**")
