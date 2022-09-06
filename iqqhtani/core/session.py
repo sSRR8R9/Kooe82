@@ -32,7 +32,7 @@ except Exception as e:
 
 
 rickthon.tgbot = tgbot = CatUserBotClient(
-    session="rickTgbot",
+    session="rickthonTgbot",
     api_id=Config.APP_ID,
     api_hash=Config.API_HASH,
     loop=loop,
