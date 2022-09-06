@@ -3,7 +3,7 @@ from math import floor
 
 from telethon.utils import get_display_name
 
-from iqqhtani import iqqhtani
+from iqqhtani import rickthon
 
 from ..Config import Config
 from ..core.logger import logging
@@ -65,14 +65,14 @@ async def ban_user_from_bot(user, reason, reply_to=None):
     banned_msg = (
         f"**You have been Banned Forever from using this bot.\nReason** : {reason}"
     )
-    await iqqhtani.tgbot.send_message(user.id, banned_msg)
+    await rickthon.tgbot.send_message(user.id, banned_msg)
     info = f"**#Banned_Bot_PM_User**\
             \n\n👤 {_format.mentionuser(get_display_name(user) , user.id)}\
             \n**First Name:** {user.first_name}\
             \n**User ID:** `{user.id}`\
             \n**Reason:** `{reason}`"
     if BOTLOG:
-        await iqqhtani.send_message(BOTLOG_CHATID, info)
+        await rickthon.send_message(BOTLOG_CHATID, info)
     return info
 
 
@@ -84,11 +84,11 @@ async def unban_user_from_bot(user, reason, reply_to=None):
     banned_msg = f"**You have been Unbanned from this bot. From now on you can send messages here to contact my master.**"
     if reason is not None:
         banned_msg += f"\n**Reason:** __{reason}__"
-    await iqqhtani.tgbot.send_message(user.id, banned_msg)
+    await rickthon.tgbot.send_message(user.id, banned_msg)
     info = f"**#Unbanned_Bot_PM_User**\
             \n\n👤 {_format.mentionuser(get_display_name(user) , user.id)}\
             \n**First Name:** {user.first_name}\
             \n**User ID:** `{user.id}`"
     if BOTLOG:
-        await iqqhtani.send_message(BOTLOG_CHATID, info)
+        await rickthon.send_message(BOTLOG_CHATID, info)
     return info
