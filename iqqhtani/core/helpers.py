@@ -6,7 +6,7 @@ from telethon.utils import get_display_name
 
 from .events import NewMessage
 
-LOGGER = logging.getLogger("iqthon")
+LOGGER = logging.getLogger("rickthon")
 
 
 def printUser(entity: types.User) -> None:
