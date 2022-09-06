@@ -65,11 +65,11 @@ HEROKU_APP_NAME = Config.HEROKU_APP_NAME
 HEROKU_API_KEY = Config.HEROKU_API_KEY
 cmdhd = Config.COMMAND_HAND_LER
 extractor = URLExtract()
-vlist = [    "ALIVE_PIC",    "ALIVE_EMOJI",    "ALIVE_TELETHONIQ",    "ALIVE_TEXT",    "ALLOW_NSFW",    "HELP_EMOJI",    "HELP_TEXT",    "IALIVE_PIC",    "PM_PIC",    "PM_TEXT",    "PM_BLOCK",    "MAX_FLOOD_IN_PMS",    "START_TEXT",    "NO_OF_ROWS_IN_HELP",    "NO_OF_COLUMNS_IN_HELP",    "CUSTOM_STICKER_PACKNAME",    "AUTO_PIC", "DEFAULT_BIO","FONTS_AUTO","OR_ALIVE","OR_UPDATE","OR_ORDERS","OR_MUTE","OR_TFLASH","OR_UNMUTE","OR_ADD","OR_ALLGROUB","OR_UNBAND","OR_BAND","OR_UNADMINRAISE","OR_ADMINRAISE","OR_LINK","OR_REMOVEBAN","OR_LEFT","OR_AUTOBIO","OR_NAMEAUTO","OR_ID","OR_UNPLAG","OR_PLAG","OR_FOTOAUTO","OR_MUQT","OR_FOTOSECRET","OR_ALLPRIVATE","MODSLEEP","OR_SLEEP","OR_UNMUQT"]
+vlist = [    "ALIVE_PIC",    "ALIVE_EMOJI",    "ALIVE_RICKTHONIQ",    "ALIVE_TEXT",    "ALLOW_NSFW",    "HELP_EMOJI",    "HELP_TEXT",    "IALIVE_PIC",    "PM_PIC",    "PM_TEXT",    "PM_BLOCK",    "MAX_FLOOD_IN_PMS",    "START_TEXT",    "NO_OF_ROWS_IN_HELP",    "NO_OF_COLUMNS_IN_HELP",    "CUSTOM_STICKER_PACKNAME",    "AUTO_PIC", "DEFAULT_BIO","FONTS_AUTO","OR_ALIVE","OR_UPDATE","OR_ORDERS","OR_MUTE","OR_TFLASH","OR_UNMUTE","OR_ADD","OR_ALLGROUB","OR_UNBAND","OR_BAND","OR_UNADMINRAISE","OR_ADMINRAISE","OR_LINK","OR_REMOVEBAN","OR_LEFT","OR_AUTOBIO","OR_NAMEAUTO","OR_ID","OR_UNPLAG","OR_PLAG","OR_FOTOAUTO","OR_MUQT","OR_FOTOSECRET","OR_ALLPRIVATE","MODSLEEP","OR_SLEEP","OR_UNMUQT"]
 DELETE_TIMEOUT = 5
 thumb_image_path = os.path.join(Config.TMP_DOWNLOAD_DIRECTORY, "thumb_image.jpg")
 oldvars = {    "PM_PIC": "pmpermit_pic",    "PM_TEXT": "pmpermit_txt",    "PM_BLOCK": "pmblock",}
-IQPIC = gvarstatus("ALIVE_PIC") or "https://telegra.ph/file/e7b3ea8dc56ac781d756c.mp4"
+IQPIC = gvarstatus("ALIVE_PIC") or "https://telegra.ph/file/fedbfcb43e5d306af1e3b.mp4"
 def convert_from_bytes(size):
     power = 2 ** 10
     n = 0
@@ -89,14 +89,14 @@ async def iq(rickthonevent):
     ms = (end - start).microseconds / 1000
     _, check_sgnirts = check_data_base_heal_th()
     EMOJI = gvarstatus("ALIVE_EMOJI") or "♛︙"
-    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "𝗐𝖾𝗅𝖼𝗈𝗆𝖾 𝗍𝖾𝗅𝖾𝗍𝗁𝗈𝗇 𝖺𝗅 𝖺𝗋𝖺𝖻 𓃠"
+    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "  ᥕᥱᥣᥴ᥆꧑ᥱ ᖇᎥᥴƙƚɦ᥆ꪀ 𓃬"
     rickthon_IMG = gvarstatus("ALIVE_PIC") or "https://telegra.ph/file/e7b3ea8dc56ac781d756c.mp4"
     tg_bot = Config.TG_BOT_USERNAME
     me = await rickthonevent.client.get_me()
     my_last = me.last_name
     my_mention = f"[{me.last_name}](tg://user?id={me.id})"
     TM = time.strftime("%I:%M")
-    iqcaption = gvarstatus("ALIVE_TELETHONIQ") or fahs
+    iqcaption = gvarstatus("ALIVE_RICKTHONIQ") or fahs
     caption = iqcaption.format(        ALIVE_TEXT=ALIVE_TEXT,
         EMOJI=EMOJI,
         mention=mention,
@@ -119,13 +119,13 @@ async def iq(rickthonevent):
             return await edit_or_reply(iqevent)
     else:
         await edit_or_reply(iqevent,caption)
-fahs = """♛ : me  {my_mention}  𓇡.
-♛ : time  {TM}  𓇡.
-♛ : up time  {uptime}  𓇡.
-♛ : My Bot  {tg_bot}  𓇡.
-♛ : ping  {ping}  𓇡.
-♛ : version 7.6  𓇡.
-♛ : Source Telethoniqqhtani : @rickthon  𓇡."""
+fahs = """𖤍 : me  {my_mention}  𓇡.
+𖤍 : time  {TM}  𓇡.
+𖤍 : up time  {uptime}  𓇡.
+𖤍 : My Bot  {tg_bot}  𓇡.
+𖤍 : ping  {ping}  𓇡.
+𖤍 : version 1.0  𓇡.
+𖤍 : Source rickthon : @rickthon  𓇡."""
 @rickthon.on(admin_cmd(pattern="رابط التنصيب(?: |$)(.*)"))    
 async def source(e):
     await edit_or_reply(e, "https://github.com/Telethoniqqhtani/TelethonAr",)
@@ -138,7 +138,7 @@ async def _(event):
         async with session.get(URL) as request:
             if request.status == 404:
                 return await edit_delete(event, "`" + username + " not found`")
-            catevent = await edit_or_reply(event, "**♛︙  جـاري إحضـار معلومـات حساب كيثاب ↯**")
+            catevent = await edit_or_reply(event, "**𖤍︙  جـاري إحضـار معلومـات حساب كيثاب ↯**")
             result = await request.json()
             photo = result["avatar_url"]
             if result["bio"]:
@@ -154,18 +154,18 @@ async def _(event):
                     if limit == 0:
                         break
             REPLY = "**♛︙  معلومـات الكيثاب لـ :** `{username}`\
-                \n**♛︙  الإسـم 👤:** [{name}]({html_url})\
-                \n**♛︙  النـوع 🔧:** `{type}`\
-                \n**♛︙  الشرڪـة 🏢:** `{company}`\
-                \n**♛︙  المدونـة 🔭:**  {blog}\
-                \n**♛︙  الموقـع 📍:**  `{location}`\
-                \n**♛︙  النبـذة 📝:**  `{bio}`\
-                \n**♛︙  عـدد المتابعيـن ❤️:**  `{followers}`\
-                \n**♛︙  الذيـن يتابعهـم 👁:**  `{following}`\
-                \n**♛︙   عدد ريبو العام 📊:**  `{public_repos}`\
-                \n**♛︙  الجمهـور 📄:**  `{public_gists}`\
-                \n**♛︙  تم إنشـاء الملـف الشخصـي ✓** 🔗: `{created_at}`\
-                \n**♛︙  تم تحديـث الملـف الشخصـي ✓** ✏️: `{updated_at}`".format(
+                \n**𖤍︙  الإسـم 👤:** [{name}]({html_url})\
+                \n**𖤍︙  النـوع 🔧:** `{type}`\
+                \n**𖤍︙  الشرڪـة 🏢:** `{company}`\
+                \n**𖤍︙  المدونـة 🔭:**  {blog}\
+                \n**𖤍︙  الموقـع 📍:**  `{location}`\
+                \n**𖤍︙  النبـذة 📝:**  `{bio}`\
+                \n**𖤍︙  عـدد المتابعيـن ❤️:**  `{followers}`\
+                \n**𖤍︙  الذيـن يتابعهـم 👁:**  `{following}`\
+                \n**𖤍︙   عدد ريبو العام 📊:**  `{public_repos}`\
+                \n**𖤍︙  الجمهـور 📄:**  `{public_gists}`\
+                \n**𖤍︙  تم إنشـاء الملـف الشخصـي ✓** 🔗: `{created_at}`\
+                \n**𖤍︙  تم تحديـث الملـف الشخصـي ✓** ✏️: `{updated_at}`".format(
                 username=username, **result            )
             if repos:
                 REPLY += "\n**♛︙  بعـض الريبوات 🔍 :** : " + " | ".join(repos)
