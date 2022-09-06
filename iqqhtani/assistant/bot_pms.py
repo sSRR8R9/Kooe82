@@ -8,7 +8,7 @@ from telethon.errors import UserIsBlockedError
 from telethon.events import CallbackQuery, StopPropagation
 from telethon.utils import get_display_name
 
-from iqqhtani import Config, iqqhtani
+from iqqhtani import Config, rickthon
 
 from ..core import check_owner, pool
 from ..core.logger import logging
@@ -64,14 +64,14 @@ async def check_bot_started_users(user, event):
         await event.client.send_message(BOTLOG_CHATID, notification)
 
 
-@iqqhtani.bot_cmd(
+@rickthon.bot_cmd(
     pattern=f"^/start({botusername})?([\s]+)?$",
     incoming=True,
     func=lambda e: e.is_private,
 )
 async def bot_start(event):
     chat = await event.get_chat()
-    user = await iqqhtani.get_me()
+    user = await rickthon.get_me()
     if check_is_black_list(chat.id):
         return
     reply_to = await reply_id(event)
@@ -106,19 +106,19 @@ async def bot_start(event):
             start_msg = f"**⌔︙ اهلا وسهلا اخوي  {mention} **\
                         \n**⌔︙ {my_mention}'انا البوت المساعد .**\
                         \n**⌔︙ يمكنك التواصل مع صاحب البوت فقط ارسل رسالتك 👤.**\
-                        \n\n**⌔︙ البوت خاص بسورس :** [ريك ثون](https://t.me/rickthob)"
+                        \n\n**⌔︙ البوت خاص بسورس :** [TELETHON FOR iqqhtaniS](https://t.me/X888E)"
         buttons = [
             (
-                Button.url("تنصيب سورسنا", "https://dashboard.heroku.com/new?template=https://github.com/rick1128/"),
+                Button.url("تنصيب سورسنا", "https://heroku.com/deploy?template=https://github.com/rick1128/rickthon"),
                 Button.url(
-                    "قروب المساعد",
-                    "https://t.me/rickthon_group",
+                    "قناه المساعد",
+                    "https://t.me/E999G",
                 ),
             )
         ]
     else:
         start_msg = "**⌔︙ اهلا وسهلا بك ايها المطور ⚜️**\
-            \n⌔︙ لروئيه الاوامر الخاصه بالمطور أرسل : `/مساعدة`"
+            \n⌔︙ لروئيه الاوام الخاصه بالمطور أرسل : `/مساعدة`"
         buttons = None
     try:
         await event.client.send_message(
@@ -139,7 +139,7 @@ async def bot_start(event):
         await check_bot_started_users(chat, event)
 
 
-@iqqhtani.bot_cmd(incoming=True, func=lambda e: e.is_private)
+@rickthon.bot_cmd(incoming=True, func=lambda e: e.is_private)
 async def bot_pms(event):  # sourcery no-metrics
     chat = await event.get_chat()
     if check_is_black_list(chat.id):
@@ -196,7 +196,7 @@ async def bot_pms(event):  # sourcery no-metrics
                     )
 
 
-@iqqhtani.bot_cmd(edited=True)
+@rickthon.bot_cmd(edited=True)
 async def bot_pms_edit(event):  # sourcery no-metrics
     chat = await event.get_chat()
     if check_is_black_list(chat.id):
@@ -289,7 +289,7 @@ async def handler(event):
                 LOGS.error(str(e))
 
 
-@iqqhtani.bot_cmd(
+@rickthon.bot_cmd(
     pattern=f"^/uinfo$",
     from_users=Config.OWNER_ID,
 )
@@ -342,7 +342,7 @@ async def send_flood_alert(user_) -> None:
             FloodConfig.ALERT[user_.id]["count"] = 1
         except Exception as e:
             if BOTLOG:
-                await iqqhtani.tgbot.send_message(
+                await rickthon.tgbot.send_message(
                     BOTLOG_CHATID, f"**Error:**\nWhile updating flood count\n`{str(e)}`"
                 )
         flood_count = FloodConfig.ALERT[user_.id]["count"]
@@ -367,7 +367,7 @@ async def send_flood_alert(user_) -> None:
                     "Is Flooding your bot !, Check `.help delsudo` to remove the user from Sudo."
                 )
                 if BOTLOG:
-                    await iqqhtani.tgbot.send_message(BOTLOG_CHATID, sudo_spam)
+                    await rickthon.tgbot.send_message(BOTLOG_CHATID, sudo_spam)
             else:
                 await ban_user_from_bot(
                     user_,
@@ -381,7 +381,7 @@ async def send_flood_alert(user_) -> None:
         if not fa_id:
             return
         try:
-            msg_ = await iqqhtani.tgbot.get_messages(BOTLOG_CHATID, fa_id)
+            msg_ = await rickthon.tgbot.get_messages(BOTLOG_CHATID, fa_id)
             if msg_.text != flood_msg:
                 await msg_.edit(flood_msg, buttons=buttons)
         except Exception as fa_id_err:
@@ -389,30 +389,30 @@ async def send_flood_alert(user_) -> None:
             return
     else:
         if BOTLOG:
-            fa_msg = await iqqhtani.tgbot.send_message(
+            fa_msg = await rickthon.tgbot.send_message(
                 BOTLOG_CHATID,
                 flood_msg,
                 buttons=buttons,
             )
         try:
-            chat = await iqqhtani.tgbot.get_entity(BOTLOG_CHATID)
-            await iqqhtani.tgbot.send_message(
+            chat = await rickthon.tgbot.get_entity(BOTLOG_CHATID)
+            await rickthon.tgbot.send_message(
                 Config.OWNER_ID,
                 f"⚠️  **[Bot Flood Warning !](https://t.me/c/{chat.id}/{fa_msg.id})**",
             )
         except UserIsBlockedError:
             if BOTLOG:
-                await iqqhtani.tgbot.send_message(BOTLOG_CHATID, "**Unblock your bot !**")
+                await rickthon.tgbot.send_message(BOTLOG_CHATID, "**Unblock your bot !**")
     if FloodConfig.ALERT[user_.id].get("fa_id") is None and fa_msg:
         FloodConfig.ALERT[user_.id]["fa_id"] = fa_msg.id
 
 
-@iqqhtani.tgbot.on(CallbackQuery(data=re.compile(b"bot_pm_ban_([0-9]+)")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(b"bot_pm_ban_([0-9]+)")))
 @check_owner
 async def bot_pm_ban_cb(c_q: CallbackQuery):
     user_id = int(c_q.pattern_match.group(1))
     try:
-        user = await iqqhtani.get_entity(user_id)
+        user = await rickthon.get_entity(user_id)
     except Exception as e:
         await c_q.answer(f"Error:\n{str(e)}")
     else:
@@ -449,7 +449,7 @@ def is_flood(uid: int) -> Optional[bool]:
         return True
 
 
-@iqqhtani.tgbot.on(CallbackQuery(data=re.compile(b"toggle_bot-antiflood_off$")))
+@rickthon.tgbot.on(CallbackQuery(data=re.compile(b"toggle_bot-antiflood_off$")))
 @check_owner
 async def settings_toggle(c_q: CallbackQuery):
     if gvarstatus("bot_antif") is None:
@@ -459,8 +459,8 @@ async def settings_toggle(c_q: CallbackQuery):
     await c_q.edit("BOT_ANTIFLOOD is now disabled !")
 
 
-@iqqhtani.bot_cmd(incoming=True, func=lambda e: e.is_private)
-@iqqhtani.bot_cmd(edited=True, func=lambda e: e.is_private)
+@rickthon.bot_cmd(incoming=True, func=lambda e: e.is_private)
+@rickthon.bot_cmd(edited=True, func=lambda e: e.is_private)
 async def antif_on_msg(event):
     if gvarstatus("bot_antif") is None:
         return
