@@ -1,8 +1,3 @@
-""" Download Youtube Video / Audio in a User friendly interface """
-# --------------------------- #
-#   Modded ytdl by code-rgb   #
-# --------------------------- #
-
 import asyncio
 import glob
 import io
@@ -10,16 +5,13 @@ import os
 import re
 from pathlib import Path
 from time import time
-
 import ujson
 from telethon import Button, types
 from telethon.errors import BotResponseTimeoutError
 from telethon.events import CallbackQuery
 from telethon.utils import get_attributes
 from wget import download
-
-from iqqhtani import iqqhtani
-
+from iqqhtani import rickthon
 from ..Config import Config
 from ..core import check_owner, pool
 from ..core.logger import logging
@@ -40,11 +32,11 @@ BASE_YT_URL = "https://www.youtube.com/watch?v="
 YOUTUBE_REGEX = re.compile(
     r"(?:youtube\.com|youtu\.be)/(?:[\w-]+\?v=|embed/|v/|shorts/)?([\w-]{11})"
 )
-PATH = "./userbot/cache/ytsearch.json"
+PATH = "./rickthon/sql_klanr/ytsearch.json"
 plugin_category = "bot"
 
 
-@iqqhtani.iq_cmd(
+@rickthon.iq_cmd(
     pattern="iytdl(?:\s|$)([\s\S]*)",
     command=("iytdl", plugin_category),
     info={
@@ -87,7 +79,7 @@ async def iytdl_inline(event):
         await catevent.edit("`Sorry!. Can't find any results`")
 
 
-@iqqhtani.tgbot.on(
+@rickthon.tgbot.on(
     CallbackQuery(
         data=re.compile(b"^ytdl_download_(.*)_([\d]+|mkv|mp4|mp3)(?:_(a|v))?")
     )
@@ -182,7 +174,7 @@ async def ytdl_download_callback(c_q: CallbackQuery):  # sourcery no-metrics
     )
 
 
-@iqqhtani.tgbot.on(
+@rickthon.tgbot.on(
     CallbackQuery(data=re.compile(b"^ytdl_(listall|back|next|detail)_([a-z0-9]+)_(.*)"))
 )
 @check_owner
