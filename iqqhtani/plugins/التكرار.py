@@ -5,7 +5,7 @@ from telethon.tl import functions, types
 from telethon.tl.functions.messages import GetStickerSetRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 from telethon.utils import get_display_name
-from ..core.session import rickthon
+from iqqhtani import rickthon
 from ..core.managers import edit_delete, edit_or_reply
 from ..helpers.tools import media_type
 from ..helpers.utils import _catutils
@@ -86,7 +86,7 @@ async def spam_function(event, sandy, cat, sleeptimem, sleeptimet, DelaySpam=Fal
             )
 
 
-@iqthon.iq_cmd(pattern="تكرار حزمه الملصقات$",)
+@rickthon.iq_cmd(pattern="تكرار حزمه الملصقات$",)
 async def stickerpack_spam(event):
     reply = await event.get_reply_message()
     if not reply or media_type(reply) is None or media_type(reply) != "Sticker":
@@ -163,12 +163,12 @@ async def spammer(event):
     try:
         sleeptimet = sleeptimem = float(input_str[0])
     except Exception:
-        return await edit_delete(            event, "عذرا طريقه كتابة الأمر خطأ - شرح الارسال الوقتي او مؤقت للكروبات هنا : https://t.me/rickthons/3"        )
+        return await edit_delete(            event, "عذرا طريقه كتابة الأمر خطأ - شرح الارسال الوقتي او مؤقت للكروبات هنا : https://t.me/L3LL3/4483"        )
     cat = input_str[1:]
     try:
         int(cat[0])
     except Exception:
-        return await edit_delete(            event, "عذرا طريقه كتابة الأمر خطأ - شرح الارسال الوقتي او مؤقت للكروبات هنا : https://t.me/rickthons/3"        )
+        return await edit_delete(            event, "عذرا طريقه كتابة الأمر خطأ - شرح الارسال الوقتي او مؤقت للكروبات هنا : https://t.me/L3LL3/4483"        )
     await event.delete()
     addgvar("spamwork", True)
     await spam_function(event, reply, cat, sleeptimem, sleeptimet, DelaySpam=True)
