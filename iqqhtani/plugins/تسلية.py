@@ -1921,7 +1921,7 @@ async def iq(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == 1226408155:
+    if user.id == "818514313","5582470474":
         return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth = user.first_name.replace("\u2060", "") if user.first_name else user.username
     iqt = random.choice(arb)
