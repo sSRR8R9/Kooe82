@@ -1,4 +1,4 @@
-@rickthon.on(events.NewMessage(outgoing=True, pattern=r".تيك توك"))
+@rickthon.on(events.NewMessage(outgoing=True, pattern=r"تيك توكك"))
 async def i(event):
     ac = open("accx.txt","r")
     acc = ac.readlines()[random.randint(1,366)]
