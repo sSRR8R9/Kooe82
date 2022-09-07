@@ -2604,7 +2604,7 @@ async def iq(mention):
     my_mention = f"[{me.first_name}](tg://user?id={me.id})"
     await edit_or_reply(mention, f"**🚹 ¦ المستخدم ⪼ • ** [{iqth2}](tg://user?id={user.id}) \n ☑️ **¦  تـم رفـعه شـيعي🕸️ .**\n** دربالك لايبوك خصاويك** \n**🤵‍♂️ ¦ بواسطتي  : ** {my_mention} ")
 
-//
+
 @rickthon.on(admin_cmd(pattern="رفع معيدي(?:\s|$)([\s\S]*)"))
 async def iq(mention):
     user, custom = await get_user_from_event(mention)
