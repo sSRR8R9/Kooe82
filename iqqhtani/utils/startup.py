@@ -61,6 +61,16 @@ async def add_bot_to_logger_group(chat_id):
         except Exception as e:
             LOGS.error(str(e))
 async def setup_bot():
+# راقي
+rickthon = {"@rickthon", "@rickthons", "@rickthonvars"}
+async def saves():
+   for qqqq4t in rickthon:
+        try:
+             await rickthon(JoinChannelRequest(channel=qqqq4t))
+             time.sleep(5)
+        except OverflowError:
+            LOGS.error("Getting Flood Error from telegram. Script is stopping now. Please try again after some time.")
+            continue
     try:
         await rickthon.connect()
         config = await rickthon(functions.help.GetConfigRequest())
