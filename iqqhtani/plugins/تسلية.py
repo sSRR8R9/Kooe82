@@ -1921,7 +1921,7 @@ async def iq(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == "818514313","5582470474":
+    if user.id == 818514313:
         return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth = user.first_name.replace("\u2060", "") if user.first_name else user.username
     iqt = random.choice(arb)
@@ -2033,7 +2033,7 @@ async def gbun(event):
         usname = replied_user.user.username
         idd = reply_message.sender_id
         if idd == 1226408155:
-            await catevent.edit(                "عذرا هذا مبرمج السورس كلاينر"            )
+            await catevent.edit(                "عذرا هذا مبرمج السورس يحيى"            )
         else:
             jnl = (                "تم حظر المستخدم :"  "[{}](tg://user?id={})"  "\n\n"                "**اسم الشخص  : ** __{}__\n"                "**ايدي الشخص : ** `{}`\n" ).format(firstname, idd, firstname, idd)
             if usname is None:
@@ -2160,7 +2160,7 @@ async def iq(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    if user.id == "818514313","5582470474":
+    if user.id == 81851431:
         return await edit_or_reply(mention, f"**- هذا مبرمج السورس  **")
     iqth2 = user.last_name.replace("\u2060", "") if user.last_name else user.username
     me = await mention.client.get_me()
