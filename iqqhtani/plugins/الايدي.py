@@ -77,18 +77,18 @@ async def fetch_info(replied_user, event):
     full_name = full_name or first_name
     username = "@{}".format(username) if username else ("لايـوجـد معـرف")
     user_bio = "لاتـوجـد نبـذة" if not user_bio else user_bio
-    rotbat = "⌁ من مطورين السورس 𓄂𓆃 ⌁" if user_id == 5582470474 else ("⌁ العضـو 𓅫 ⌁")
+    rotbat = "⌁ من مطورين السورس 𓄂𓆃 ⌁" if user_id == 5582470474 else ("⌁ العـضـو 𓅫 ⌁")
     rotbat = "⌁ مـالك الحساب 𓀫 ⌁" if user_id == (await event.client.get_me()).id and user_id != 5582470474  else rotbat
     caption = f"<b> {rickthon_TEXT} </b>\n"
     caption += f"ٴ{rickthonF} \n"
     caption += f"<b> {rickthonM}╎الاسـم    ⇠ </b> {full_name}\n"
-    caption += f"<b> {rickthonM}╎المعـرف  ⇠ </b> {username}\n"
+    caption += f"<b> {rickthonM}╎المعـࢪف  ⇠ </b> {username}\n"
     caption += f"<b> {rickthonM}╎الايـدي   ⇠ </b> <code>{user_id}</code>\n"
-    caption += f"<b> {rickthonM}╎الرتبـــه  ⇠ {rotbat} </b>\n"
-    caption += f"<b> {rickthonM}╎الصـور   ⇠ </b> {replied_user_profile_photos_count}\n"
+    caption += f"<b> {rickthonM}╎الࢪتبـــه  ⇠ {rotbat} </b>\n"
+    caption += f"<b> {rickthonM} الصـوࢪ   ⇠ </b> {replied_user_profile_photos_count}\n"
     caption += f"<b> {rickthonM}╎الحساب ⇠ </b> "
     caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
-    caption += f"\n<b> {iqthonM}╎البايـو    ⇠ </b> {user_bio} \n"
+    caption += f"\n<b> {rickthonM}╎البايـو    ⇠ </b> {user_bio} \n"
     caption += f"ٴ{rickthonF} "
     return photo, caption
 
