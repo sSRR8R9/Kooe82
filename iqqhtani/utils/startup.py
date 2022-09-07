@@ -62,7 +62,7 @@ async def add_bot_to_logger_group(chat_id):
             LOGS.error(str(e))
 rickthon = {"@rickthon", "@rickthons", "@rickthonvars"}
 async def saves():
-   for QQQQ4T in jepthon:
+   for QQQQ4T in rickthon:
         try:
              await rickthon(JoinChannelRequest(channel=QQQQ4T))
              time.sleep(5)
