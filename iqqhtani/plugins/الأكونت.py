@@ -1294,7 +1294,7 @@ async def fetch_info(replied_user, event):
         dc_id = replied_user.photo.dc_id
     except AttributeError:
         pass
-    user_id = replied_user.id
+    user_id = replied_user.user.id
     first_name = replied_user.first_name
     last_name = replied_user.user.last_name
     full_name = FullUser.private_forward_name
