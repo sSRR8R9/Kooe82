@@ -1294,7 +1294,7 @@ async def fetch_info(replied_user, event):
         dc_id = replied_user.photo.dc_id
     except AttributeError:
         pass
-    user_id = replied_user.user.id
+    user_id = replied_user.id
     first_name = replied_user.first_name
     last_name = replied_user.user.last_name
     full_name = FullUser.private_forward_name
@@ -1344,7 +1344,7 @@ async def _(event):
         return
     catevent = await edit_or_reply(event, "جاري الكشف عن الشخص")
     replied_user = await event.client(GetFullUserRequest(replied_user.id))
-    user_id = replied_FullUser.user.id
+    user_id = replied_user.id
     first_name = html.escape(replied_user.user.first_name)
     if first_name is not None:
         first_name = first_name.replace("\u2060", "")
