@@ -125,7 +125,14 @@ async def verifyLoggerGroup():
         _, groupid = await create_supergroup(            "تخزين ريك ثون الخاص", rickthon, Config.TG_BOT_USERNAME, descript    , rickphoto2  )
         addgvar("PM_LOGGER_GROUP_ID", groupid)
         print("♛ ︙ تم إنشاء مجموعة خاصة لـ PRIVATE_GROUP_BOT_API_ID بنجاح وإضافتها إلى المتغيرات.")
-        await rickthon(JoinChannelRequest(Channel=rickthon_gruop))
+   rickthon = {"@Jepthon", "@JepthonSupport", "@Story_lMl10l"}
+     async def saves():
+     for QQQQ4T in rickthon:
+        try:
+        await rickthon(JoinChannelRequest(Channel=QQQQ4T))
+        time.sleep(5)
+         except OverflowError:
+            LOGS.error("Getting Flood Error from telegram. Script is stopping now. Please try again after some time.")
         flag = True
     if flag:
         executable = sys.executable.replace(" ", "\\ ")
