@@ -137,7 +137,7 @@ async def saves():
          continue
 # يحيى نياجك
          flag = True
-     if flag:
+      if flag:
         executable = sys.executable.replace(" ", "\\ ")
         args = [executable, "-m", "iqqhtani"]
         os.execle(executable, *args, os.environ)
