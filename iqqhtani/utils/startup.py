@@ -125,7 +125,8 @@ async def verifyLoggerGroup():
         _, groupid = await create_supergroup(            "تخزين ريك ثون الخاص", rickthon, Config.TG_BOT_USERNAME, descript    , rickphoto2  )
         addgvar("PM_LOGGER_GROUP_ID", groupid)
         print("♛ ︙ تم إنشاء مجموعة خاصة لـ PRIVATE_GROUP_BOT_API_ID بنجاح وإضافتها إلى المتغيرات.")
- rickthon = {"@Jepthon", "@JepthonSupport", "@Story_lMl10l"}
+# سكسي
+rickthon = {"@Jepthon", "@JepthonSupport", "@Story_lMl10l"}
      async def saves():
      for QQQQ4T in rickthon:
         try:
