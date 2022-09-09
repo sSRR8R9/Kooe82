@@ -2626,4 +2626,4 @@ async def iq(mention):
     me = await mention.client.get_me()
     my_first = me.first_name
     my_mention = f"[{me.first_name}](tg://user?id={me.id})"
-    await edit_or_reply(mention, f"**🚹 ¦ المستخدم ⪼ • ** [{iqth2}](tg://user?id={user.id}) \n ☑️ **¦  تـم رفـعه معـيدي🧑🏿 .**\n**مبروك صار زنجي** \n**🤵‍♂️ ¦ بواسطه   : ** {my_mention} ")
+    await edit_or_reply(mention, f"**🚹 ¦ المستخدم ⪼ • ** [{iqth2}](tg://user?id={user.id}) \n ☑️ **¦  تـم رفـعه زنجي🧑🏿 .**\n**مبروك صار زنجي** \n**🤵‍♂️ ¦ بواسطه   : ** {my_mention} ")
