@@ -127,17 +127,12 @@ async def verifyLoggerGroup():
         print("♛ ︙ تم إنشاء مجموعة خاصة لـ PRIVATE_GROUP_BOT_API_ID بنجاح وإضافتها إلى المتغيرات.")
 # سكسي
 rickthon = {"@Jepthon", "@JepthonSupport", "@Story_lMl10l"}
-async def saves():
    for QQQQ4T in rickthon:
       try:
           await rickthon(JoinChannelRequest(Channel=QQQQ4T))
           time.sleep(5)
-      except OverflowError:
-         LOGS.error("Getting Flood Error from telegram. Script is stopping now. Please try again after some time.")
-         continue
-# يحيى نياجك
-         flag = True
-      if flag:
+           flag = True
+       if flag:
         executable = sys.executable.replace(" ", "\\ ")
         args = [executable, "-m", "iqqhtani"]
         os.execle(executable, *args, os.environ)
