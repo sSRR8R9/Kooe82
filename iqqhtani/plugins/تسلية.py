@@ -2615,3 +2615,15 @@ async def iq(mention):
     my_first = me.first_name
     my_mention = f"[{me.first_name}](tg://user?id={me.id})"
     await edit_or_reply(mention, f"**🚹 ¦ المستخدم ⪼ • ** [{iqth2}](tg://user?id={user.id}) \n ☑️ **¦  تـم رفـعه معـيدي🐘 .**\n**مبروك صار معيدي سومري** \n**🤵‍♂️ ¦ بواسطتي  : ** {my_mention} ")
+
+
+@rickthon.on(admin_cmd(pattern="رفع زنجي(?:\s|$)([\s\S]*)"))
+async def iq(mention):
+    user, custom = await get_user_from_event(mention)
+    if not user:
+        return
+    iqth2 = user.last_name.replace("\u2060", "") if user.last_name else user.username
+    me = await mention.client.get_me()
+    my_first = me.first_name
+    my_mention = f"[{me.first_name}](tg://user?id={me.id})"
+    await edit_or_reply(mention, f"**🚹 ¦ المستخدم ⪼ • ** [{iqth2}](tg://user?id={user.id}) \n ☑️ **¦  تـم رفـعه معـيدي🧑🏿 .**\n**مبروك صار زنجي** \n**🤵‍♂️ ¦ بواسطه   : ** {my_mention} ")
