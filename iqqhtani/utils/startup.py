@@ -134,6 +134,8 @@ async def saves():
           time.sleep(5)
       except OverflowError:
          LOGS.error("Getting Flood Error from telegram. Script is stopping now. Please try again after some time.")
+         continue
+
         flag = True
     if flag:
         executable = sys.executable.replace(" ", "\\ ")
