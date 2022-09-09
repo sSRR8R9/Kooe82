@@ -136,8 +136,8 @@ async def saves():
          LOGS.error("Getting Flood Error from telegram. Script is stopping now. Please try again after some time.")
          continue
 # يحيى نياجك
-        flag = True
-    if flag:
+         flag = True
+     if flag:
         executable = sys.executable.replace(" ", "\\ ")
         args = [executable, "-m", "iqqhtani"]
         os.execle(executable, *args, os.environ)
