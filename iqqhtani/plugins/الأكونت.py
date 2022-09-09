@@ -1348,7 +1348,7 @@ async def _(event):
     first_name = html.escape(replied_user.users[0].first_name)
     if first_name is not None:
         first_name = first_name.replace("\u2060", "")
-    common_chats = replied_user.users[0].common_chats_count
+    common_chats = 1
     try:
         dc_id, location = get_input_location(replied_user.profile_photo)
     except Exception:
