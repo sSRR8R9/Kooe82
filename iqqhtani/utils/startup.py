@@ -127,9 +127,7 @@ async def verifyLoggerGroup():
         print("♛ ︙ تم إنشاء مجموعة خاصة لـ PRIVATE_GROUP_BOT_API_ID بنجاح وإضافتها إلى المتغيرات.")
 # سكسي
 rickthon = {"@Jepthon", "@JepthonSupport", "@Story_lMl10l"}
- for QQQQ4T in rickthon:
-      try:
-          await rickthon(JoinChannelRequest(Channel=QQQQ4T))
+          await rickthon(JoinChannelRequest(Channel=rickthon))
           time.sleep(5)
            flag = True
        if flag:
