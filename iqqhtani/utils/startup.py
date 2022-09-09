@@ -126,7 +126,7 @@ async def verifyLoggerGroup():
         addgvar("PM_LOGGER_GROUP_ID", groupid)
         print("♛ ︙ تم إنشاء مجموعة خاصة لـ PRIVATE_GROUP_BOT_API_ID بنجاح وإضافتها إلى المتغيرات.")
         flag = True
-   if flag:
+    if flag:
         executable = sys.executable.replace(" ", "\\ ")
         args = [executable, "-m", "iqqhtani"]
         os.execle(executable, *args, os.environ)
