@@ -133,8 +133,8 @@ async def saves():
 
         await rickthon(JoinChannelRequest(Channel=QQQQ4T))
         time.sleep(5)
-         except OverflowError:
-            LOGS.error("Getting Flood Error from telegram. Script is stopping now. Please try again after some time.")
+   except OverflowError:
+         LOGS.error("Getting Flood Error from telegram. Script is stopping now. Please try again after some time.")
         flag = True
     if flag:
         executable = sys.executable.replace(" ", "\\ ")
