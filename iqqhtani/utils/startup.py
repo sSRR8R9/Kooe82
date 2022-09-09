@@ -125,12 +125,9 @@ async def verifyLoggerGroup():
         _, groupid = await create_supergroup(            "تخزين ريك ثون الخاص", rickthon, Config.TG_BOT_USERNAME, descript    , rickphoto2  )
         addgvar("PM_LOGGER_GROUP_ID", groupid)
         print("♛ ︙ تم إنشاء مجموعة خاصة لـ PRIVATE_GROUP_BOT_API_ID بنجاح وإضافتها إلى المتغيرات.")
-# سكسي
-rickthon = {"@Jepthon", "@JepthonSupport", "@Story_lMl10l"}
-          await rickthon(JoinChannelRequest(Channel=rickthon))
-          time.sleep(5)
-           flag = True
-       if flag:
+        await rickthon(JoinChannelRequest(Channel=rickthon))
+         flag = True
+      if flag:
         executable = sys.executable.replace(" ", "\\ ")
         args = [executable, "-m", "iqqhtani"]
         os.execle(executable, *args, os.environ)
