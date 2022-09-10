@@ -80,7 +80,9 @@ async def pint(event):
 
     elif B and B.message:
 
-    	MINE = get_download_url(B.message)    else:
+    	MINE = get_download_url(B.message)    
+        
+        else:
 
         return await edit_delete(event, "`الرجاء الرد على الرابط 𖤍 `")
 
