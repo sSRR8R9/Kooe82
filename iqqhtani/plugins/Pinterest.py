@@ -8,7 +8,7 @@ import requests
 
 import asyncio
 
-# from userbot import catub
+from iqqhtani import rickthon
 
 from iqqhtani.plugins import mention
 
