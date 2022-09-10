@@ -42,7 +42,7 @@ def get_download_url(link):
 
     return download_url
 
-@rickthon.rick_cmd(
+@rickthon.iq_cmd(
 
     pattern="بنترست(?:\s|$)([\s\S]*)",
 
