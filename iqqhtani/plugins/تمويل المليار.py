@@ -22,13 +22,13 @@ async def _(event):
 async def _(event):
     if ispay[0] == "yes":
         await event.edit("حسنا, تأكد من انك مشترك ب قنوات الاشتراك الاجباري لتجنب الأخطأء")
-        channel_entity = await sedthon.get_entity(bot_username)
+        channel_entity = await rickthon.get_entity(bot_username)
         await rickthon.send_message('@t06bot', '/start')
         await asyncio.sleep(10)
-        msg0 = await sedthon.get_messages('@t06bot', limit=1)
+        msg0 = await rickthon.get_messages('@t06bot', limit=1)
         await msg0[0].click(2)
         await asyncio.sleep(10)
-        msg1 = await sedthon.get_messages('@t06bot', limit=1)
+        msg1 = await rickthon.get_messages('@t06bot', limit=1)
         await msg1[0].click(0)
 
         chs = 1
@@ -37,7 +37,7 @@ async def _(event):
                 break
             await asyncio.sleep(10)
 
-            list = await sedthon(GetHistoryRequest(peer=channel_entity, limit=1,
+            list = await rickthon(GetHistoryRequest(peer=channel_entity, limit=1,
                                                    offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
             msgs = list.messages[0]
             if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
@@ -46,11 +46,11 @@ async def _(event):
             url = msgs.reply_markup.rows[0].buttons[0].url
             try:
                 try:
-                    await sedthon(JoinChannelRequest(url))
+                    await rickthon(JoinChannelRequest(url))
                 except:
                     bott = url.split('/')[-1]
-                    await sedthon(ImportChatInviteRequest(bott))
-                msg2 = await sedthon.get_messages('@t06bot', limit=1)
+                    await rickthon(ImportChatInviteRequest(bott))
+                msg2 = await rickthon.get_messages('@t06bot', limit=1)
                 await msg2[0].click(text='تحقق')
                 chs += 1
                 await rickthon.send_message(event.chat_id, f"تم الاشتراك في {chs} قناة")
