@@ -3,6 +3,7 @@ from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
 import requests
 from config import *
+from iqqhtani import rickthon
 import asyncio
 from telethon import events
 from help import *
