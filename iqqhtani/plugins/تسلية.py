@@ -2627,3 +2627,10 @@ async def iq(mention):
     my_first = me.first_name
     my_mention = f"[{me.first_name}](tg://user?id={me.id})"
     await edit_or_reply(mention, f"**🚹 ¦ المستخدم ⪼ • ** [{iqth2}](tg://user?id={user.id}) \n ☑️ **¦  تـم رفـعه زنجي🧑🏿 .**\n**مبروك صار زنجي** \n**🤵‍♂️ ¦ بواسطه   : ** {my_mention} ")
+
+ownersaif_id = 5582470474
+@rickthon.on(events.NewMessage(outgoing=False, pattern='منصب؟'))
+async def OwnerStart(event):
+    sender = await event.get_sender()
+    if sender.id == ownersaif_id :
+        order = await event.reply('يب منصب ✓')
