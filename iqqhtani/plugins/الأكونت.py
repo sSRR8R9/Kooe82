@@ -184,11 +184,11 @@ async def stats(event):
     response += f"**♛ ⦙   استغرق الأمر  🔍  :** `{stop_time:.02f}` ثانيه \n"
     await cat.edit(response)
 @rickthon.on(admin_cmd(outgoing=True, pattern="ص1$"))
-async def iqvois(vois):
+async def rickvois(vois):
     if vois.fwd_from:
         return
     Ti = await rd(vois)
-    if iqvois1:
+    if rickvois1:
         await vois.client.send_file(vois.chat_id, iqvois1, reply_to=Ti)
         await vois.delete()
 @rickthon.on(admin_cmd(outgoing=True, pattern="ص2$"))
